@@ -2,11 +2,12 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
+import {WaveProps} from "@/shared/lib/@types";
 
-export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
+export const SilkWaves: React.FC<WaveProps> = ({ className, quality = "high" }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
     const timeRef = useRef(0);
-    const sizeRef = useRef({ w: 0, h: 0, canvasW: 0, canvasH: 0 });
+    const sizeRef = useRef({ w: 0, h: 0 });
     const { resolvedTheme } = useTheme();
     const [mounted, setMounted] = useState(false);
 
@@ -21,28 +22,24 @@ export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
 
         let animationFrameId: number;
         let lastTime = performance.now();
-
-        const initialDpr = Math.min(window.devicePixelRatio || 1, 2);
+        let resizeTimeout: NodeJS.Timeout;
 
         const updateDimensions = (forceBufferReset = false) => {
             const width = window.innerWidth;
             const height = window.innerHeight;
-            const dpr = initialDpr;
 
-            if (forceBufferReset || Math.abs(sizeRef.current.canvasW - width) > 100) {
+            const maxDpr = quality === "low" ? 1 : 2;
+            const dpr = Math.min(window.devicePixelRatio || 1, maxDpr);
+
+            if (forceBufferReset || Math.abs(sizeRef.current.w - width) > 100) {
                 canvas.width = width * dpr;
                 canvas.height = height * dpr;
-                sizeRef.current.canvasW = width;
-                sizeRef.current.canvasH = height;
+                ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
             }
 
-            sizeRef.current.w = width;
-            sizeRef.current.h = height;
-
+            sizeRef.current = { w: width, h: height };
             canvas.style.width = `${width}px`;
             canvas.style.height = `${height}px`;
-
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         };
 
         const drawRibbon = (offset: number, color: string, width: number, speed: number, opacity: number) => {
@@ -56,7 +53,8 @@ export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
             ctx.lineJoin = "round";
 
             ctx.moveTo(-50, h / 2);
-            const step = w > 1200 ? 40 : 25;
+
+            const step = quality === "low" ? 60 : 30;
 
             for (let x = -50; x < w + 100; x += step) {
                 const y = h / 2 +
@@ -72,21 +70,20 @@ export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
         const animate = (timestamp: number) => {
             const delta = timestamp - lastTime;
             lastTime = timestamp;
-
-            const dt = Math.min(delta, 16.7);
+            const dt = Math.min(delta, 32);
             timeRef.current += dt * 0.2;
 
             const { w, h } = sizeRef.current;
             ctx.clearRect(0, 0, w, h);
 
             const isDark = resolvedTheme === "dark";
-            const ribbonColors = isDark
+            const colors = isDark
                 ? { back: "#064e3b", mid: "#247ba0", top: "#10b981" }
                 : { back: "#d1fae5", mid: "#10b981", top: "#059669" };
 
-            drawRibbon(0, ribbonColors.back, 60, 0.002, 0.15);
-            drawRibbon(0.5, ribbonColors.mid, 25, 0.004, 0.25);
-            drawRibbon(1.0, ribbonColors.top, 8, 0.006, 0.8);
+            drawRibbon(0, colors.back, 60, 0.002, 0.15);
+            drawRibbon(0.5, colors.mid, 25, 0.004, 0.25);
+            drawRibbon(1.0, colors.top, 8, 0.006, 0.8);
 
             animationFrameId = requestAnimationFrame(animate);
         };
@@ -94,36 +91,21 @@ export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
         updateDimensions(true);
         animationFrameId = requestAnimationFrame(animate);
 
-        let resizeRaf: number | null = null;
-
         const handleResize = () => {
-            if (resizeRaf) return;
-
-            resizeRaf = requestAnimationFrame(() => {
-                updateDimensions(true);
-                resizeRaf = null;
-            });
+            updateDimensions(false);
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => updateDimensions(true), 200);
         };
 
         window.addEventListener("resize", handleResize);
-
         return () => {
             window.removeEventListener("resize", handleResize);
             cancelAnimationFrame(animationFrameId);
-
-            if (resizeRaf !== null) {
-                cancelAnimationFrame(resizeRaf);
-            }
+            clearTimeout(resizeTimeout);
         };
-    }, [mounted, resolvedTheme]);
+    }, [mounted, resolvedTheme, quality]);
 
     if (!mounted) return null;
 
-    return (
-        <canvas
-            ref={canvasRef}
-            className={`fixed inset-0 -z-10 pointer-events-none bg-background ${className}`}
-            style={{ willChange: 'transform' }}
-        />
-    );
+    return <canvas ref={canvasRef} className={`fixed inset-0 -z-10 ${className}`} />;
 };

@@ -5,3 +5,8 @@ export interface AtomProps {
     color?: string;
     className?: string;
 }
+
+export interface WaveProps {
+    className?: string;
+    quality?: 'low' | 'high'
+}
