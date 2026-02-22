@@ -121,7 +121,7 @@ export default function Chem() {
 
     return (
         <div className='bg-background dark:bg-(--base-dark) text-foreground py-16 md:py-32 px-6 overflow-hidden'>
-            <div className='text-center space-y-4 max-w-4xl mx-auto mb-12'>
+            <div className='text-center space-y-4 max-w-4xl mx-auto mb-12 relative z-10'>
                 <h1 className='text-3xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white'>
                     From the <span className='text-emerald-500'>Element</span>, the{' '}
                     <span className='bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent'>
@@ -135,14 +135,21 @@ export default function Chem() {
             </div>
 
             <div className={`relative ${isMobile ? 'h-80' : 'min-h-screen'} w-full flex items-center justify-center`}>
-                <div
-                    className={`absolute inset-0 z-0 flex items-center justify-center ${!isMobile ? 'cursor-pointer' : ''}`}
-                    onClick={() => !isMobile && setOpen(!open)}
-                >
-                    <div className="w-full h-full max-w-2xl">
+
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-1000 opacity-100" // REMOVED the ${open ? ...} check
+                    style={{
+                        maskImage: 'radial-gradient(circle, black 40%, transparent 80%)',
+                        WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 80%)'
+                    }}>
+                    <div className="w-full h-full min-w-[140vw] md:min-w-full flex items-center justify-center">
                         <Garnet/>
                     </div>
                 </div>
+
+                <div
+                    className={`absolute inset-0 z-10 flex items-center justify-center ${!isMobile ? 'cursor-pointer' : ''}`}
+                    onClick={() => !isMobile && setOpen(!open)}
+                />
 
                 {!isMobile && (
                     <AnimatePresence>
@@ -177,12 +184,6 @@ export default function Chem() {
                             </motion.div>
                         ))}
                     </AnimatePresence>
-                )}
-
-                {!isMobile && !open && (
-                    <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="absolute bottom-10 text-xs font-mono uppercase tracking-widest text-slate-400 animate-pulse pointer-events-none">
-                        Click core to expand structure
-                    </motion.div>
                 )}
             </div>
 

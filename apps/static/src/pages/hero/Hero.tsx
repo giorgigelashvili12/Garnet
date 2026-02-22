@@ -19,12 +19,9 @@ export default function Hero() {
     return (
         <div className='relative min-h-screen w-full flex items-center justify-center overflow-x-hidden bg-(--background)'>
             <div className='absolute inset-0 w-full h-full z-0 pointer-events-none'>
-                {/* Strict check: Only mount SilkWaves if NOT mobile.
-                   This completely removes the Canvas from the DOM on phones.
-                */}
+
                 {!isMobile && <SilkWaves />}
 
-                {/* Fallback gradient for mobile to keep the "vibe" without the lag */}
                 <div className='absolute inset-0 bg-linear-to-b from-transparent via-transparent to-(--background)'/>
                 {isMobile && (
                     <div className="absolute inset-0 bg-radial-at-t from-emerald-500/10 via-transparent to-transparent" />
