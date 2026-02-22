@@ -103,7 +103,7 @@ export const SilkWaves: React.FC<{ className?: string }> = ({ className }) => {
         };
     }, [mounted, resolvedTheme]);
 
-    if (!mounted) return <div className="fixed inset-0 bg-background -z-10" />;
+    if (!mounted) return <div className="fixed inset-0 bg-(--background) -z-10" />;
 
     return (
         <canvas

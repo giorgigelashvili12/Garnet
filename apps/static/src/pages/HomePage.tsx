@@ -12,7 +12,7 @@ import Intro from "@/pages/intro/Intro";
 
 export default function HomePage() {
     return (
-        <div className="">
+        <div className="bg-(--background)">
             <Hero/>
 
             <div className='relative w-full overflow-x-clip bg-(--background)'>
