@@ -24,6 +24,12 @@ export interface DotWaveProps {
     dotSize?: number;
 }
 
+interface StepDetail {
+    id: string;
+    title: string;
+    content: () => React.ReactNode;
+}
+
 export interface Step {
     id: string;
     title: string;
