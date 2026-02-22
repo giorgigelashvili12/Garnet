@@ -9,6 +9,7 @@ import {useEffect, useState} from "react";
 import Hero from "@/pages/hero/Hero";
 import Chem from "@/pages/chem/Chem";
 import Intro from "@/pages/intro/Intro";
+import Payments from "@/pages/payments/Payments";
 
 export default function HomePage() {
     return (
@@ -19,6 +20,7 @@ export default function HomePage() {
                 <div className='pt-50'><Intro/></div>
 
                 <Chem />
+                <Payments />
             </div>
         </div>
     )

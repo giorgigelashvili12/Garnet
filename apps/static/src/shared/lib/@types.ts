@@ -18,3 +18,15 @@ export interface SubmoduleProps {
     sublabel: string;
     isMobile: boolean;
 }
+export interface DotWaveProps {
+    color?: string;
+    opacity?: number;
+    dotSize?: number;
+}
+
+export interface Step {
+    id: string;
+    title: string;
+    desc: string;
+    children: StepDetail;
+}
