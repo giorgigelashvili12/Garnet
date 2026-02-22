@@ -1,0 +1,174 @@
+
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --color-primary: var(--bg);
+  --color-primary-foreground: var(--text);
+
+  --background: #ffffff;
+  --color-foreground: #020617;
+
+  --baltic-blue: #22577a;
+  --tropical-teal: #38a3a5;
+  --emerald-default: #57cc99;
+  --light-green: #80ed99;
+  --tea-green: #c7f9cc;
+  --charcoal-blue: #2e4057;
+  --seagrass: #66a182;
+  --pure-red: #f40000;
+  --cinnabar: #f44e3f;
+  --salmon: #f4796b;
+  --sweet-salmon: #f4998d;
+  --deep-space-blue: #13293d;
+  --carulean: #247ba0;
+  --blue-bell: #1b98e0;
+  --alice-blue: #e8f1f2;
+  --coffee-bean: #220901;
+  --dark-garnet: #621708;
+  --oxblood: #941b0c;
+  --rusty-spice: #bc3908;
+  --pure-orange: #f6aa1c;
+  --turf-green: #007f5f;
+  --sea-green: #2b9348;
+  --bright-fern: #55a630;
+  --lime-moss: #80b918;
+  --lemon-lime: #bfd200;
+  --vibrant-lemon-lime: #dddf00;
+  --pure-yellow: #ffff3f;
+  --harvest-orange: #ff7b00;
+  --dark-orange: #ff8800;
+  --deep-saffron: #ff9500;
+  --amber-glow: #ffa200;
+  --amber-flame: #ffb700;
+  --school-yellow-bus: #ffc300;
+  --gold: #ffd000;
+  --bright-gold: #ffdd00;
+  --sunbeam-yellow: #ffea00;
+
+  --background: #ffffff;
+  --foreground: #020617;
+  --bg: #0da47a;
+  --text: #ffffff;
+  --base-dark: #030a08;
+}
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+:root {
+  --background: #ffffff;
+  --dark-bg: #0a1412;
+  --base-dark: #030a08;
+  --bg: #0da47a;
+  --text: #ffffff;
+  --black-bg: #ffffff;
+
+  --shade-primary: #10b981;
+  --shade-secondary: #a7f3d0;
+  --shade-accent: #064e3b;
+  --shade-addition: #64748b;
+
+  --baltic-blue: #22577a;
+  --tropical-teal: #38a3a5;
+  --emerald-default: #57cc99;
+  --light-green: #80ed99;
+  --tea-green: #c7f9cc;
+  --charcoal-blue: #2e4057;
+  --seagrass: #66a182;
+  --pure-red: #f40000;
+  --cinnabar: #f44e3f;
+  --salmon: #f4796b;
+  --sweet-salmon: #f4998d;
+  --deep-space-blue: #13293d;
+  --carulean: #247ba0;
+  --blue-bell: #1b98e0;
+  --alice-blue: #e8f1f2;
+  --coffee-bean: #220901;
+  --dark-garnet: #621708;
+  --oxblood: #941b0c;
+  --rusty-spice: #bc3908;
+  --pure-orange: #f6aa1c;
+  --turf-green: #007f5f;
+  --sea-green: #2b9348;
+  --bright-fern: #55a630;
+  --lime-moss: #80b918;
+  --lemon-lime: #bfd200;
+  --vibrant-lemon-lime: #dddf00;
+  --pure-yellow: #ffff3f;
+  --harvest-orange: #ff7b00;
+  --dark-orange: #ff8800;
+  --deep-saffron: #ff9500;
+  --amber-glow: #ffa200;
+  --amber-flame: #ffb700;
+  --school-yellow-bus: #ffc300;
+  --gold: #ffd000;
+  --bright-gold: #ffdd00;
+  --sunbeam-yellow: #ffea00;
+  --crayola-blue: #3772ff;
+  --regal-navy: #1b3b6f;
+  --persian-blue: #1b2cc1;
+  --icy-blue: #abd2fa;
+  --sky-aqua: #0acdff;
+}
+
+.dark {
+  --background: #030a08;
+  --foreground: #e8f1f2;
+  --bg: #0da47a;
+  --text: #ffffff;
+  --base-dark: #030a08;
+}
+
+body {
+  background-color: #030a08;
+  color: var(--foreground);
+  min-height: 100vh;
+}
+
+.colors {
+  --baltic-blue: #22577a;
+  --tropical-teal: #38a3a5;
+  --emerald-default: #57cc99;
+  --light-green: #80ed99;
+  --tea-green: #c7f9cc;
+  --charcoal-blue: #2e4057;
+  --seagrass: #66a182;
+  --pure-red: #f40000;
+  --cinnabar: #f44e3f;
+  --salmon: #f4796b;
+  --sweet-salmon: #f4998d;
+  --deep-space-blue: #13293d;
+  --carulean: #247ba0;
+  --blue-bell: #1b98e0;
+  --alice-blue: #e8f1f2;
+  --coffee-bean: #220901;
+  --dark-garnet: #621708;
+  --oxblood: #941b0c;
+  --rusty-spice: #bc3908;
+  --pure-orange: #f6aa1c;
+  --turf-green: #007f5f;
+  --sea-green: #2b9348;
+  --bright-fern: #55a630;
+  --lime-moss: #80b918;
+  --lemon-lime: #bfd200;
+  --vibrant-lemon-lime: #dddf00;
+  --pure-yellow: #ffff3f;
+  --harvest-orange: #ff7b00;
+  --dark-orange: #ff8800;
+  --deep-saffron: #ff9500;
+  --amber-glow: #ffa200;
+  --amber-flame: #ffb700;
+  --school-yellow-bus: #ffc300;
+  --gold: #ffd000;
+  --bright-gold: #ffdd00;
+  --sunbeam-yellow: #ffea00;
+  --crayola-blue: #3772ff;
+  --regal-navy: #1b3b6f;
+  --persian-blue: #1b2cc1;
+  --icy-blue: #abd2fa;
+  --sky-aqua: #34d399;
+}

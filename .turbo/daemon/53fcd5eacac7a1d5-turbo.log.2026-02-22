@@ -1,1 +1,9 @@
 2026-02-22T07:38:34.810238Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T07:43:56.561560Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T08:01:34.526298Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T08:15:08.590525Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T13:39:24.761789Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T13:57:06.324852Z  WARN get_package_file_hashes{include_default_files=true telemetry=None}: turborepo_scm::package_deps: git hashing failed for AnchoredSystemPath("apps\\static") with resource error: Git error on D:\dev\Garnet\apps\static\src\shared\ui\atom.tsx~: could not find 'D:\dev\Garnet\apps\static\src\shared\ui\atom.tsx~' to open: The system cannot find the file specified.
+; class=Os (2); code=NotFound (-3)
+2026-02-22T14:10:28.934079Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-22T14:19:32.774180Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
