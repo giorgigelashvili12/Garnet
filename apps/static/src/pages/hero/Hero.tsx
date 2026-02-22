@@ -17,13 +17,18 @@ export default function Hero() {
     }, []);
 
     return (
-        <div className='relative min-h-screen w-full flex items-center justify-center overflow-x-hidden'>
+        <div className='relative min-h-screen w-full flex items-center justify-center overflow-x-hidden bg-(--background)'>
             <div className='absolute inset-0 w-full h-full z-0 pointer-events-none'>
-                {/* Pass quality="low" on mobile.
-                   This forces DPR 1 and doubles the step size.
+                {/* Strict check: Only mount SilkWaves if NOT mobile.
+                   This completely removes the Canvas from the DOM on phones.
                 */}
-                <SilkWaves quality={isMobile ? "low" : "high"} />
+                {!isMobile && <SilkWaves />}
+
+                {/* Fallback gradient for mobile to keep the "vibe" without the lag */}
                 <div className='absolute inset-0 bg-linear-to-b from-transparent via-transparent to-(--background)'/>
+                {isMobile && (
+                    <div className="absolute inset-0 bg-radial-at-t from-emerald-500/10 via-transparent to-transparent" />
+                )}
             </div>
 
             <div className='relative z-10 w-full max-w-5xl mx-auto px-4 xs:px-6 md:px-12 lg:px-20'>
