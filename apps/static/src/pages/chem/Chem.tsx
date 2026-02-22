@@ -1,19 +1,33 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState, useEffect } from "react";
-import Garnet from "@/widgets/garnet/Garnet";
+import dynamic from "next/dynamic";
 
 import { Atom } from "@/shared/ui/atom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/shared/ui/hover-card";
+import { Settings2, Eye, EyeOff } from "lucide-react";
+
+import Garnet from "@/widgets/garnet/Garnet";
+import {useTheme} from "next-themes";
 
 export default function Chem() {
     const [open, setOpen] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
+    const [showModel, setShowModel] = useState(true);
+    const {resolvedTheme} = useTheme();
+
+    const crystalPreview = resolvedTheme === 'dark' ? '/preview-2.png' : '/preview-1.png';
 
     useEffect(() => {
-        const checkMobile = () => setIsMobile(window.innerWidth < 768);
+        const checkMobile = () => {
+            const mobile = window.innerWidth < 768;
+            setIsMobile(mobile);
+            if (mobile) setShowModel(false);
+        };
+
         checkMobile();
         window.addEventListener("resize", checkMobile);
         return () => window.removeEventListener("resize", checkMobile);
@@ -104,7 +118,7 @@ export default function Chem() {
             electrons: 13,
             fields: 3,
             color: "#78716c",
-            position: { top: "5%", left: "50%", transform: "translateX(-50%)" },
+            position: { top: "5%", left: "48%", transform: "translateX(-50%)" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
                     <span className="font-semibold text-xl text-slate-900 dark:text-white">Hardware</span>
@@ -120,7 +134,17 @@ export default function Chem() {
     ];
 
     return (
-        <div className='bg-background dark:bg-(--base-dark) text-foreground py-16 md:py-32 px-6 overflow-hidden'>
+        <div className='bg-background dark:bg-(--base-dark) text-foreground py-16 md:py-32 px-6 overflow-hidden relative'>
+
+            {!isMobile && (
+                <div className="absolute top-95 right-40 z-50">
+                    <button onClick={() => setShowModel(!showModel)} className="flex items-center gap-2 px-3 py-1.5 rounded-full text-black dark:text-white bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[15px] font-mono tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                        {showModel ? <Eye size={14} /> : <EyeOff size={14} />}
+                        {showModel ? "High Quality" : "Performance Mode"}
+                    </button>
+                </div>
+            )}
+
             <div className='text-center space-y-4 max-w-4xl mx-auto mb-12 relative z-10'>
                 <h1 className='text-3xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white'>
                     From the <span className='text-emerald-500'>Element</span>, the{' '}
@@ -136,15 +160,17 @@ export default function Chem() {
 
             <div className={`relative ${isMobile ? 'h-80' : 'min-h-screen'} w-full flex items-center justify-center`}>
 
-                <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-1000 opacity-100" // REMOVED the ${open ? ...} check
-                    style={{
-                        maskImage: 'radial-gradient(circle, black 40%, transparent 80%)',
-                        WebkitMaskImage: 'radial-gradient(circle, black 40%, transparent 80%)'
-                    }}>
-                    <div className="w-full h-full min-w-[140vw] md:min-w-full flex items-center justify-center">
-                        <Garnet/>
+                {showModel && !isMobile && (
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none transition-opacity duration-1000">
+                        <div className="w-full h-full min-w-[140vw] md:min-w-full flex items-center justify-center">
+                            <Garnet/>
+                        </div>
                     </div>
-                </div>
+                )}
+
+                {(!showModel || isMobile) && (
+                    <Image src={crystalPreview} alt='preview' width={500} height={500}></Image>
+                )}
 
                 <div
                     className={`absolute inset-0 z-10 flex items-center justify-center ${!isMobile ? 'cursor-pointer' : ''}`}
