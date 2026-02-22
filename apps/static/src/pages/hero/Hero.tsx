@@ -20,7 +20,7 @@ export default function Hero() {
         <div className='relative min-h-screen w-full flex items-center justify-center overflow-x-hidden bg-(--background)'>
             <div className='absolute inset-0 w-full h-full z-0 pointer-events-none'>
 
-                {!isMobile && <SilkWaves />}
+                <SilkWaves />
 
                 <div className='absolute inset-0 bg-linear-to-b from-transparent via-transparent to-(--background)'/>
                 {isMobile && (
