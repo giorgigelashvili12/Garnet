@@ -1,10 +1,13 @@
 {
   "name": "garnet",
   "private": true,
+  "packageManager": "npm@11.0.0",
   "workspaces": [
     "apps/*"
   ],
   "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
     "dev:static": "npm run dev -w static",
     "dev:dynamic": "npm run dev -w dynamic",
     "install:all": "npm install --legacy-peer-deps"
