@@ -8,6 +8,9 @@ import dynamic from "next/dynamic";
 
 const POS = dynamic(() => import('@/shared/widgets/POS'), { ssr: false });
 const Terminal = dynamic(() => import('@/shared/widgets/Terminal'), { ssr: false });
+const FraudChart = dynamic(() => import('@/shared/widgets/charts/FraudChart'), {ssr: false});
+const AuthChart = dynamic(() => import('@/shared/widgets/charts/AuthChart'), {ssr: false});
+const AccountList = dynamic(() => import('@/shared/widgets/charts/AccountList'), {ssr: false});
 
 export default function PaymentPopup({ onClose }: { onClose: () => void }) {
     const [isReady, setReady] = useState(false);
@@ -79,8 +82,10 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                 Optimize the speed of payments globally with intelligent tools, fraud prevention and intelligence.
                                             </p>
                                         </div>
-                                        <div className="bg-slate-50 dark:bg-zinc-900/50 p-6 md:p-10 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-[100px]">
-                                            <div className="relative z-10 w-full text-slate-400 italic">Feature Preview</div>
+                                        <div className="bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-5 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-25">
+                                            <div className='scale-100 py-4.5'>
+                                                <AccountList/>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -89,8 +94,30 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 md:mt-10">
                                         <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">Explore more about Payments</span>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                                            <FeatureItem title="Authorization" link="/authorization" desc="Boost revenue and reduce costs, with all this, increase your authorization acceptance rates." />
-                                            <FeatureItem title="Garnet Lens" link="/lens" desc="Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in." />
+                                            <div className="flex flex-col gap-4">
+                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-60 md:scale-80 w-100">
+                                                        <FraudChart/>
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.</p>
+                                                <Link href="/lens" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
+                                                    Read About Garnet Lens <ChevronRight className="size-4" />
+                                                </Link>
+                                            </div>
+
+                                            <div className="flex flex-col gap-4">
+                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-80 md:scale-100 w-100 flex items-center justify-center">
+                                                        <AuthChart/>
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.</p>
+                                                <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
+                                                    Read About Authorization <ChevronRight className="size-4" />
+                                                </Link>
+                                            </div>
+
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
                                                     <div className="scale-50 md:scale-60 transition-transform">

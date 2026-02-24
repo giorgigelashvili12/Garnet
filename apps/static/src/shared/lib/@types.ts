@@ -36,3 +36,24 @@ export interface Step {
     desc: string;
     children: StepDetail;
 }
+
+export interface AccountData {
+    id: string;
+    name: string;
+    status: "Enabled" | "In review" | "Rejected";
+    balance: string;
+}
+
+export interface TickProps {
+    target: number;
+    start: number;
+    steps: number[];
+    pause?: number;
+    delay?: number;
+    isCurrency?: boolean;
+}
+
+export interface ProgressBarProps {
+    timeline: number[];
+    delays: number[];
+}

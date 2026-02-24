@@ -27,7 +27,7 @@ export const Atom = ({symbol, electrons, fields = 3, color = "#000000", classNam
                     dy="0.3em"
                     textAnchor="middle"
                     fill="white"
-                    className="text-[8px] font-bold select-none"
+                    className="text-[8px] font-bold select-none font-mono"
                 >
                     {symbol}
                 </text>

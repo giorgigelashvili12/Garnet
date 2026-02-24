@@ -195,7 +195,7 @@ export default function Chem() {
                                             <div className='scale-200'>
                                                 <Atom symbol={item.atom} electrons={item.electrons} fields={item.fields} color={item.color} className='drop-shadow-lg'/>
                                             </div>
-                                            <span className='text-[10px] font-mono tracking-[0.2em] text-slate-500 dark:text-slate-300 font-bold bg-white/5 px-2 py-1 rounded backdrop-blur-md'>
+                                            <span className='text-[10px] tracking-[0.2em] text-slate-500 dark:text-slate-300 font-bold bg-white/5 px-2 py-1 rounded backdrop-blur-md'>
                                                 {item.name}
                                             </span>
                                         </motion.div>
