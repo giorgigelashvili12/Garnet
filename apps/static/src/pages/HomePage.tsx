@@ -23,7 +23,7 @@ export default function HomePage() {
                 <Chem />
                 <Payments />
 
-                <div className='px-50 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5'>
+                <div className='lg:px-70 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5 py-40'>
                     <Issuing/>
                 </div>
             </div>
