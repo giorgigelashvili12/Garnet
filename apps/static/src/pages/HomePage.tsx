@@ -10,6 +10,7 @@ import Hero from "@/pages/hero/Hero";
 import Chem from "@/pages/chem/Chem";
 import Intro from "@/pages/intro/Intro";
 import Payments from "@/pages/payments/Payments";
+import Issuing from "@/pages/issuing/Issuing";
 
 export default function HomePage() {
     return (
@@ -21,6 +22,10 @@ export default function HomePage() {
 
                 <Chem />
                 <Payments />
+
+                <div className='px-50 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5'>
+                    <Issuing/>
+                </div>
             </div>
         </div>
     )
