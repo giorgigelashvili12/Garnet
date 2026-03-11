@@ -24,7 +24,7 @@ export default function Web() {
     if (!t || !pt) return null;
 
     return (
-        <div className="relative mt-20 flex flex-col items-center justify-center p-4 md:p-10 min-h-screen overflow-hidden">
+        <div className="relative mt-20 flex flex-col items-center justify-center p-4 md:p-10 min-h-screen overflow-hidden select-none pointer-events-none">
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute inset-0 opacity-30 dark:opacity-50" style={{ background: `radial-gradient(circle at 50% 50%, rgba(16, 185, 129, 0.2) 0%, transparent 70%)` }} />
                 <div className="absolute inset-0 opacity-[0.1] dark:opacity-[0.2]" style={{ backgroundImage: `radial-gradient(circle, #000 1.5px, transparent 1.5px)`, backgroundSize: "48px 48px" }} />

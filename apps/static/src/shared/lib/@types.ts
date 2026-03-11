@@ -57,3 +57,7 @@ export interface ProgressBarProps {
     timeline: number[];
     delays: number[];
 }
+
+import en from '@/locales/en.json';
+
+export type Dictionary = typeof en;

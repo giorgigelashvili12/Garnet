@@ -11,6 +11,7 @@ import Chem from "@/pages/chem/Chem";
 import Intro from "@/pages/intro/Intro";
 import Payments from "@/pages/payments/Payments";
 import Issuing from "@/pages/issuing/Issuing";
+import BackgroundVideo from "@/pages/test/BackgroundVideo";
 
 export default function HomePage() {
     return (

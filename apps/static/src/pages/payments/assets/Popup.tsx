@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { X, ChevronRight, TrendingUp, Globe } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import {useDict} from "@/shared/hooks/useDict";
 
 const POS = dynamic(() => import('@/shared/widgets/POS'), { ssr: false });
 const Terminal = dynamic(() => import('@/shared/widgets/Terminal'), { ssr: false });
@@ -15,6 +16,7 @@ const AccountList = dynamic(() => import('@/shared/widgets/charts/AccountList'),
 export default function PaymentPopup({ onClose }: { onClose: () => void }) {
     const [isReady, setReady] = useState(false);
     const [showWidget, setShowWidget] = useState(false);
+    const dict = useDict();
 
     useEffect(() => {
         document.body.style.overflow = 'hidden';
@@ -44,17 +46,17 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-8 md:gap-10">
                                 <div className="space-y-4">
                                     <span className="text-2xl md:text-4xl font-normal tracking-tighter text-slate-900 dark:text-white block max-w-2xl leading-tight">
-                                        Accept payments globally online, simplify your checkout experience.
+                                        {dict.payments.title}
                                     </span>
                                     <p className="text-sm md:text-lg font-normal tracking-tighter text-slate-600 dark:text-zinc-400 block max-w-2xl leading-snug">
-                                        Expand to new markets, increase acceptance rates and deal with fraud. Using integrated tools, accept payments everywhere, anytime.
+                                        {dict.payments.popup.subtitle}
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-3 mt-6">
                                         <Link href="/payments" className="flex justify-center text-white px-5 py-2.5 bg-emerald-500 border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-transparent hover:text-emerald-400">
-                                            Payments <ChevronRight className="size-4" />
+                                            {dict.payments.popup.link1} <ChevronRight className="size-4" />
                                         </Link>
                                         <Link href="/payments" className="flex justify-center text-emerald-500 dark:text-emerald-400 px-5 py-2.5 bg-transparent border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-emerald-500 hover:text-white">
-                                            About Pricing <ChevronRight className="size-4" />
+                                            {dict.payments.popup.link2} <ChevronRight className="size-4" />
                                         </Link>
                                     </div>
                                 </div>
@@ -71,7 +73,7 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                 <Globe size={20} />
                                             </div>
                                             <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">
-                                                Increase conversion possibilities with pre-made payment UIs and 3 supported payment methods.
+                                                {dict.payments.popup.text1}
                                             </p>
                                         </div>
                                         <div className="flex items-start gap-4">
@@ -79,7 +81,7 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                 <TrendingUp size={20} />
                                             </div>
                                             <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">
-                                                Optimize the speed of payments globally with intelligent tools, fraud prevention and intelligence.
+                                                {dict.payments.popup.text2}
                                             </p>
                                         </div>
                                         <div className="bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-5 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-25">
@@ -92,7 +94,7 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
 
                                 {showWidget ? (
                                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 md:mt-10">
-                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">Explore more about Payments</span>
+                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">{dict.payments.popup.intro}</span>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
@@ -100,9 +102,9 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                         <FraudChart/>
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.payments.popup.card1.title}</p>
                                                 <Link href="/lens" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    Read About Garnet Lens <ChevronRight className="size-4" />
+                                                    {dict.payments.popup.card1.link} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
@@ -112,9 +114,9 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                         <AuthChart/>
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.payments.popup.card2.title}</p>
                                                 <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    Read About Authorization <ChevronRight className="size-4" />
+                                                    {dict.payments.popup.card2.link} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
@@ -124,16 +126,16 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                         <Terminal />
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Manage payments online and globally, implement supported and popular payment methods.</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.payments.popup.card3.title}</p>
                                                 <Link href="/terminal" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    Read About Terminal <ChevronRight className="size-4" />
+                                                    {dict.payments.popup.card3.link} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
                                         </div>
                                     </motion.div>
                                 ) : (
                                     <div className="h-48 w-full border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-3xl flex items-center justify-center text-slate-400">
-                                        Loading additional modules...
+                                        {dict.payments.popup.loading}
                                     </div>
                                 )}
                             </motion.div>
@@ -146,20 +148,6 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                     </div>
                 </div>
             </motion.div>
-        </div>
-    );
-}
-
-function FeatureItem({ title, link, desc }: { title: string, link: string, desc: string }) {
-    return (
-        <div className="flex flex-col gap-4">
-            <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl p-6 md:p-10 flex justify-center items-center h-64 md:h-84 text-slate-400 italic">
-                {title} Graphic
-            </div>
-            <p className="text-sm text-slate-600 dark:text-zinc-400">{desc}</p>
-            <Link href={link} className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                Read About {title} <ChevronRight className="size-4" />
-            </Link>
         </div>
     );
 }

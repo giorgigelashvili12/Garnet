@@ -4,22 +4,24 @@ import { motion } from "framer-motion";
 import {Tick} from "@/shared/ui/tick";
 import {Pipe} from "@/shared/ui/pipe";
 import {ProgressBar} from "@/shared/ui/progress-bar";
+import {useDict} from "@/shared/hooks/useDict";
 
 export function UsageChart2() {
     const timeline = React.useMemo(() => [0, 20, 40, 70], []);
     const delays = React.useMemo(() => [1000, 4200, 4200], []);
+    const dict = useDict();
 
     return (
         <div className="relative select-none pointer-events-none">
             <motion.div initial={{ opacity: 0, x: -30, y: -20 }} animate={{ opacity: 1, x: 0, y: 0 }} transition={{ duration: 0.8, ease: "easeOut" }} className="relative w-80 bg-white dark:bg-zinc-900 p-6 rounded-3xl border border-zinc-200 dark:border-zinc-800 shadow-xl">
                 <div className="space-y-6">
                     <div>
-                        <span className="font-bold text-lg text-zinc-900 dark:text-white">Invoice</span>
+                        <span className="font-bold text-lg text-zinc-900 dark:text-white">{dict.charts.UsageChart2.title}</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-y-6 gap-x-4">
                         <div className="flex flex-col">
-                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">Invoice Number</span>
+                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">{dict.charts.UsageChart2.labels.invoiceNumber}</span>
                             <span className="text-xs font-medium text-zinc-900 dark:text-zinc-200">#444444</span>
                         </div>
 

@@ -1,23 +1,26 @@
 "use client";
 import React from 'react';
 import { motion } from 'framer-motion';
-
-const data = [
-    { name: 'J', a: 45, b: 30, c: 25 },
-    { name: 'F', nameFull: 'Feb', a: 50, b: 35, c: 15 },
-    { name: 'M', nameFull: 'Mar', a: 40, b: 40, c: 20 },
-    { name: 'A', nameFull: 'Apr', a: 55, b: 25, c: 20 },
-    { name: 'M', nameFull: 'May', a: 60, b: 20, c: 20 },
-    { name: 'J', nameFull: 'Jun', a: 50, b: 30, c: 20 },
-];
+import {useDict} from "@/shared/hooks/useDict";
 
 export default function AuthChart({ className }: { className?: string }) {
+    const dict = useDict();
+
+    const data = [
+        { name: dict.charts.AuthChart.m1, a: 45, b: 30, c: 25 },
+        { name: dict.charts.AuthChart.m2, nameFull: dict.charts.AuthChart.mfull1, a: 50, b: 35, c: 15 },
+        { name: dict.charts.AuthChart.m3, nameFull: dict.charts.AuthChart.mfull2, a: 40, b: 40, c: 20 },
+        { name: dict.charts.AuthChart.m4, nameFull: dict.charts.AuthChart.mfull3, a: 55, b: 25, c: 20 },
+        { name: dict.charts.AuthChart.m5, nameFull: dict.charts.AuthChart.mfull4, a: 60, b: 20, c: 20 },
+        { name: dict.charts.AuthChart.m6, nameFull: dict.charts.AuthChart.mfull5, a: 50, b: 30, c: 20 },
+    ];
+
     return (
         <div className={`w-full pointer-events-none select-none max-w-[320px] bg-white dark:bg-zinc-950 rounded-4xl p-6 border border-slate-100 dark:border-white/5 shadow-xl ${className}`}>
             <div className="flex justify-between items-start mb-8">
                 <div>
-                    <h3 className="text-sm font-bold text-slate-900 dark:text-white tracking-tighter">Authorization</h3>
-                    <p className="text-[10px] text-slate-400 font-medium">Monthly volume</p>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white tracking-tighter">{dict.charts.AuthChart.text1}</h3>
+                    <p className="text-[10px] text-slate-400 font-medium">{dict.charts.AuthChart.text2}</p>
                 </div>
                 <span className="bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-[10px] font-black px-2 py-0.5 rounded-full border border-emerald-500/20">+1.2%</span>
             </div>
@@ -40,9 +43,9 @@ export default function AuthChart({ className }: { className?: string }) {
             </div>
 
             <div className="grid grid-cols-3 gap-2 mt-6 pt-4 border-t border-slate-50 dark:border-white/5">
-                <LegendItem color="bg-emerald-900 dark:bg-emerald-400" label="Adaptive" />
-                <LegendItem color="bg-emerald-500" label="Tokens" />
-                <LegendItem color="bg-emerald-200" label="Updater" />
+                <LegendItem color="bg-emerald-900 dark:bg-emerald-400" label={dict.charts.AuthChart.label1} />
+                <LegendItem color="bg-emerald-500" label={dict.charts.AuthChart.label2} />
+                <LegendItem color="bg-emerald-200" label={dict.charts.AuthChart.label3} />
             </div>
         </div>
     );

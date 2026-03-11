@@ -3,12 +3,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import dynamic from "next/dynamic";
 
 import { Atom } from "@/shared/ui/atom";
 import { motion, AnimatePresence } from "framer-motion";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/shared/ui/hover-card";
-import { Settings2, Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff } from "lucide-react";
+import {useDict} from "@/shared/hooks/useDict";
 
 import Garnet from "@/widgets/garnet/Garnet";
 import {useTheme} from "next-themes";
@@ -18,6 +18,7 @@ export default function Chem() {
     const [isMobile, setIsMobile] = useState(false);
     const [showModel, setShowModel] = useState(true);
     const {resolvedTheme} = useTheme();
+    const dict = useDict();
 
     const crystalPreview = resolvedTheme === 'dark' ? '/preview-2.png' : '/preview-1.png';
 
@@ -35,7 +36,7 @@ export default function Chem() {
 
     const products = [
         {
-            name: "Silicon",
+            name: dict.chem.products.silicon.atom,
             atom: "Si",
             electrons: 14,
             fields: 3,
@@ -43,19 +44,18 @@ export default function Chem() {
             position: { top: "20%", left: "10%" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
-                    <span className="font-semibold text-xl text-slate-900 dark:text-white">Payments</span>
+                    <span className="font-semibold text-xl text-slate-900 dark:text-white">{dict.chem.products.silicon.title}</span>
                     <span className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                        Sell your products digitally, globally. Leave the rest for{" "}
-                        <span className="text-emerald-500 font-medium">Garnet</span> to handle.
+                        {dict.chem.products.silicon.desc}
                     </span>
                     <Link href="" className="underline hover:text-emerald-600 transition-all">
-                        Read About Payments
+                        {dict.chem.products.silicon.link}
                     </Link>
                 </div>
             ),
         },
         {
-            name: "Oxygen",
+            name: dict.chem.products.oxygen.atom,
             atom: "O",
             electrons: 8,
             fields: 2,
@@ -63,18 +63,18 @@ export default function Chem() {
             position: { top: "20%", right: "10%" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
-                    <span className="font-semibold text-xl text-slate-900 dark:text-white">Money Management</span>
+                    <span className="font-semibold text-xl text-slate-900 dark:text-white">{dict.chem.products.oxygen.title}</span>
                     <span className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                        Exact tool designed to manage money with Financial Accounts.
+                        {dict.chem.products.oxygen.desc}
                     </span>
                     <Link href="" className="underline hover:text-emerald-600 transition-all">
-                        Read About Money Management
+                        {dict.chem.products.oxygen.link}
                     </Link>
                 </div>
             ),
         },
         {
-            name: "Chromium",
+            name: dict.chem.products.chromium.atom,
             atom: "Cr",
             electrons: 24,
             fields: 4,
@@ -82,19 +82,18 @@ export default function Chem() {
             position: { bottom: "20%", left: "8%" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
-                    <span className="font-semibold text-xl text-slate-900 dark:text-white">Marketplaces</span>
+                    <span className="font-semibold text-xl text-slate-900 dark:text-white">{dict.chem.products.chromium.title}</span>
                     <span className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                        Designed to orchestrate identity verification and complex
-                        multi-party payments.
+                        {dict.chem.products.chromium.desc}
                     </span>
                     <Link href="" className="underline hover:text-emerald-600 transition-all">
-                        Read About Marketplaces
+                        {dict.chem.products.chromium.link}
                     </Link>
                 </div>
             ),
         },
         {
-            name: "Manganese",
+            name: dict.chem.products.manganese.atom,
             atom: "Mn",
             electrons: 25,
             fields: 4,
@@ -102,18 +101,18 @@ export default function Chem() {
             position: { bottom: "20%", right: "8%" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
-                    <span className="font-semibold text-xl text-slate-900 dark:text-white">Revenue Growth</span>
+                    <span className="font-semibold text-xl text-slate-900 dark:text-white">{dict.chem.products.manganese.title}</span>
                     <span className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                        Launch fast and improve revenue capture with billing software&#39;s.
+                        {dict.chem.products.manganese.desc}
                     </span>
                     <Link href="" className="underline hover:text-emerald-600 transition-all">
-                        Read About Revenue Growth
+                        {dict.chem.products.manganese.link}
                     </Link>
                 </div>
             ),
         },
         {
-            name: "Aluminum",
+            name: dict.chem.products.aluminum.atom,
             atom: "Al",
             electrons: 13,
             fields: 3,
@@ -121,12 +120,12 @@ export default function Chem() {
             position: { top: "5%", left: "48%", transform: "translateX(-50%)" },
             content: (
                 <div className="flex flex-col gap-1 text-left">
-                    <span className="font-semibold text-xl text-slate-900 dark:text-white">Hardware</span>
+                    <span className="font-semibold text-xl text-slate-900 dark:text-white">{dict.chem.products.aluminum.title}</span>
                     <span className="text-sm text-slate-500 dark:text-zinc-400 leading-relaxed">
-                        Grow your business locally, make your name rule the streets.
+                        {dict.chem.products.aluminum.desc}
                     </span>
                     <Link href="" className="underline hover:text-emerald-600 transition-all">
-                        Read About Hardware
+                        {dict.chem.products.aluminum.link}
                     </Link>
                 </div>
             ),
@@ -147,14 +146,14 @@ export default function Chem() {
 
             <div className='text-center space-y-4 max-w-4xl mx-auto mb-12 relative z-10'>
                 <h1 className='text-3xl md:text-6xl font-bold tracking-tight text-slate-900 dark:text-white'>
-                    From the <span className='text-emerald-500'>Element</span>, the{' '}
+                    {dict.chem.titleAssets.one} <span className='text-emerald-500'>{dict.chem.titleAssets.two}</span>, {dict.chem.titleAssets.three}{' '}
                     <span className='bg-linear-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent'>
-                    Universe
+                    {dict.chem.titleAssets.four}
                 </span>
                 </h1>
 
                 <p className='text-base md:text-2xl text-slate-500 dark:text-slate-400'>
-                    The molecular structure of a modern business.
+                    {dict.chem.subtitle}
                 </p>
             </div>
 
@@ -214,17 +213,29 @@ export default function Chem() {
             </div>
 
             {isMobile && (
-                <div className="mt-12 space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-700">
-                    <div className="grid grid-cols-1 gap-6">
+                <div className="mt-12 space-y-12 animate-in fade-in slide-in-from-bottom-4 duration-700 px-4">
+                    <div className="grid grid-cols-1 gap-16">
                         {products.map((item) => (
-                            <div key={item.name} className="p-6 rounded-2xl bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm">
-                                <div className="flex items-center gap-4 mb-4">
-                                    <div className="w-10 h-10 rounded-full flex items-center justify-center font-bold text-white shadow-lg" style={{ backgroundColor: item.color }}>
+                            <div key={item.name} className="relative p-6 rounded-4xl bg-white/5 border border-slate-200 dark:border-white/10 backdrop-blur-sm">
+                                <div className="absolute -top-6 right-4 sm:right-8 z-20">
+                                    <div className='scale-125 sm:scale-150 md:scale-180 transition-transform duration-500'>
+                                        <Atom symbol={item.atom} electrons={item.electrons} fields={item.fields} color={item.color} className='drop-shadow-2xl'/>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center mb-5 mt-2 relative z-10">
+                                    <div className="w-10 h-10 shrink-0 rounded-full flex items-center justify-center font-bold text-white shadow-lg" style={{ backgroundColor: item.color }}>
                                         {item.atom}
                                     </div>
-                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white">{item.name}</h3>
+
+                                    <h3 className="text-xl font-bold text-slate-900 dark:text-white pl-4 tracking-tight">
+                                        {item.name}
+                                    </h3>
                                 </div>
-                                {item.content}
+
+                                <div className="text-sm leading-relaxed text-slate-700 dark:text-white/70 relative z-10 pr-8">
+                                    {item.content}
+                                </div>
                             </div>
                         ))}
                     </div>

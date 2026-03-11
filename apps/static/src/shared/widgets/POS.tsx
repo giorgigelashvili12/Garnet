@@ -18,7 +18,7 @@ export default function POS() {
     const t = dict_atlas_payments[currentLang];
 
     return (
-        <div className="relative z-20 shrink-0">
+        <div className="relative z-20 shrink-0 select-none pointer-events-none">
             <div className="relative z-1 bg-white dark:bg-zinc-800 flex justify-center items-center w-72 h-130 rounded-[3.5rem] border border-stone-200 dark:border-white/10 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.25)]">
                 <div className="bg-black w-66 h-125 rounded-[3rem] flex justify-center items-center">
                     <div className="bg-white w-60 h-115 rounded-2xl overflow-hidden flex flex-col">

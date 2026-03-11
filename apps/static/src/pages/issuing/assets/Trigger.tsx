@@ -2,15 +2,18 @@
 
 import {motion} from "framer-motion";
 import {IssuingCard} from "@/shared/widgets/Card";
+import {useDict} from "@/shared/hooks/useDict";
 
 export default function IssuingTrigger({onClick}: {onClick?: () => void}) {
+    const dict = useDict();
+
     return (
         <button type='button' onClick={e => {e.preventDefault(); onClick?.()}} className='group relative flex h-125 w-full flex-col items-center justify-start overflow-hidden rounded-[2.5rem] border border-slate-100 bg-white p-12 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-white/5 dark:bg-(--dark-bg) cursor-pointer text-left'>
             <div className='absolute inset-0 pointer-events-none opacity-50 transition-opacity group-hover:opacity-100' style={{background: `radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 70%)`}}/>
 
             <div className='relative z-20 mb-12 text-center'>
-                <h3 className='block max-w-2xl text-3xl font-normal tracking-tighter text-slate-900 dark:text-white'>Create a Card Issuing Program</h3>
-                <p className='mt-2 text-sm font-medium text-emerald-500/80 dark:text-emerald-400/80'>All is in your hands</p>
+                <h3 className='block max-w-2xl text-3xl font-normal tracking-tighter text-slate-900 dark:text-white'>{dict.issuing.card.title}</h3>
+                <p className='mt-2 text-sm font-medium text-emerald-500/80 dark:text-emerald-400/80'>{dict.issuing.card.subtitle}</p>
             </div>
 
             <motion.div

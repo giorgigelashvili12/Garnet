@@ -1,0 +1,4 @@
+2026-02-28T14:56:27.549007Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-28T15:00:24.066777Z  WARN daemon_server: turborepo_lib::commands::daemon: daemon already running
+2026-02-28T15:16:05.097777Z  WARN get_package_file_hashes{include_default_files=true telemetry=None}: turborepo_scm::package_deps: git hashing failed for AnchoredSystemPath("apps\\static") with resource error: Git error on D:\dev\Garnet\apps\static\src\shared\widgets\charts\AccountList.tsx~: could not find 'D:\dev\Garnet\apps\static\src\shared\widgets\charts\AccountList.tsx~' to open: The system cannot find the file specified.
+; class=Os (2); code=NotFound (-3)

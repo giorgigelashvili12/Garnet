@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "products": "Produkte",
+    "developers": "Entwickler",
+    "resources": "Ressourcen",
+    "pricing": "Preise"
+  },
+  "header": {
+    "login": "Anmelden",
+    "getStarted": "Loslegen"
+  },
+  "products": {
+    "shield": { "name": "Shield Pro", "desc": "Erweiterter DDoS-Schutz" },
+    "sentinel": { "name": "Sentinel", "desc": "KI-Bedrohungserkennung" }
+  },
+  "megamenu": {
+    "securityTitle": "Sicherheits-Suite",
+    "infraTitle": "Infrastruktur",
+    "infraDesc": "Skalieren Sie Ihre Apps...",
+    "viewRoadmap": "Roadmap ansehen",
+    "docsTitle": "Dokumentation",
+    "docsDesc": "In 5 Minuten integrieren",
+    "startBuilding": "Mit dem Entwickeln beginnen",
+    "apiRef": "API-Referenz",
+    "apiDesc": "Vollständige Endpunkt-Dokumentation"
+  },
+  "intro": {
+    "title": "Alles, um Ihr Unternehmen wachsen zu lassen",
+    "subtitle": "Zahlungen akzeptieren, Finanzdaten verwalten, anpassen, Ihren Umsatz steigern,\nalles in einer einzigen Lösung. Lassen Sie Ihre Ambitionen wahr werden.",
+    "link1": "Loslegen",
+    "link2": "Mit Google registrieren",
+    "subtitle1": "Wonach suchen Sie?",
+    "subtitle2": "Wir haben die Antwort auf alles.",
+    "item1": "Software",
+    "item2": "Hardware"
+  },
+  "chem": {
+    "titleAssets": {
+      "one": "Vom",
+      "two": "Element",
+      "three": "zum",
+      "four": "Universum"
+    },
+    "subtitle": "Die molekulare Struktur eines modernen Unternehmens.",
+    "products": {
+      "silicon": {
+        "atom": "Silizium",
+        "title": "Zahlungen",
+        "desc": "Verkaufen Sie Ihre Produkte digital und weltweit. Den Rest überlässt du Garnet.",
+        "link": "Mehr über Zahlungen"
+      },
+      "oxygen": {
+        "atom": "Sauerstoff",
+        "title": "Geldverwaltung",
+        "desc": "Ein präzises Tool zur Verwaltung von Geld mit Finanzkonten.",
+        "link": "Mehr über Geldverwaltung"
+      },
+      "chromium": {
+        "atom": "Chrom",
+        "title": "Marktplätze",
+        "desc": "Entwickelt zur Orchestrierung von Identitätsprüfung und komplexen\n Mehrparteien-Zahlungen.",
+        "link": "Mehr über Marktplätze"
+      },
+      "manganese": {
+        "atom": "Mangan",
+        "title": "Umsatzwachstum",
+        "desc": "Starten Sie schnell und verbessern Sie die Umsatzgenerierung mit Abrechnungssoftware.",
+        "link": "Mehr über Umsatzwachstum"
+      },
+      "aluminum": {
+        "atom": "Aluminium",
+        "title": "Hardware",
+        "desc": "Lassen Sie Ihr Unternehmen lokal wachsen und machen Sie Ihren Namen bekannt.",
+        "link": "Mehr über Hardware"
+      }
+    }
+  },
+  "issuing": {
+    "popup": {
+      "title": {
+        "one": "Starten Sie Ihr eigenes globales Kartenprogramm",
+        "two": "mit Lichtgeschwindigkeit"
+      },
+      "link1": "Loslegen",
+      "link2": "Preise ansehen",
+      "featureItem1": {
+        "title": "Absolute Kontrolle",
+        "desc": "Wechseln Sie vom Konzept zu einem realen Programm in einem Bruchteil der Zeit."
+      },
+      "featureItem2": {
+        "title": "Globale Compliance",
+        "desc": "Verifizieren Sie Nutzer in über 150+ Rechtsgebieten in Echtzeit."
+      },
+      "featureItem3": {
+        "title": "Intelligentes Treasury",
+        "desc": "Genehmigen oder lehnen Sie Transaktionen basierend auf benutzerdefinierter Logik ab."
+      },
+      "card1": {
+        "title": "Identifizieren Sie Aktivitäten und erkennen Sie Betrug in Echtzeit. Mit Modellen und Tools von Garnet können Sie legitime Kunden problemlos zulassen.",
+        "link": "Mehr über Garnet Lens"
+      },
+      "card2": {
+        "title": "Steigern Sie den Umsatz und senken Sie Kosten und erhöhen Sie gleichzeitig Ihre Autorisierungs-Akzeptanzrate.",
+        "link": "Mehr über Autorisierung"
+      },
+      "card3": {
+        "title": "Verwalten Sie Zahlungen online und weltweit und implementieren Sie unterstützte und beliebte Zahlungsmethoden.",
+        "link": "Mehr über Terminal"
+      }
+    },
+    "card": {
+      "title": "Erstellen Sie ein Karten-Ausgabeprogramm",
+      "subtitle": "Alles liegt in Ihrer Hand"
+    }
+  },
+  "payments": {
+    "title": "Akzeptieren Sie weltweit Online-Zahlungen und vereinfachen Sie Ihr Checkout-Erlebnis.",
+    "popup": {
+      "title": "Akzeptieren Sie weltweit Online-Zahlungen und vereinfachen Sie Ihr Checkout-Erlebnis.",
+      "subtitle": "Erweitern Sie in neue Märkte, erhöhen Sie die Akzeptanzraten und bekämpfen Sie Betrug. Mit integrierten Tools können Sie überall und jederzeit Zahlungen akzeptieren.",
+      "link1": "Zahlungen",
+      "link2": "Über Preise",
+      "text1": "Erhöhen Sie die Konversionsmöglichkeiten mit vorgefertigten Zahlungs-UIs und 3 unterstützten Zahlungsmethoden.",
+      "text2": "Optimieren Sie die Geschwindigkeit globaler Zahlungen mit intelligenten Tools, Betrugsprävention und Analysen.",
+      "card1": {
+        "title": "Identifizieren Sie Aktivitäten und erkennen Sie Betrug in Echtzeit. Mit Modellen und Tools von Garnet können Sie legitime Kunden problemlos zulassen.",
+        "link": "Mehr über Garnet Lens"
+      },
+      "intro": "Erfahren Sie mehr über Zahlungen.",
+      "card2": {
+        "title": "Steigern Sie den Umsatz und senken Sie Kosten und erhöhen Sie gleichzeitig Ihre Autorisierungs-Akzeptanzrate.",
+        "link": "Mehr über Autorisierung"
+      },
+      "card3": {
+        "title": "Verwalten Sie Zahlungen online und weltweit und implementieren Sie unterstützte und beliebte Zahlungsmethoden.",
+        "link": "Mehr über Terminal"
+      },
+      "loading": "Zusätzliche Dateien werden geladen..."
+    }
+  },
+  "charts": {
+    "AuthChart": {
+      "text1": "Autorisierung",
+      "text2": "Monatliches Volumen",
+      "label1": "Adaptiv",
+      "label2": "Token",
+      "label3": "Updater",
+      "m1": "J",
+      "m2": "F",
+      "m3": "M",
+      "m4": "A",
+      "m5": "M",
+      "m6": "J",
+      "mfull1": "Feb",
+      "mfull2": "Mär",
+      "mfull3": "Apr",
+      "mfull4": "Mai",
+      "mfull5": "Jun"
+    },
+    "AccountList": {
+      "text1": "Konten",
+      "text2": "Live-Updates",
+      "status1": "Abgelehnt",
+      "status2": "Aktiviert",
+      "accounts": [
+        { "id": "1", "name": "Alpha Co", "status": "Aktiviert", "balance": "$5,502" },
+        { "id": "2", "name": "Beta Co", "status": "Aktiviert", "balance": "$380" },
+        { "id": "3", "name": "Gamma Co", "status": "In Prüfung", "balance": "$933" },
+        { "id": "4", "name": "Delta Co", "status": "Aktiviert", "balance": "$168" },
+        { "id": "5", "name": "Epsilon Co", "status": "Abgelehnt", "balance": "$608" },
+        { "id": "6", "name": "Zeta Co", "status": "Aktiviert", "balance": "$1,320" }
+      ]
+    },
+    "CardActivity": {
+      "title": "Quick Market",
+      "text1": "Verfügbares Guthaben",
+      "text2": "€820.56",
+      "text3": "Ausstehend: €314.80",
+      "text4": "Aktivität",
+      "text5": "Datum",
+      "text6": "Typ",
+      "text7": "Betrag",
+      "text8": "30. Mai",
+      "text9": "Kauf",
+      "text10": "-€238.17",
+      "text11": "29. Mai",
+      "text12": "Kauf",
+      "text13": "-€356.22",
+      "text14": "29. Mai",
+      "text15": "Kauf",
+      "text16": "-€275.15",
+      "text17": "-€45.68"
+    },
+    "FraudChart": {
+      "text1": "Betrugs-Analyse",
+      "text2": "Echtzeit-Analyse",
+      "text3": "Streitfälle",
+      "text4": "Warnungen",
+      "m1": "Jan",
+      "m2": "Feb",
+      "m3": "Mär",
+      "m4": "Apr",
+      "m5": "Mai",
+      "m6": "Jun",
+      "m7": "Jul",
+      "m8": "Aug",
+      "m9": "Sep",
+      "m10": "Okt",
+      "m11": "Nov",
+      "m12": "Dez"
+    },
+    "UsageChart2": {
+      "title": "Rechnung",
+      "labels": {
+        "invoiceNumber": "Rechnungsnummer",
+        "dateDue": "Fälligkeitsdatum",
+        "unity": "Einheit",
+        "to": "An",
+        "due": "fällig"
+      },
+      "table": {
+        "description": "Beschreibung",
+        "qty": "Menge",
+        "unitPrice": "Stückpreis",
+        "total": "Gesamt"
+      },
+      "lineItem": {
+        "cloudTokens": "Cloud-Token",
+        "unitPriceText": "0,01 $ pro 1.000"
+      },
+      "plan": {
+        "proPlan": "Pro-Plan",
+        "monthlyBilling": "Monatliche Abrechnung",
+        "tokens": "Token",
+        "tokensPrice": "0,01 $ pro 1.000 Token"
+      }
+    }
+  }
+}

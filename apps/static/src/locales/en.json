@@ -1,0 +1,239 @@
+{
+  "nav": {
+    "products": "Products",
+    "developers": "Developers",
+    "resources": "Resources",
+    "pricing": "Pricing"
+  },
+  "header": {
+    "login": "Log in",
+    "getStarted": "Get Started"
+  },
+  "products": {
+    "shield": { "name": "Shield Pro", "desc": "Advanced DDoS" },
+    "sentinel": { "name": "Sentinel", "desc": "AI Threat detection" }
+  },
+  "megamenu": {
+    "securityTitle": "Security Suite",
+    "infraTitle": "Infrastructure",
+    "infraDesc": "Scale your apps...",
+    "viewRoadmap": "View Roadmap",
+    "docsTitle": "Documentation",
+    "docsDesc": "Integrate in 5 mins",
+    "startBuilding": "Start Building",
+    "apiRef": "API Reference",
+    "apiDesc": "Full endpoint docs"
+  },
+  "intro": {
+    "title": "Everything To Make Your Business Grow",
+    "subtitle": "Accept payments, manage financial data, customize, grow your revenue,\nall in a single solution. Make your ambitions come true.",
+    "link1": "Get Started",
+    "link2": "Sign Up With Google",
+    "subtitle1": "What Are You Looking For?",
+    "subtitle2": "We Got The Answer To Everything.",
+    "item1": "Software",
+    "item2": "Hardware"
+  },
+  "chem": {
+    "titleAssets": {
+      "one": "From the",
+      "two": "Element",
+      "three": "the",
+      "four": "Universe"
+    },
+    "subtitle": "The molecular structure of a modern business.",
+    "products": {
+      "silicon": {
+        "atom": "Silicon",
+        "title": "Payments",
+        "desc": "Sell your products digitally, globally. Leave the rest for Garnet to handle.",
+        "link": "Read About Payments"
+      },
+      "oxygen": {
+        "atom": "Oxygen",
+        "title": "Money Management",
+        "desc": "Exact tool designed to manage money with Financial Accounts.",
+        "link": "Read About Money Management"
+      },
+      "chromium": {
+        "atom": "Chromium",
+        "title": "Marketplaces",
+        "desc": "Designed to orchestrate identity verification and complex\n multi-party payments.",
+        "link": "Read About Marketplaces"
+      },
+      "manganese": {
+        "atom": "Manganese",
+        "title": "Revenue Growth",
+        "desc": "Launch fast and improve revenue capture with billing software's",
+        "link": "Read About Revenue Growth"
+      },
+      "aluminum": {
+        "atom": "aluminum",
+        "title": "Hardware",
+        "desc": "Grow your business locally, make your name rule the streets.",
+        "link": "Read About Hardware"
+      }
+    }
+  },
+  "issuing": {
+    "popup": {
+      "title": {
+        "one": "Launch your own global card program",
+        "two": "at the speed of light"
+      },
+      "link1": "Get Started",
+      "link2": "View Pricing",
+      "featureItem1": {
+        "title": "Absolute Control",
+        "desc": "Move from concept to a real program in a fraction of the time."
+      },
+      "featureItem2": {
+        "title": "Global Compliance",
+        "desc": "Verify users across 150+ jurisdictions in real-time."
+      },
+      "featureItem3": {
+        "title": "Smart Treasury",
+        "desc": "Approve or decline transactions based on custom logic."
+      },
+      "card1": {
+        "title": "Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.",
+        "link": "Read About Garnet Lens"
+      },
+      "card2": {
+        "title": "Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.",
+        "link": "Read About Authorization"
+      },
+      "card3": {
+        "title": "Manage payments online and globally, implement supported and popular payment methods.",
+        "link": "Read About Terminal"
+      }
+    },
+    "card": {
+      "title": "Create a Card Issuing Program",
+      "subtitle": "All is in your hands"
+    }
+  },
+  "payments": {
+    "title": "Accept payments globally online, simplify your checkout experience.",
+    "popup": {
+      "title": "Accept payments globally online, simplify your checkout experience.",
+      "subtitle": "Expand to new markets, increase acceptance rates and deal with fraud. Using integrated tools, accept payments everywhere, anytime.",
+      "link1": "Payments",
+      "link2": "About Pricing",
+      "text1": "Increase conversion possibilities with pre-made payment UIs and 3 supported payment methods.",
+      "text2": "Optimize the speed of payments globally with intelligent tools, fraud prevention and intelligence.",
+      "intro": "Explore more about Payments",
+      "card1": {
+        "title": "Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.",
+        "link": "Read About Garnet Lens"
+      },
+      "card2": {
+        "title": "Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.",
+        "link": "Read About Authorization"
+      },
+      "card3": {
+        "title": "Manage payments online and globally, implement supported and popular payment methods.",
+        "link": "Read About Terminal"
+      },
+      "loading": "Loading additional files..."
+    }
+  },
+  "charts": {
+    "AuthChart": {
+      "text1": "Authorization",
+      "text2": "Monthly volume",
+      "label1": "Adaptive",
+      "label2": "Tokens",
+      "label3": "Updater",
+      "m1": "J",
+      "m2": "F",
+      "m3": "M",
+      "m4": "A",
+      "m5": "M",
+      "m6": "J",
+      "mfull1": "Feb",
+      "mfull2": "Mar",
+      "mfull3": "Apr",
+      "mfull4": "May",
+      "mfull5": "Jun"
+    },
+    "AccountList": {
+      "text1": "Accounts",
+      "text2": "Live Updates",
+      "status1": "Rejected",
+      "status2": "Enabled",
+      "accounts": [
+        { "id": "1", "name": "Alpha Co", "status": "Enabled", "balance": "$5,502" },
+        { "id": "2", "name": "Beta Co", "status": "Enabled", "balance": "$380" },
+        { "id": "3", "name": "Gamma Co", "status": "In review", "balance": "$933" },
+        { "id": "4", "name": "Delta Co", "status": "Enabled", "balance": "$168" },
+        { "id": "5", "name": "Epsilon Co", "status": "Rejected", "balance": "$608" },
+        { "id": "6", "name": "Zeta Co", "status": "Enabled", "balance": "$1,320" }
+      ]
+    },
+    "CardActivity": {
+      "title": "Quick Market",
+      "text1": "Available balance",
+      "text2": "$820.56",
+      "text3": "Pending: $314.80",
+      "text4": "Activity",
+      "text5": "Date",
+      "text6": "Type",
+      "text7": "Amount",
+      "text8": "May 30",
+      "text9": "Purchase",
+      "text10": "-$238.17",
+      "text11": "May 29",
+      "text12": "Purchase",
+      "text13": "-$356.22",
+      "text14": "May 29",
+      "text15": "Purchase",
+      "text16": "-$275.15",
+      "text17": "-$45.68"
+    },
+    "FraudChart": {
+      "text1": "Fraud Analytics",
+      "text2": "Real-time analytics",
+      "text3": "Disputes",
+      "text4": "Warnings",
+      "m1": "Jan",
+      "m2": "Feb",
+      "m3": "Mar",
+      "m4": "Apr",
+      "m5": "May",
+      "m6": "Jun",
+      "m7": "Jul",
+      "m8": "Aug",
+      "m9": "Sep",
+      "m10": "Oct",
+      "m11": "Nov",
+      "m12": "Dec"
+    },
+    "UsageChart2": {
+      "title": "Invoice",
+      "labels": {
+        "invoiceNumber": "Invoice Number",
+        "dateDue": "Date Due",
+        "unity": "Unity",
+        "to": "To",
+        "due": "due"
+      },
+      "table": {
+        "description": "Description",
+        "qty": "Qty",
+        "unitPrice": "Unit Price",
+        "total": "Total"
+      },
+      "lineItem": {
+        "cloudTokens": "Cloud Tokens",
+        "unitPriceText": "$0.01 per 1,000"
+      },
+      "plan": {
+        "proPlan": "Pro Plan",
+        "monthlyBilling": "Monthly Billing",
+        "tokens": "Tokens",
+        "tokensPrice": "$0.01 per 1,000 tokens"
+      }
+    }
+  }
+}

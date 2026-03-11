@@ -7,6 +7,9 @@ import { Sun, Moon, Menu, X, ChevronDown } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Button } from "@/shared/ui/button";
 import Logo from "@/shared/ui/logo";
+import Languages from "@/shared/ui/Languages";
+import { useDict } from "@/shared/hooks/useDict";
+import { ThemeToggle } from "@/shared/config/theme-provider";
 
 export default function Header() {
     const [scrolled, setScrolled] = useState(false);
@@ -15,8 +18,8 @@ export default function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const navRef = useRef<HTMLDivElement>(null);
-    const { setTheme, resolvedTheme } = useTheme();
     const nav = useRouter();
+    const dict = useDict();
 
     useEffect(() => {
         setMounted(true);
@@ -61,32 +64,31 @@ export default function Header() {
                 <Logo/>
 
                 <div className="hidden md:flex items-center gap-2">
-                    {["Products", "Developers", "Resources", "Pricing"].map((item) => (
+                    {Object.keys(dict.nav).map((key) => (
                         <button
-                            key={item}
-                            onMouseEnter={() => handleMouseEnter(item.toLowerCase())}
+                            key={key}
+                            onMouseEnter={() => handleMouseEnter(key)}
                             className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer ${
-                                activeTab === item.toLowerCase()
+                                activeTab === key
                                     ? "text-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10"
                                     : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                             }`}
                         >
-                            {item}
+                            {dict.nav[key as keyof typeof dict.nav]}
                         </button>
                     ))}
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
-                    <button
-                        onClick={() => setTheme(resolvedTheme === "dark" ? "light" : "dark")}
-                        className="p-2 cursor-pointer rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-emerald-100 dark:hover:bg-slate-700 transition-all"
-                    >
-                        {resolvedTheme === "dark" ? <Sun size={18} /> : <Moon size={18} />}
-                    </button>
+                    <div className="hidden sm:block">
+                        <Languages />
+                    </div>
+
+                    <ThemeToggle/>
 
                     <div className="hidden sm:block">
                         <Link href="/login" className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-2">
-                            Log in
+                            {dict.header.login}
                         </Link>
                     </div>
 
@@ -94,7 +96,7 @@ export default function Header() {
                         onClick={() => nav.push("/api")}
                         className="hidden sm:flex bg-emerald-500 cursor-pointer hover:bg-emerald-600 text-white font-bold rounded-xl transition-all active:scale-95 shadow-lg shadow-emerald-500/20"
                     >
-                        Get Started
+                        {dict.header.getStarted}
                     </Button>
 
                     <button
@@ -108,27 +110,27 @@ export default function Header() {
 
             <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-screen opacity-100 border-t border-slate-100 dark:border-slate-800" : "max-h-0 opacity-0"}`}>
                 <div className="px-4 py-6 bg-white dark:bg-[#030a08] space-y-2">
-                    {["Products", "Developers", "Resources", "Pricing"].map((item) => (
-                        <div key={item} className="border-b border-slate-50 dark:border-slate-800/50 last:border-0">
+                    {Object.keys(dict.nav).map((key) => (
+                        <div key={key} className="border-b border-slate-50 dark:border-slate-800/50 last:border-0">
                             <button
-                                onClick={() => toggleTab(item.toLowerCase())}
+                                onClick={() => toggleTab(key)}
                                 className="w-full flex items-center justify-between py-4 text-slate-900 dark:text-white font-semibold"
                             >
-                                {item}
-                                {["Products", "Developers"].includes(item) && <ChevronDown size={16} className={`transition-transform ${activeTab === item.toLowerCase() ? "rotate-180" : ""}`} />}
+                                {dict.nav[key as keyof typeof dict.nav]}
+                                {["products", "developers"].includes(key) && <ChevronDown size={16} className={`transition-transform ${activeTab === key ? "rotate-180" : ""}`} />}
                             </button>
 
-                            {activeTab === "products" && item === "Products" && (
+                            {activeTab === "products" && key === "products" && (
                                 <div className="pb-4 space-y-4 px-2">
-                                    <div className="font-bold text-emerald-500 text-xs uppercase tracking-widest">Shield Pro</div>
-                                    <div className="font-bold text-emerald-500 text-xs uppercase tracking-widest">Sentinel</div>
+                                    <div className="font-bold text-emerald-500 text-xs uppercase tracking-widest">{dict.products.shield.name}</div>
+                                    <div className="font-bold text-emerald-500 text-xs uppercase tracking-widest">{dict.products.sentinel.name}</div>
                                 </div>
                             )}
                         </div>
                     ))}
                     <div className="pt-4 flex flex-col gap-3">
-                        <Button className="w-full bg-emerald-500 text-white py-6 rounded-2xl">Get Started</Button>
-                        <Link href="/login" className="text-center py-2 text-slate-500 font-semibold">Log in</Link>
+                        <Button className="w-full bg-emerald-500 text-white py-6 rounded-2xl">{dict.header.getStarted}</Button>
+                        <Link href="/login" className="text-center py-2 text-slate-500 font-semibold">{dict.header.login}</Link>
                     </div>
                 </div>
             </div>
@@ -140,16 +142,22 @@ export default function Header() {
                     {activeTab === "products" && (
                         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 animate-in fade-in slide-in-from-top-4 duration-500">
                             <div className="col-span-1">
-                                <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 mb-6">Security Suite</h3>
+                                <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 mb-6">{dict.megamenu.securityTitle}</h3>
                                 <ul className="space-y-4">
-                                    <li className="group cursor-pointer"><p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">Shield Pro</p><p className="text-xs text-slate-500 dark:text-slate-400">Advanced DDoS protection</p></li>
-                                    <li className="group cursor-pointer"><p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">Sentinel</p><p className="text-xs text-slate-500 dark:text-slate-400">AI Threat detection</p></li>
+                                    <li className="group cursor-pointer">
+                                        <p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">{dict.products.shield.name}</p>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">{dict.products.shield.desc}</p>
+                                    </li>
+                                    <li className="group cursor-pointer">
+                                        <p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500 transition-colors">{dict.products.sentinel.name}</p>
+                                        <p className="text-xs text-slate-500 dark:text-slate-400">{dict.products.sentinel.desc}</p>
+                                    </li>
                                 </ul>
                             </div>
                             <div className="lg:col-span-2 bg-slate-50 dark:bg-[#030a08]/50 p-8 rounded-3xl border border-slate-100 dark:border-slate-800">
-                                <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">Explore our Infrastructure</h3>
-                                <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">Scale your applications globally on our zero-trust network with edge computing capabilities.</p>
-                                <Button className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl">View Roadmap</Button>
+                                <h3 className="text-xl font-bold mb-4 text-slate-900 dark:text-white">{dict.megamenu.infraTitle}</h3>
+                                <p className="text-slate-500 dark:text-slate-400 mb-6 text-sm leading-relaxed">{dict.megamenu.infraDesc}</p>
+                                <Button className="bg-emerald-500 hover:bg-emerald-600 text-white rounded-xl">{dict.megamenu.viewRoadmap}</Button>
                             </div>
                         </div>
                     )}
@@ -157,14 +165,14 @@ export default function Header() {
                     {activeTab === "developers" && (
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 animate-in fade-in slide-in-from-top-4 duration-500">
                             <div className="p-8 bg-emerald-500 rounded-3xl text-white shadow-xl shadow-emerald-500/20">
-                                <h2 className="text-2xl font-black mb-2">Documentation</h2>
-                                <p className="opacity-90 mb-6 text-sm">Integrate Soteria into your stack in under 5 minutes with our SDKs.</p>
-                                <Button variant="secondary" className="bg-white text-emerald-500 hover:bg-slate-100 rounded-xl">Start Building</Button>
+                                <h2 className="text-2xl font-black mb-2">{dict.megamenu.docsTitle}</h2>
+                                <p className="opacity-90 mb-6 text-sm">{dict.megamenu.docsDesc}</p>
+                                <Button variant="secondary" className="bg-white text-emerald-500 hover:bg-slate-100 rounded-xl">{dict.megamenu.startBuilding}</Button>
                             </div>
                             <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="p-6 border border-slate-100 dark:border-slate-800 rounded-2xl hover:bg-slate-50 dark:hover:bg-[#030a08] transition-all cursor-pointer group">
-                                    <p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500">API Reference</p>
-                                    <p className="text-sm text-slate-500 dark:text-slate-400">Full endpoint documentation for developers.</p>
+                                    <p className="font-bold text-slate-900 dark:text-white group-hover:text-emerald-500">{dict.megamenu.apiRef}</p>
+                                    <p className="text-sm text-slate-500 dark:text-slate-400">{dict.megamenu.apiDesc}</p>
                                 </div>
                             </div>
                         </div>

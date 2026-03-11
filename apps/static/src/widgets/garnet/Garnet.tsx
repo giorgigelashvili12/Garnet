@@ -1,7 +1,7 @@
 "use client";
 
 import {useState, useEffect} from "react";
-import {Canvas} from '@react-three/fiber';
+import {Canvas} from "@react-three/fiber";
 import {PerspectiveCamera, OrbitControls} from "@react-three/drei";
 import ShardScene from "@/widgets/garnet/assets/Scene";
 

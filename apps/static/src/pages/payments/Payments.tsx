@@ -6,15 +6,17 @@ import DotWave from "@/shared/ui/dotwave";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
 import PaymentPopup from "@/pages/payments/assets/Popup";
+import {useDict} from "@/shared/hooks/useDict";
 
 export default function Payments() {
     const [isOpen, setIsOpen] = useState(false);
+    const dict = useDict();
 
     return (
         <div className="relative w-full overflow-x-hidden">
             <div className="text-center mb-10 md:-mb-30 relative z-20 px-6 pt-16 md:pt-20">
                 <span className="text-3xl md:text-5xl lg:text-6xl font-normal tracking-tighter text-slate-900 dark:text-white leading-tight block max-w-4xl mx-auto">
-                    Accept payments globally online, simplify your checkout experience.
+                    {dict.payments.title}
                 </span>
             </div>
 

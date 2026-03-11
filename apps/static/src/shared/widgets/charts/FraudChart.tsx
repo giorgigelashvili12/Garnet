@@ -2,21 +2,32 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { MoreHorizontal, Info } from 'lucide-react';
+import {useDict} from "@/shared/hooks/useDict";
 
 interface ChartSettings { width?: string | number; height?: string | number; barWidth?: number; gap?: string; }
 interface FraudChartProps { settings?: ChartSettings; className?: string; }
 
-const data = [{ m: 'J', d: 65, w: 25 }, { m: 'F', d: 45, w: 15 }, { m: 'M', d: 55, w: 30 }, { m: 'A', d: 40, w: 20 }, { m: 'M', d: 50, w: 25 }, { m: 'J', d: 30, w: 40 }, { m: 'J', d: 45, w: 20 }, { m: 'A', d: 70, w: 25 }, { m: 'S', d: 50, w: 20 }, { m: 'O', d: 60, w: 15 }];
-
 export default function FraudChart({ settings, className }: FraudChartProps) {
     const chartHeight = settings?.height ?? 180;
+    const dict = useDict();
+    const data = [
+        { m: dict.charts.FraudChart.m1, d: 65, w: 25 },
+        { m: dict.charts.FraudChart.m2, d: 45, w: 15 },
+        { m: dict.charts.FraudChart.m3, d: 55, w: 30 },
+        { m: dict.charts.FraudChart.m4, d: 40, w: 20 },
+        { m: dict.charts.FraudChart.m5, d: 50, w: 25 },
+        { m: dict.charts.FraudChart.m6, d: 30, w: 40 },
+        { m: dict.charts.FraudChart.m7, d: 45, w: 20 },
+        { m: dict.charts.FraudChart.m8, d: 70, w: 25 },
+        { m: dict.charts.FraudChart.m9, d: 50, w: 20 },
+        { m: dict.charts.FraudChart.m10, d: 60, w: 15 }];
 
     return (
         <div className={`bg-white pointer-events-none select-none dark:bg-zinc-950 rounded-[2.5rem] p-6 border border-slate-200 dark:border-white/5 shadow-xl w-full ${className}`}>
             <div className="flex justify-between items-center mb-6">
                 <div className="flex flex-col">
-                    <h2 className="text-lg font-bold tracking-tighter text-slate-900 dark:text-white">Fraud Analytics</h2>
-                    <h2 className="text-xs tracking-tighter text-slate-900 dark:text-white/70">Real-time analytics</h2>
+                    <h2 className="text-lg font-bold tracking-tighter text-slate-900 dark:text-white">{dict.charts.FraudChart.text1}</h2>
+                    <h2 className="text-xs tracking-tighter text-slate-900 dark:text-white/70">{dict.charts.FraudChart.text2}</h2>
                 </div>
                 <button className="p-2 hover:bg-slate-100 dark:hover:bg-white/5 rounded-full transition-colors text-slate-400"><MoreHorizontal size={18} /></button>
             </div>
@@ -25,14 +36,14 @@ export default function FraudChart({ settings, className }: FraudChartProps) {
                 <div>
                     <div className="flex items-center gap-1.5 mb-1">
                         <div className="w-2 h-2 rounded-full bg-emerald-500" />
-                        <span className="text-[9px] font-bold text-slate-400 tracking-tighter">Disputes</span>
+                        <span className="text-[9px] font-bold text-slate-400 tracking-tighter">{dict.charts.FraudChart.text3}</span>
                     </div>
                     <span className="text-2xl font-semibold text-slate-900 dark:text-white tabular-nums">0.08%</span>
                 </div>
                 <div>
                     <div className="flex items-center gap-1.5 mb-1">
                         <div className="w-2 h-2 rounded-full bg-emerald-200 dark:bg-emerald-500/30" />
-                        <span className="text-[9px] font-bold text-slate-400 tracking-tighter">Warnings</span>
+                        <span className="text-[9px] font-bold text-slate-400 tracking-tighter">{dict.charts.FraudChart.text4}</span>
                     </div>
                     <span className="text-2xl font-semibold text-slate-900 dark:text-white tabular-nums">0.01%</span>
                 </div>
@@ -45,7 +56,7 @@ export default function FraudChart({ settings, className }: FraudChartProps) {
                 <div className="relative z-10 flex items-end justify-between h-full gap-1 md:gap-2">
                     {data.map((item, i) => (
                         <div key={i} className="flex-1 flex flex-col items-center group h-full justify-end">
-                            <div className="w-full flex flex-col justify-end items-center h-full max-w-[12px] md:max-w-[20px]">
+                            <div className="w-full flex flex-col justify-end items-center h-full max-w-3 md:max-w-5">
                                 <motion.div initial={{ height: 0 }} animate={{ height: `${item.w}%` }} transition={{ delay: i * 0.02, duration: 0.5 }} className="w-full bg-emerald-200 dark:bg-emerald-500/20 rounded-t-sm mb-0.5" />
                                 <motion.div initial={{ height: 0 }} animate={{ height: `${item.d}%` }} transition={{ delay: i * 0.02, duration: 0.5 }} className="w-full bg-emerald-500 rounded-sm" />
                             </div>
