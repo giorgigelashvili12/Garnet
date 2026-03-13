@@ -1,6 +1,6 @@
 "use client";
 
-import { SilkWaves } from "@/shared/ui/waves";
+import {SilkWaves} from "@/shared/ui/waves";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronRight } from "lucide-react";
