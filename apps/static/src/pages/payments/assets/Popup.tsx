@@ -84,8 +84,8 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                 {dict.payments.popup.text2}
                                             </p>
                                         </div>
-                                        <div className="bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-5 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-25">
-                                            <div className='scale-100 py-4.5'>
+                                        <div className="bg-white p-2 dark:bg-zinc-900 rounded-2xl">
+                                            <div className='scale-90'>
                                                 <AccountList/>
                                             </div>
                                         </div>

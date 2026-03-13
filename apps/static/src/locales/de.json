@@ -95,17 +95,18 @@
         "title": "Intelligentes Treasury",
         "desc": "Genehmigen oder lehnen Sie Transaktionen basierend auf benutzerdefinierter Logik ab."
       },
+      "intro": "Erfahren Sie mehr über die Ausgabe",
       "card1": {
-        "title": "Identifizieren Sie Aktivitäten und erkennen Sie Betrug in Echtzeit. Mit Modellen und Tools von Garnet können Sie legitime Kunden problemlos zulassen.",
-        "link": "Mehr über Garnet Lens"
+        "title": "Skalieren Sie Ihr Unternehmen weltweit, richten Sie Datenpipelines ein und bewegen Sie Informationen global",
+        "link": "Lesen Sie mehr über Garnet Link"
       },
       "card2": {
-        "title": "Steigern Sie den Umsatz und senken Sie Kosten und erhöhen Sie gleichzeitig Ihre Autorisierungs-Akzeptanzrate.",
-        "link": "Mehr über Autorisierung"
+        "title": "BaaS (Banking-as-a-Service) – die Integration von Finanzdienstleistungen direkt in Softwareanwendungen.",
+        "link": "Lesen Sie mehr über Treasury"
       },
       "card3": {
-        "title": "Verwalten Sie Zahlungen online und weltweit und implementieren Sie unterstützte und beliebte Zahlungsmethoden.",
-        "link": "Mehr über Terminal"
+        "title": "Endnutzer-Service: Durch die Erstellung eines Kartenausgabeprogramms können Sie Ausgaben präzise verfolgen und limitieren.",
+        "link": "Lesen Sie mehr über Spesenmanagement"
       }
     },
     "card": {
@@ -158,6 +159,7 @@
       "mfull5": "Jun"
     },
     "AccountList": {
+      "title": "Verbundene Konten",
       "text1": "Konten",
       "text2": "Live-Updates",
       "status1": "Abgelehnt",
@@ -247,6 +249,7 @@
         "three": "Orgservice Ressourcen"
       },
       "title": "Verfügbares Guthaben",
+      "para": "Erstellen Sie mit Garnet Geschäfts- oder Privatkundenkarten. Nutzen Sie das Ausgabenmanagement, um Guthaben oder verdiente Gelder auszugeben. Verwenden Sie Garnet als Programmmanager oder als Zahlungsabwickler für die volle Kontrolle.",
       "price": "Ausstehend: ",
       "subtitle": "Aktivität",
       "tableAssets": {

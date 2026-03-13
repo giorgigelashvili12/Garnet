@@ -46,7 +46,7 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                         {dict.issuing.popup.title.two}
                                     </span>
                                     <p className="text-sm md:text-lg font-normal tracking-tighter text-slate-600 dark:text-zinc-400 block max-w-2xl leading-snug">
-
+                                        {dict.charts.IssuingWeb.para}
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-3 mt-6">
                                         <Link href="/payments" className="flex justify-center text-white px-5 py-2.5 bg-emerald-500 border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-transparent hover:text-emerald-400">
@@ -62,34 +62,11 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                     <div className="h-fit w-full max-w-5xl bg-slate-50 dark:bg-zinc-900/50 relative overflow-hidden rounded-4xl md:rounded-[3rem] border border-slate-100 dark:border-white/5 shadow-2xlscale-[0.8] sm:scale-90 md:scale-100transition-transform duration-500 origin-center">
                                         <IssuingWeb />
                                     </div>
-                                    {/*<div className="flex flex-col gap-6 md:gap-10 flex-1 w-full">*/}
-                                    {/*    <div className="flex items-start gap-4">*/}
-                                    {/*        <div className="p-2.5 border rounded-md transition-colors bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400 shrink-0">*/}
-                                    {/*            <Globe size={20} />*/}
-                                    {/*        </div>*/}
-                                    {/*        <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">*/}
-                                    {/*            {dict.payments.popup.text1}*/}
-                                    {/*        </p>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className="flex items-start gap-4">*/}
-                                    {/*        <div className="p-2.5 border rounded-md transition-colors bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400 shrink-0">*/}
-                                    {/*            <TrendingUp size={20} />*/}
-                                    {/*        </div>*/}
-                                    {/*        <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">*/}
-                                    {/*            {dict.payments.popup.text2}*/}
-                                    {/*        </p>*/}
-                                    {/*    </div>*/}
-                                    {/*    <div className="bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-5 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-25">*/}
-                                    {/*        <div className='scale-100 py-4.5'>*/}
-
-                                    {/*        </div>*/}
-                                    {/*    </div>*/}
-                                    {/*</div>*/}
                                 </div>
 
                                 {showWidget ? (
                                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 md:mt-10">
-                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">{dict.payments.popup.intro}</span>
+                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">{dict.issuing.popup.intro}</span>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
@@ -111,7 +88,7 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card2.title}</p>
                                                 <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
+                                                    {dict.issuing.popup.card2.link} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
@@ -123,7 +100,7 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card3.title}</p>
                                                 <Link href="/terminal" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
+                                                    {dict.issuing.popup.card3.link} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
                                         </div>
@@ -146,3 +123,13 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
         </div>
     );
 }
+
+/*
+Build and monetize a program that gives your customers access to fast financing with minimal effort.
+
+Capital for platforms
+
+Enable your customers to hold funds, pay bills, earn rewards, and manage cash flows with a single integration.
+
+Financial Accounts for platforms
+*  */

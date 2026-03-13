@@ -95,17 +95,18 @@
         "title": "Smart Treasury",
         "desc": "Approve or decline transactions based on custom logic."
       },
+      "intro": "Explore More About Issuing",
       "card1": {
-        "title": "Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.",
-        "link": "Read About Garnet Lens"
+        "title": "Scale your business globally, setup pipes and move data all around",
+        "link": "Read About Garnet Link"
       },
       "card2": {
-        "title": "Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.",
-        "link": "Read About Authorization"
+        "title": "BaaS (Banking-as-a-Service), practice of integrating financial services in Softwares.",
+        "link": "Read About Treasury"
       },
       "card3": {
-        "title": "Manage payments online and globally, implement supported and popular payment methods.",
-        "link": "Read About Terminal"
+        "title": "End-user based service, while creating a card issuing program, you can track and limit expenses.",
+        "link": "Read About Expense Management"
       }
     },
     "card": {
@@ -158,6 +159,7 @@
       "mfull5": "Jun"
     },
     "AccountList": {
+      "title": "Connected accounts",
       "text1": "Accounts",
       "text2": "Live Updates",
       "status1": "Rejected",
@@ -247,6 +249,7 @@
         "three": "Orgservice Resources"
       },
       "title": "Available Balance",
+      "para": "Create commercial or consumer cards with Garnet's support. Expense management, allowing to spend credit or earned funds; Use Garnet as your program manager, or use Garnet as your processor for control.",
       "price": "Pending: ",
       "subtitle": "Activity",
       "tableAssets": {

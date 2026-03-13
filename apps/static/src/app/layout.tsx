@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import {GeistSans} from 'geist/font/sans';
 import {ThemeProvider} from "@/shared/config/theme-provider";
+import Header from "@/widgets/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({
                 enableSystem
                 disableTransitionOnChange
             >
+                <Header/>
                 <div className="relative min-h-screen transition-colors duration-300">
                     {children}
                 </div>
