@@ -58,8 +58,8 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col h-fit justify-center lg:flex-row items-center gap-8 lg:gap-12 p-4 md:p-8">
-                                    <div className="h-fit w-full max-w-5xl bg-slate-50 dark:bg-zinc-900/50 relative overflow-hidden rounded-3xl border border-slate-100 dark:border-white/5 shadow-xl">
+                                <div className="flex flex-col h-fit justify-center lg:flex-row items-center gap-8 lg:gap-12 p-4 md:p-8 overflow-hidden">
+                                    <div className="h-fit w-full max-w-5xl bg-slate-50 dark:bg-zinc-900/50 relative overflow-hidden rounded-4xl md:rounded-[3rem] border border-slate-100 dark:border-white/5 shadow-2xlscale-[0.8] sm:scale-90 md:scale-100transition-transform duration-500 origin-center">
                                         <IssuingWeb />
                                     </div>
                                     {/*<div className="flex flex-col gap-6 md:gap-10 flex-1 w-full">*/}
