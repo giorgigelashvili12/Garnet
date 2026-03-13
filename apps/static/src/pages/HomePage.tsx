@@ -11,10 +11,6 @@ import Chem from "@/pages/chem/Chem";
 import Intro from "@/pages/intro/Intro";
 import Payments from "@/pages/payments/Payments";
 import Issuing from "@/pages/issuing/Issuing";
-import BackgroundVideo from "@/pages/test/BackgroundVideo";
-import GlowingEffectDemo from "@/pages/test/GlowingUsage";
-import {AuroraBackgroundDemo} from "@/pages/test/BeamDemo";
-import SmokeDemo from "@/pages/test/WavesDemo";
 
 export default function HomePage() {
     return (
