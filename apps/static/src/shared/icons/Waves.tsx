@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 
+// cspell:disable
 const fragmentShaderSource = `#version 300 es
 precision highp float;
 out vec4 O;
@@ -30,17 +31,25 @@ void main(){
   col=clamp(col,.08,1.);
   O=vec4(col,1);
 }`;
+// cspell:enable
+
+interface UniformLocations {
+    res: WebGLUniformLocation | null;
+    t: WebGLUniformLocation | null;
+    c: WebGLUniformLocation | null;
+}
 
 class Renderer {
     private readonly vertexSrc = "#version 300 es\nprecision highp float;\nin vec4 position;void main(){gl_Position=position;}";
     private readonly vertices = [-1, 1, -1, -1, 1, 1, 1, -1];
-    private gl: WebGL2RenderingContext;
-    private canvas: HTMLCanvasElement;
+    private readonly gl: WebGL2RenderingContext;
+    private readonly canvas: HTMLCanvasElement;
     private program: WebGLProgram | null = null;
     private vs: WebGLShader | null = null;
     private fs: WebGLShader | null = null;
     private buffer: WebGLBuffer | null = null;
     private color: [number, number, number] = [0.5, 0.5, 0.5];
+    private locations: UniformLocations = { res: null, t: null, c: null };
 
     constructor(canvas: HTMLCanvasElement, fragmentSource: string) {
         this.canvas = canvas;
@@ -93,26 +102,29 @@ class Renderer {
         const pos = gl.getAttribLocation(program, "position");
         gl.enableVertexAttribArray(pos);
         gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
-        (program as any).res = gl.getUniformLocation(program, "resolution");
-        (program as any).t = gl.getUniformLocation(program, "time");
-        (program as any).c = gl.getUniformLocation(program, "u_color");
+
+        this.locations = {
+            res: gl.getUniformLocation(program, "resolution"),
+            t: gl.getUniformLocation(program, "time"),
+            c: gl.getUniformLocation(program, "u_color")
+        };
     }
 
     render(now = 0) {
-        const { gl, program, buffer, canvas } = this;
+        const { gl, program, buffer, canvas, locations } = this;
         if (!program) return;
         gl.useProgram(program);
         gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
-        gl.uniform2f((program as any).res, canvas.width, canvas.height);
-        gl.uniform1f((program as any).t, now * 1e-3);
-        gl.uniform3fv((program as any).c, this.color);
+        gl.uniform2f(locations.res, canvas.width, canvas.height);
+        gl.uniform1f(locations.t, now * 1e-3);
+        gl.uniform3fv(locations.c, this.color);
         gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
     }
 }
 
 const hexToRgb = (hex: string): [number, number, number] | null => {
     const r = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-    return r ? [parseInt(r[1], 16)/255, parseInt(r[2], 16)/255, parseInt(r[3], 16)/255] : null;
+    return r ? [parseInt(r[1], 16) / 255, parseInt(r[2], 16) / 255, parseInt(r[3], 16) / 255] : null;
 };
 
 export const SmokeBackground: React.FC<{ smokeColor?: string }> = ({ smokeColor = "#808080" }) => {
@@ -127,7 +139,10 @@ export const SmokeBackground: React.FC<{ smokeColor?: string }> = ({ smokeColor 
         handleResize();
         window.addEventListener('resize', handleResize);
         let raf: number;
-        const loop = (now: number) => { renderer.render(now); raf = requestAnimationFrame(loop); };
+        const loop = (now: number) => {
+            renderer.render(now);
+            raf = requestAnimationFrame(loop);
+        };
         loop(0);
         return () => {
             window.removeEventListener('resize', handleResize);

@@ -1,4 +1,4 @@
-import {SmokeBackground} from "@/pages/test/Waves";
+import {SmokeBackground} from "@/shared/icons/Waves";
 import {Chip} from "@/shared/icons/Chip";
 
 export default function IssuingCard() {
