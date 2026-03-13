@@ -12,6 +12,9 @@ import Intro from "@/pages/intro/Intro";
 import Payments from "@/pages/payments/Payments";
 import Issuing from "@/pages/issuing/Issuing";
 import BackgroundVideo from "@/pages/test/BackgroundVideo";
+import GlowingEffectDemo from "@/pages/test/GlowingUsage";
+import {AuroraBackgroundDemo} from "@/pages/test/BeamDemo";
+import SmokeDemo from "@/pages/test/WavesDemo";
 
 export default function HomePage() {
     return (
@@ -27,6 +30,10 @@ export default function HomePage() {
                 <div className='lg:px-70 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5 py-40'>
                     <Issuing/>
                 </div>
+
+                {/*<GlowingEffectDemo />*/}
+                {/*<AuroraBackgroundDemo />*/}
+                {/*<SmokeDemo/>*/}
             </div>
         </div>
     )

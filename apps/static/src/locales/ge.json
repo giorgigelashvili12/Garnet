@@ -234,6 +234,26 @@
         "tokens": "ტოკენები",
         "tokensPrice": "₾0.01 თითო 1,000 ტოკენზე"
       }
+    },
+    "IssuingWeb": {
+      "dates": {
+        "one": "13 მარ",
+        "two": "12 მარ",
+        "three": "12 მარ"
+      },
+      "desc": {
+        "one": "სასტუმრო Castello Mare",
+        "two": "სასტუმროს საუზმე",
+        "three": "Orgservice რესურსები"
+      },
+      "title": "ხელმისაწვდომი ბალანსი",
+      "price": "მოდის: ",
+      "subtitle": "აქტივობა",
+      "tableAssets": {
+        "one": "თარიღი",
+        "two": "აღწერა",
+        "three": "თანხა"
+      }
     }
   }
 }

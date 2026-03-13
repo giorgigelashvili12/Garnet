@@ -21,7 +21,7 @@ export default function Languages() {
 
     return (
         <div className="relative z-999999">
-            <button onClick={() => setIsOpen(!isOpen)} className="flex items-center gap-2 px-4 py-2 rounded-2xl dark:bg-white/5 border dark:border-white/20 dark:hover:border-white/10 text-zinc-400 hover:border-zinc-300 hover:text-zinc-400 dark:hover:text-white hover:bg-white/10 transition-all backdrop-blur-md cursor-pointer group">
+            <button onClick={() => setIsOpen(!isOpen)} className="flex items-center gap-2 px-4 py-2 rounded-2xl dark:bg-(--dark) border dark:border-white/20 dark:hover:border-white/10 text-zinc-400 hover:border-zinc-300 hover:text-zinc-400 dark:hover:text-white hover:bg-white/10 transition-all backdrop-blur-md cursor-pointer group">
                 <Globe size={16} className={isOpen ? "text-emerald-500" : "group-hover:text-emerald-400"} />
                 <span className="text-xs font-bold tracking-widest">{currentLang.code}</span>
                 <ChevronDown size={14} className={`transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}/>
@@ -47,7 +47,7 @@ export default function Languages() {
                                             setLang(l.code);
                                             setIsOpen(false);
                                         }}
-                                        className={`flex items-center justify-between w-full px-4 py-3 rounded-xl transition-all group ${
+                                        className={`flex items-center justify-between w-full px-4 py-3 rounded-xl transition-all group cursor-pointer ${
                                             globalLangCode === l.code ? "bg-white/10 text-white" : "text-zinc-500 hover:bg-white/5 hover:text-zinc-200"
                                         }`}
                                     >

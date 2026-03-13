@@ -137,9 +137,9 @@ export default function Chem() {
 
             {!isMobile && (
                 <div className="absolute top-95 right-40 z-50">
-                    <button onClick={() => setShowModel(!showModel)} className="flex items-center gap-2 px-3 py-1.5 rounded-full text-black dark:text-white bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[15px] font-mono tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
+                    <button onClick={() => setShowModel(!showModel)} className="flex items-center gap-2 px-3 py-1.5 rounded-full text-black dark:text-white bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-[15px] tracking-widest hover:bg-slate-200 dark:hover:bg-white/10 transition-colors">
                         {showModel ? <Eye size={14} /> : <EyeOff size={14} />}
-                        {showModel ? "High Quality" : "Performance Mode"}
+                        {showModel ? "High" : "Low"}
                     </button>
                 </div>
             )}

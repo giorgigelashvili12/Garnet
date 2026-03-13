@@ -234,6 +234,26 @@
         "tokens": "Token",
         "tokensPrice": "0,01 $ pro 1.000 Token"
       }
+    },
+    "IssuingWeb": {
+      "dates": {
+        "one": "13. März",
+        "two": "12. März",
+        "three": "12. März"
+      },
+      "desc": {
+        "one": "Castello Mare Hotel",
+        "two": "Hotel Frühstück",
+        "three": "Orgservice Ressourcen"
+      },
+      "title": "Verfügbares Guthaben",
+      "price": "Ausstehend: ",
+      "subtitle": "Aktivität",
+      "tableAssets": {
+        "one": "Datum",
+        "two": "Beschreibung",
+        "three": "Betrag"
+      }
     }
   }
 }

@@ -80,7 +80,7 @@ export default function Header() {
                 </div>
 
                 <div className="flex items-center gap-2 md:gap-4">
-                    <div className="hidden sm:block">
+                    <div className="hidden sm:block cursor-pointer">
                         <Languages />
                     </div>
 

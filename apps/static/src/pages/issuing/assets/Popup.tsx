@@ -1,126 +1,146 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
-import { X, CreditCard, ArrowLeftRight, Wallet, ChevronRight } from "lucide-react";
-import Logo from "@/shared/ui/logo";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState, useEffect } from "react";
+import { X, ChevronRight, TrendingUp, Globe } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import FeatureItem from "@/shared/ui/FeatureItem";
-import LoadingSkeleton from "@/shared/ui/LoadingSkeleton";
-import CardActivity from "@/shared/widgets/charts/CardActivity";
 import {useDict} from "@/shared/hooks/useDict";
-const AccountList = dynamic(() => import('@/shared/widgets/charts/AccountList'), {ssr: false});
+import {IssuingWeb} from "@/shared/widgets/issuing/IssuingWeb";
 
 export default function IssuingPopup({ onClose }: { onClose: () => void }) {
-    const [isReady, setIsReady] = useState(false);
+    const [isReady, setReady] = useState(false);
+    const [showWidget, setShowWidget] = useState(false);
     const dict = useDict();
 
     useEffect(() => {
-        const originalStyle = window.getComputedStyle(document.body).overflow;
-        document.body.style.overflow = "hidden";
-        const timer = setTimeout(() => setIsReady(true), 150);
+        document.body.style.overflow = 'hidden';
+        const readyTimer = setTimeout(() => setReady(true), 400);
+        const widgetTimer = setTimeout(() => setShowWidget(true), 800);
         return () => {
-            document.body.style.overflow = originalStyle;
-            clearTimeout(timer);
+            document.body.style.overflow = 'unset';
+            clearTimeout(readyTimer);
+            clearTimeout(widgetTimer);
         };
     }, []);
 
     return (
-        <div className="fixed inset-0 z-9999 flex items-center justify-center p-0 sm:p-4 md:p-6 pointer-events-auto md:top-17">
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className="fixed inset-0 bg-black/40 dark:bg-black/80 backdrop-blur-md cursor-pointer"/>
+        <div className='fixed inset-0 z-100 flex md:top-17 items-center justify-center p-2 md:p-12'>
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className='absolute inset-0 bg-black/60 backdrop-blur-md' />
 
-            <motion.div
-                initial={{ opacity: 0, scale: 0.95, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                className="relative w-full max-w-7xl h-full sm:h-[95vh] md:h-[90vh] bg-white dark:bg-zinc-950 rounded-none sm:rounded-4xl md:rounded-[3rem] shadow-2xl border-x-0 sm:border border-zinc-200 dark:border-zinc-800 z-[10000] overflow-hidden flex flex-col"
-            >
-                <div className="absolute top-4 right-4 md:top-8 md:right-8 z-60">
-                    <button onClick={onClose} className="p-2.5 md:p-3 cursor-pointer rounded-full bg-white/80 dark:bg-zinc-900/80 backdrop-blur-md text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all active:scale-95 border border-zinc-200 dark:border-zinc-800 shadow-lg">
-                        <X className="size-5 md:size-6" />
+            <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 24 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="relative w-full max-w-7xl h-[95vh] md:h-[90vh] bg-white/95 dark:bg-zinc-950/90 rounded-4xl md:rounded-[3rem] shadow-2xl border border-white/10 overflow-hidden flex flex-col">
+                <div className="absolute top-4 right-4 md:top-8 md:right-8 z-120">
+                    <button onClick={onClose} className="p-2 md:p-3 cursor-pointer rounded-full bg-zinc-100 dark:bg-zinc-800 text-zinc-500 hover:text-zinc-900 dark:hover:text-white transition-all active:scale-95 shadow-lg">
+                        <X size={20} className="md:size-6" />
                     </button>
                 </div>
 
-                <div className="flex-1 overflow-y-auto p-5 sm:p-8 md:p-16 scrollbar-hide">
-                    {isReady ? (
-                        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }} className="space-y-10 md:space-y-20">
+                <div className="flex-1 overflow-y-auto p-6 md:p-10 pt-16 md:pt-16 scrollbar-hide">
+                    <div className="flex flex-col gap-8 md:gap-10">
+                        {isReady ? (
+                            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-8 md:gap-10">
+                                <div className="space-y-4">
+                                    <span className="text-2xl md:text-4xl font-normal tracking-tighter text-slate-900 dark:text-white block max-w-2xl leading-tight">
+                                        {dict.issuing.popup.title.one}
+                                        {" "}
+                                        {dict.issuing.popup.title.two}
+                                    </span>
+                                    <p className="text-sm md:text-lg font-normal tracking-tighter text-slate-600 dark:text-zinc-400 block max-w-2xl leading-snug">
 
-                            <div className="flex items-center gap-3">
-                                <Logo />
-                            </div>
-
-                            <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-                                <div className="space-y-6 md:space-y-10 text-left">
-                                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-normal tracking-tighter text-slate-900 dark:text-white leading-[1.1]">
-                                        {dict.issuing.popup.title.one} <span className="text-emerald-400">{dict.issuing.popup.title.two}</span>
-                                    </h1>
-
-                                    <div className="flex flex-col sm:flex-row gap-3">
-                                        <Link href="/billing" className="flex justify-center text-white px-6 py-3 bg-emerald-500 border border-emerald-500 items-center gap-2 font-bold text-sm transition-all rounded-xl hover:bg-transparent hover:text-emerald-500">
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row gap-3 mt-6">
+                                        <Link href="/payments" className="flex justify-center text-white px-5 py-2.5 bg-emerald-500 border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-transparent hover:text-emerald-400">
                                             {dict.issuing.popup.link1} <ChevronRight className="size-4" />
                                         </Link>
-                                        <Link href="/pricing" className="flex justify-center text-zinc-600 dark:text-zinc-400 px-6 py-3 bg-zinc-100 dark:bg-zinc-900 border border-transparent items-center gap-2 font-bold text-sm transition-all rounded-xl hover:border-zinc-300 dark:hover:border-zinc-700">
-                                            {dict.issuing.popup.link2}
+                                        <Link href="/payments" className="flex justify-center text-emerald-500 dark:text-emerald-400 px-5 py-2.5 bg-transparent border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-emerald-500 hover:text-white">
+                                            {dict.issuing.popup.link2} <ChevronRight className="size-4" />
                                         </Link>
                                     </div>
-
-                                    <div className="grid gap-6 md:gap-8 pt-4">
-                                        <FeatureItem icon={<CreditCard className="text-emerald-500"/>} title={dict.issuing.popup.featureItem1.title} desc={dict.issuing.popup.featureItem1.desc} />
-                                        <FeatureItem icon={<ArrowLeftRight className="text-emerald-500"/>} title={dict.issuing.popup.featureItem1.title} desc={dict.issuing.popup.featureItem1.desc} />
-                                        <FeatureItem icon={<Wallet className="text-emerald-500"/>} title={dict.issuing.popup.featureItem1.title} desc={dict.issuing.popup.featureItem1.desc} />
-                                    </div>
                                 </div>
 
-                                <div className="relative bg-zinc-50 dark:bg-zinc-900/30 border border-zinc-200 dark:border-zinc-800 rounded-[2.5rem] md:rounded-[4rem] p-4 sm:p-8 min-h-100 flex items-center justify-center overflow-hidden">
-                                    <div className="scale-90 sm:scale-100 md:scale-110 transform-gpu transition-transform duration-700">
-                                        <CardActivity/>
+                                <div className="flex flex-col h-fit justify-center lg:flex-row items-center gap-8 lg:gap-12 p-4 md:p-8">
+                                    <div className="h-fit w-full max-w-5xl bg-slate-50 dark:bg-zinc-900/50 relative overflow-hidden rounded-3xl border border-slate-100 dark:border-white/5 shadow-xl">
+                                        <IssuingWeb />
                                     </div>
-                                    <div className="absolute inset-0 bg-linear-to-tr from-white/10 to-transparent pointer-events-none" />
+                                    {/*<div className="flex flex-col gap-6 md:gap-10 flex-1 w-full">*/}
+                                    {/*    <div className="flex items-start gap-4">*/}
+                                    {/*        <div className="p-2.5 border rounded-md transition-colors bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400 shrink-0">*/}
+                                    {/*            <Globe size={20} />*/}
+                                    {/*        </div>*/}
+                                    {/*        <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">*/}
+                                    {/*            {dict.payments.popup.text1}*/}
+                                    {/*        </p>*/}
+                                    {/*    </div>*/}
+                                    {/*    <div className="flex items-start gap-4">*/}
+                                    {/*        <div className="p-2.5 border rounded-md transition-colors bg-emerald-50 border-emerald-200 text-emerald-600 dark:bg-emerald-500/10 dark:border-emerald-500/20 dark:text-emerald-400 shrink-0">*/}
+                                    {/*            <TrendingUp size={20} />*/}
+                                    {/*        </div>*/}
+                                    {/*        <p className="text-sm md:text-base text-slate-600 dark:text-zinc-300">*/}
+                                    {/*            {dict.payments.popup.text2}*/}
+                                    {/*        </p>*/}
+                                    {/*    </div>*/}
+                                    {/*    <div className="bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-5 relative overflow-hidden flex flex-col items-center rounded-3xl md:rounded-4xl border border-slate-100 dark:border-white/5 w-full min-h-25">*/}
+                                    {/*        <div className='scale-100 py-4.5'>*/}
+
+                                    {/*        </div>*/}
+                                    {/*    </div>*/}
+                                    {/*</div>*/}
                                 </div>
+
+                                {showWidget ? (
+                                    <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 md:mt-10">
+                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">{dict.payments.popup.intro}</span>
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+                                            <div className="flex flex-col gap-4">
+                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-60 md:scale-80 w-100">
+
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card1.title}</p>
+                                                <Link href="/lens" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
+                                                    {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
+                                                </Link>
+                                            </div>
+
+                                            <div className="flex flex-col gap-4">
+                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-80 md:scale-100 w-100 flex items-center justify-center">
+
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card2.title}</p>
+                                                <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
+                                                    {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
+                                                </Link>
+                                            </div>
+
+                                            <div className="flex flex-col gap-4">
+                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-50 md:scale-60 transition-transform">
+
+                                                    </div>
+                                                </div>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card3.title}</p>
+                                                <Link href="/terminal" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
+                                                    {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </motion.div>
+                                ) : (
+                                    <div className="h-48 w-full border-2 border-dashed border-slate-200 dark:border-zinc-800 rounded-3xl flex items-center justify-center text-slate-400">
+                                        {dict.payments.popup.loading}
+                                    </div>
+                                )}
+                            </motion.div>
+                        ) : (
+                            <div className="flex flex-col gap-10 animate-pulse">
+                                <div className="h-12 w-3/4 bg-slate-200 dark:bg-zinc-800 rounded-xl" />
+                                <div className="h-64 w-full bg-slate-100 dark:bg-zinc-800/50 rounded-3xl md:rounded-4xl" />
                             </div>
-
-                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-                                <div className="flex flex-col gap-4">
-                                    <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                        <div className="scale-60 md:scale-80 w-100">
-                                            <AccountList/>
-                                        </div>
-                                    </div>
-                                    <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card1.title}</p>
-                                    <Link href="/lens" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                        {dict.issuing.popup.card1.link} <ChevronRight className="size-4" />
-                                    </Link>
-                                </div>
-
-                                <div className="flex flex-col gap-4">
-                                    <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                        <div className="scale-80 md:scale-100 w-100 flex items-center justify-center">
-
-                                        </div>
-                                    </div>
-                                    <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card2.title}</p>
-                                    <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                        {dict.issuing.popup.card2.link} <ChevronRight className="size-4" />
-                                    </Link>
-                                </div>
-
-                                <div className="flex flex-col gap-4">
-                                    <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                        <div className="scale-50 md:scale-60 transition-transform">
-
-                                        </div>
-                                    </div>
-                                    <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card3.title}</p>
-                                    <Link href="/terminal" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                        {dict.issuing.popup.card3.link} <ChevronRight className="size-4" />
-                                    </Link>
-                                </div>
-                            </div>
-                        </motion.div>
-                    ) : (
-                        <div className="p-8"><LoadingSkeleton /></div>
-                    )}
+                        )}
+                    </div>
                 </div>
             </motion.div>
         </div>
