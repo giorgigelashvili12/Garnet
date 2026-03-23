@@ -6,11 +6,13 @@ import {ChevronRight} from "lucide-react";
 import {useTheme} from 'next-themes';
 import { useRef } from "react";
 
-import Hero from "@/pages/hero/Hero";
-import Chem from "@/pages/chem/Chem";
-import Intro from "@/pages/intro/Intro";
-import Payments from "@/pages/payments/Payments";
-import Issuing from "@/pages/issuing/Issuing";
+import Hero from "@/features/hero/Hero";
+import Chem from "@/features/chem/Chem";
+import Intro from "@/features/intro/Intro";
+import Payments from "@/features/payments/Payments";
+import Issuing from "@/features/issuing/Issuing";
+import Billing from "@/features/billing/Billing";
+import Section from "@/pages/assets/Section";
 import {ScrollProgress} from "@/shared/ui/scroll-progress";
 
 export default function HomePage() {
@@ -34,6 +36,7 @@ export default function HomePage() {
                     <Issuing/>
                 </div>
 
+                <Section/>
                 {/*<GlowingEffectDemo />*/}
                 {/*<AuroraBackgroundDemo />*/}
                 {/*<SmokeDemo/>*/}

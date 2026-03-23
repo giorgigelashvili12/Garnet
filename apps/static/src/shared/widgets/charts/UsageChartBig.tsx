@@ -1,15 +1,16 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import {Tick} from "@/shared/ui/tick";
-import {Pipe} from "@/shared/ui/pipe";
-import {ProgressBar} from "@/shared/ui/progress-bar";
+import {Tick} from "@/shared/widgets/billing/Tick";
+import {Pipe} from "@/shared/widgets/billing/Pipe";
+import {ProgressBar} from "@/shared/widgets/billing/ProgressBar";
 import {useDict} from "@/shared/hooks/useDict";
 
 export function UsageChart2() {
     const timeline = React.useMemo(() => [0, 20, 40, 70], []);
     const delays = React.useMemo(() => [1000, 4200, 4200], []);
     const dict = useDict();
+    const widget = dict.charts.UsageChart2;
 
     return (
         <div className="relative select-none pointer-events-none">
@@ -26,17 +27,17 @@ export function UsageChart2() {
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">Date Due</span>
+                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">{widget.labels.dateDue}</span>
                             <span className="text-xs font-medium text-zinc-900 dark:text-zinc-200">Mar 10</span>
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">Unity</span>
+                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">{widget.labels.unity}</span>
                             <span className="text-xs font-medium text-zinc-900 dark:text-zinc-200 truncate">billing@example.com</span>
                         </div>
 
                         <div className="flex flex-col">
-                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">To</span>
+                            <span className="text-[10px] tracking-wider font-bold text-zinc-400">{widget.labels.to}</span>
                             <span className="text-xs font-medium text-zinc-900 dark:text-zinc-200 truncate">person@example.com</span>
                         </div>
                     </div>
@@ -46,27 +47,27 @@ export function UsageChart2() {
                             <div className="w-20">
                                 <Tick start={5105.69} target={20105.69} steps={[5000, 5000, 5000]} isCurrency={true}/>
                             </div>
-                            <div>due Mar. 10</div>
+                            <div>{widget.labels.due} Mar. 10</div>
                         </div>
 
                         <div className="w-full mt-10">
                             <div className="grid grid-cols-[2fr_1fr_1.5fr] gap-4 pb-2 border-b border-zinc-100 dark:border-zinc-800">
-                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">Description</span>
-                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">Qty</span>
-                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">Unit Price</span>
+                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">{widget.table.description}</span>
+                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">{widget.table.qty}</span>
+                                <span className="text-[10px] text-left tracking-wider font-bold text-zinc-400">{widget.table.unitPrice}</span>
                             </div>
 
                             <div className="grid grid-cols-[2fr_1fr_1.5fr] gap-4 py-4 border-b border-zinc-100 dark:border-zinc-800 items-center">
-                                <span className="text-xs font-medium text-zinc-900 dark:text-zinc-100 w-10">Cloud Tokens</span>
+                                <span className="text-xs font-medium text-zinc-900 dark:text-zinc-100 w-10">{widget.lineItem.cloudTokens}</span>
                                 <span className="text-xs text-zinc-600 dark:text-zinc-400 text-right tabular-nums">
                                     <Tick start={510569010} target={2010569010} steps={[500000000, 500000000, 500000000, 500000000]} isCurrency={false}/>
                                 </span>
-                                <span className="text-xs text-zinc-600 dark:text-zinc-400 text-right whitespace-nowrap">$0.01 per 1,000</span>
+                                <span className="text-xs text-zinc-600 dark:text-zinc-400 text-right whitespace-nowrap">{widget.lineItem.unitPriceText}</span>
                             </div>
                         </div>
 
                         <div className="flex justify-between mt-5">
-                            <span>Total</span>
+                            <span>{widget.table.total}</span>
                             <span>
                                 <Tick start={5105.69} target={20105.69} steps={[5000, 5000, 5000]} isCurrency={true}/>
                             </span>

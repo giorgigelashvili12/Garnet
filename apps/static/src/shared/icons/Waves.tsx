@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from 'react';
 
-// cspell:disable
 const fragmentShaderSource = `#version 300 es
 precision highp float;
 out vec4 O;
@@ -31,7 +30,6 @@ void main(){
   col=clamp(col,.08,1.);
   O=vec4(col,1);
 }`;
-// cspell:enable
 
 interface UniformLocations {
     res: WebGLUniformLocation | null;
@@ -156,5 +154,5 @@ export const SmokeBackground: React.FC<{ smokeColor?: string }> = ({ smokeColor 
         if (rendererRef.current && rgb) rendererRef.current.updateColor(rgb);
     }, [smokeColor]);
 
-    return <canvas ref={canvasRef} className="w-full h-full block bg-[#080808]" />;
+    return <canvas ref={canvasRef} className="w-full h-full block bg-[#f4f4f5] dark:bg-[#000000]" />;
 };

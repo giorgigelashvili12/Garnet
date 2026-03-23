@@ -3,9 +3,9 @@
 import {useState} from 'react';
 import {AnimatePresence} from "framer-motion";
 import dynamic from "next/dynamic";
-import IssuingTrigger from "@/pages/issuing/assets/Trigger";
+import IssuingTrigger from "@/features/issuing/assets/Trigger";
 
-const IssuingPopup= dynamic(() => import('@/pages/issuing/assets/Popup'), {ssr: false});
+const IssuingPopup= dynamic(() => import('@/features/issuing/assets/Popup'), {ssr: false});
 
 export default function Issuing() {
     const [isOpen, setIsOpen] = useState(false);

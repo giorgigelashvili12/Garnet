@@ -139,6 +139,40 @@
       "loading": "Loading additional files..."
     }
   },
+  "billing": {
+    "popup": {
+      "title": "Enable any billing model",
+      "link1": "Billing",
+      "link2": "About Pricing",
+      "desc": "Leverage your platform's revenue potential to the fullest\n by earning a percentage of the interchange fee on every transaction.",
+      "featureItem1": "Respond to customer demand more efficiently, implement usage-based billing, tiered plans, or other adaptable billing models.",
+      "featureItem2": "Increase your revenue to its maximum and minimize failed payments with intelligent mechanisms and automated workflows.",
+      "featureItem3": "Implement third-party service integrations to accelerate workflows and use no-code tools simplifying billing configurations and implementations.",
+      "card1": {
+        "title": "Usage-based billing designed for performance and growth",
+        "desc": "Launch and experiment with pricing using no-code tools, for meters, credits, and flexible pricing plans. \n Run everything on a platform, with trusted AI companies to manage billing, payments, and taxes, all in a single service, in a single system.",
+        "link": "Read About Usage-based billing"
+      },
+      "card2": {
+        "title": "Tax",
+        "desc": "Manage global tax compliance, when it comes to anything,\n registration to calculation, collection, and filling",
+        "link": "Read About Tax"
+      },
+      "card3": {
+        "title": "Invoicing",
+        "desc": "Create, manage, track recurring invoices from any device",
+        "link": "Read About Invoicing"
+      }
+    },
+    "trigger": {
+      "title": "Enable Any Billing Model",
+      "subtitle1": "Pro Plan",
+      "subtitle2": "Billed monthly",
+      "text1": "Tokens",
+      "text2": "$0.01 per 1,000 units",
+      "text3": "Usage Meter"
+    }
+  },
   "charts": {
     "AuthChart": {
       "text1": "Authorization",
@@ -168,9 +202,7 @@
         { "id": "1", "name": "Alpha Co", "status": "Enabled", "balance": "$5,502" },
         { "id": "2", "name": "Beta Co", "status": "Enabled", "balance": "$380" },
         { "id": "3", "name": "Gamma Co", "status": "In review", "balance": "$933" },
-        { "id": "4", "name": "Delta Co", "status": "Enabled", "balance": "$168" },
-        { "id": "5", "name": "Epsilon Co", "status": "Rejected", "balance": "$608" },
-        { "id": "6", "name": "Zeta Co", "status": "Enabled", "balance": "$1,320" }
+        { "id": "4", "name": "Delta Co", "status": "Enabled", "balance": "$168" }
       ]
     },
     "CardActivity": {
@@ -257,6 +289,49 @@
         "two": "Description",
         "three": "Amount"
       }
+    },
+    "Expenses": {
+      "title": "Add a spending limit",
+      "labelLimit": "Limit",
+      "labelCategories": "Applies to categories",
+      "perMonth": "Per month",
+      "placeholderCategory": "Choose",
+      "btnCancel": "Cancel",
+      "btnAdd": "Add",
+      "categories": [
+        "Airfare and fees",
+        "Hotels, motels, and resorts",
+        "Public transportation",
+        "Parking fees and garages",
+        "Taxi and ride share"
+      ]
+    },
+    "Fund": {
+      "title": "Custom financing",
+      "labelOffer": "Offer amount",
+      "labelFinancingAmount": "Financing amount",
+      "labelFee": "Financing fee"
+    },
+    "UsageChart": {
+      "title": "Tokens used in the last 30 days"
+    },
+    "AgentCommerce": {
+      "title": "Monetize Through Agentic Commerce",
+      "customerQuery": "Winter is coming. Can you suggest some cozy basic clothes in size S?",
+      "agentResponse": "Absolutely. Here are some comfy basics that could get you started for the winter:",
+      "products": [
+        {
+          "name": "Essential Fleece Hoodie",
+          "price": "$55.00",
+          "description": "Heavyweight organic cotton with a brushed interior for maximum warmth."
+        },
+        {
+          "name": "Classic Trackpants",
+          "price": "$45.00",
+          "description": "Relaxed fit with elastic cuffs. Perfect for lounging or cold morning runs."
+        }
+      ],
+      "buttonText": "Add to Cart (S)"
     }
   }
 }

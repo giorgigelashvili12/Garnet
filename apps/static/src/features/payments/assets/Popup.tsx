@@ -84,11 +84,6 @@ export default function PaymentPopup({ onClose }: { onClose: () => void }) {
                                                 {dict.payments.popup.text2}
                                             </p>
                                         </div>
-                                        <div className="bg-white p-2 dark:bg-zinc-900 rounded-2xl">
-                                            <div className='scale-90'>
-                                                <AccountList/>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
 

@@ -139,6 +139,40 @@
       "loading": "Zusätzliche Dateien werden geladen..."
     }
   },
+  "billing": {
+    "popup": {
+      "title": "Abrechnungsmodelle flexibel gestalten",
+      "link1": "Abrechnung",
+      "link2": "Über Preisgestaltung",
+      "desc": "Schöpfen Sie das Umsatzpotenzial Ihrer Plattform voll aus,\nindem Sie bei jeder Transaktion einen Prozentsatz der Interbankengebühr verdienen.",
+      "featureItem1": "Reagieren Sie effizienter auf Kundenanforderungen, implementieren Sie nutzungsbasierte Abrechnung, gestaffelte Pläne oder andere anpassbare Modelle.",
+      "featureItem2": "Maximieren Sie Ihren Umsatz und minimieren Sie Zahlungsausfälle durch intelligente Mechanismen und automatisierte Workflows.",
+      "featureItem3": "Implementieren Sie Integrationen von Drittanbietern, um Workflows zu beschleunigen, und nutzen Sie No-Code-Tools für einfache Konfigurationen.",
+      "card1": {
+        "title": "Nutzungsbasierte Abrechnung für Performance und Wachstum",
+        "desc": "Starten und experimentieren Sie mit Preisen mithilfe von No-Code-Tools für Zähler, Credits und flexible Pläne. Alles auf einer Plattform verwaltet.",
+        "link": "Mehr über nutzungsbasierte Abrechnung"
+      },
+      "card2": {
+        "title": "Steuern",
+        "desc": "Verwalten Sie die globale Steuer-Compliance, von der Registrierung\nbis zur Berechnung, Einziehung und Meldung.",
+        "link": "Mehr über Steuern"
+      },
+      "card3": {
+        "title": "Rechnungsstellung",
+        "desc": "Erstellen, verwalten und verfolgen Sie wiederkehrende Rechnungen von jedem Gerät aus.",
+        "link": "Mehr über Rechnungsstellung"
+      }
+    },
+    "trigger": {
+      "title": "Beliebiges Abrechnungsmodell aktivieren",
+      "subtitle1": "Pro-Plan",
+      "subtitle2": "Monatliche Abrechnung",
+      "text1": "Tokens",
+      "text2": "0,01 $ pro 1.000 Einheiten",
+      "text3": "Verbrauchszähler"
+    }
+  },
   "charts": {
     "AuthChart": {
       "text1": "Autorisierung",
@@ -168,9 +202,7 @@
         { "id": "1", "name": "Alpha Co", "status": "Aktiviert", "balance": "$5,502" },
         { "id": "2", "name": "Beta Co", "status": "Aktiviert", "balance": "$380" },
         { "id": "3", "name": "Gamma Co", "status": "In Prüfung", "balance": "$933" },
-        { "id": "4", "name": "Delta Co", "status": "Aktiviert", "balance": "$168" },
-        { "id": "5", "name": "Epsilon Co", "status": "Abgelehnt", "balance": "$608" },
-        { "id": "6", "name": "Zeta Co", "status": "Aktiviert", "balance": "$1,320" }
+        { "id": "4", "name": "Delta Co", "status": "Aktiviert", "balance": "$168" }
       ]
     },
     "CardActivity": {
@@ -257,6 +289,49 @@
         "two": "Beschreibung",
         "three": "Betrag"
       }
+    },
+    "Expenses": {
+      "title": "Ausgabenlimit hinzufügen",
+      "labelLimit": "Limit",
+      "labelCategories": "Gilt für Kategorien",
+      "perMonth": "Pro Monat",
+      "placeholderCategory": "Wählen",
+      "btnCancel": "Abbrechen",
+      "btnAdd": "Hinzufügen",
+      "categories": [
+        "Flugpreise und Gebühren",
+        "Hotels, Motels und Resorts",
+        "Öffentliche Verkehrsmittel",
+        "Parkgebühren und Parkhäuser",
+        "Taxi und Mitfahrgelegenheiten"
+      ]
+    },
+    "Fund": {
+      "title": "Individuelle Finanzierung",
+      "labelOffer": "Angebotssumme",
+      "labelFinancingAmount": "Finanzierungsbetrag",
+      "labelFee": "Finanzierungsgebühr"
+    },
+    "UsageChart": {
+      "title": "In den letzten 30 Tagen verwendete Token"
+    },
+    "AgentCommerce": {
+      "title": "Monetarisierung durch Agentic Commerce",
+      "customerQuery": "Der Winter kommt. Kannst du mir gemütliche Basics in Größe S empfehlen?",
+      "agentResponse": "Absolut. Hier sind einige bequeme Basics, mit denen du in den Winter starten kannst:",
+      "products": [
+        {
+          "name": "Essential Fleece-Hoodie",
+          "price": "55,00 €",
+          "description": "Schwere Bio-Baumwolle mit gebürsteter Innenseite für maximale Wärme."
+        },
+        {
+          "name": "Klassische Trainingshose",
+          "price": "45,00 €",
+          "description": "Lockere Passform mit elastischen Bündchen. Perfekt zum Entspannen."
+        }
+      ],
+      "buttonText": "In den Warenkorb (S)"
     }
   }
 }

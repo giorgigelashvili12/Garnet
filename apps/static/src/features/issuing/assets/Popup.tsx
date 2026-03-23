@@ -1,12 +1,14 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { X, ChevronRight, TrendingUp, Globe } from "lucide-react";
 import Link from "next/link";
-import dynamic from "next/dynamic";
 import {useDict} from "@/shared/hooks/useDict";
 import {IssuingWeb} from "@/shared/widgets/issuing/IssuingWeb";
+import AccountList from "@/shared/widgets/charts/AccountList";
+import {Fund} from "@/shared/widgets/charts/Fund";
+import {Expenses} from "@/shared/widgets/charts/Expenses";
 
 export default function IssuingPopup({ onClose }: { onClose: () => void }) {
     const [isReady, setReady] = useState(false);
@@ -69,9 +71,9 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                         <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">{dict.issuing.popup.intro}</span>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                                    <div className="scale-60 md:scale-80 w-100">
-
+                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-60 w-100 bg-white">
+                                                        <div className='bg-white p-5 dark:bg-zinc-900'><AccountList/></div>
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card1.title}</p>
@@ -81,9 +83,9 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                             </div>
 
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                                    <div className="scale-80 md:scale-100 w-100 flex items-center justify-center">
-
+                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                    <div className="scale-80 flex items-center justify-center">
+                                                        <Fund/>
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card2.title}</p>
@@ -93,9 +95,9 @@ export default function IssuingPopup({ onClose }: { onClose: () => void }) {
                                             </div>
 
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
+                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
                                                     <div className="scale-50 md:scale-60 transition-transform">
-
+                                                        <Expenses/>
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">{dict.issuing.popup.card3.title}</p>

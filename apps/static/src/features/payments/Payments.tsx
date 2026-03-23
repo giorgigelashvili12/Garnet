@@ -5,7 +5,7 @@ import Web from "@/shared/widgets/Web";
 import DotWave from "@/shared/ui/dotwave";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
-import PaymentPopup from "@/pages/payments/assets/Popup";
+import PaymentPopup from "@/features/payments/assets/Popup";
 import {useDict} from "@/shared/hooks/useDict";
 
 export default function Payments() {
