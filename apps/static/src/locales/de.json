@@ -173,6 +173,17 @@
       "text3": "Verbrauchszähler"
     }
   },
+  "crypto": {
+    "heading": "Zahlungen sicher mit Krypto durchführen",
+    "text": "Integrieren Sie mühelos Krypto-Zahlungen, verwalten Sie digitale Vermögenswerte und bewegen Sie Geld weltweit ohne jegliche Komplexität.",
+
+    "popup": {
+      "title": "Führen Sie Zahlungen sicher mit Krypto aus",
+      "para": "Integrieren Sie Krypto-Zahlungen, verwalten Sie digitale Vermögenswerte und bewegen Sie Geld weltweit – ganz ohne Integrationskomplexität.",
+      "link1": "Krypto",
+      "link2": "Preise"
+    }
+  },
   "charts": {
     "AuthChart": {
       "text1": "Autorisierung",
@@ -331,7 +342,66 @@
           "description": "Lockere Passform mit elastischen Bündchen. Perfekt zum Entspannen."
         }
       ],
-      "buttonText": "In den Warenkorb (S)"
+      "buttonText": "In den Warenkorb (S)",
+
+      "popup": {
+        "title": "Zahlungen im Zeitalter der Agenten",
+        "desc": "Vergessen Sie die reine Kassenabwicklung und konzentrieren Sie sich stattdessen auf Ergebnisse. Agentic Commerce bietet die Infrastruktur, damit KI-Agenten Transaktionen selbstständig erkennen, verhandeln und ausführen können.",
+        "text1": "Verwalten Sie keine Chats mehr, sondern Ihre Agenten.",
+        "link1": "Agentenhandel",
+        "link2": "Über Preise",
+        "more": "Lesen Sie mehr über Agent Commerce",
+
+        "card1": {
+          "text": "Erweitern Sie die Funktionen Ihres KI-Agenten und gewähren Sie ihm Zugang zu Finanzdienstleistungen und -tools.",
+          "link": "Lesen Sie mehr über Smart Kit"
+        },
+        "card2": {
+          "text": "Ein sicheres Profil, das die Einschränkungen des Kunden basierend auf seinen Präferenzen und der gewählten Kategorie enthält.",
+          "link": "Lesen Sie mehr über Agentic Guard"
+        },
+        "card3": {
+          "text": "Mit UCP können Sie den Handel zwischen Menschen und Organisationen ermöglichen.",
+          "link": "Lesen Sie mehr über UCP"
+        }
+      }
+    },
+    "SmartKit": {
+      "title": "EcoStay-Paket",
+      "text1": "Check-in",
+      "text2": "Check-out",
+      "text3": "Buchung bestätigen",
+      "prompt1": "Buche das automatisch für mich, wenn der Gesamtpreis unter 400 $ fällt.",
+      "prompt2": "Verstanden. Ich habe einen Preisalarm gesetzt und benachrichtige dich, sobald gebucht wurde."
+    },
+    "AgenticGuard": {
+      "type1": "Produkt",
+      "type2": "Ethik",
+      "value1": "Ohne Erdnüsse",
+      "value2": "Ohne Tierversuche",
+      "text1": "Verifiziert",
+      "prompt1": "Vorschläge wurden gemäß Ihren Vorgaben gefiltert. Hier ist eine aktualisierte Produktliste:"
+    },
+    "CryptoWidget": {
+      "email": "E-Mail",
+      "paymentMethod": "Zahlungsmethode",
+      "card": "Karte",
+      "crypto": "Krypto",
+      "cashapp": "Cash App",
+      "bank": "US-Bankkonto",
+      "cryptoNote": "Bezahlen Sie mit Stablecoins wie USDC oder USDT.",
+      "cryptoRedirect": "Sie werden weitergeleitet, um die nächsten Schritte sicher abzuschließen."
     }
-  }
+  },
+  "extra": {
+    "site_url": "quickmarket.de",
+    "title": "Schneller Market",
+    "history": "Kuschelige Komfortkleidung",
+    "text1": "Neuer Chat",
+    "placeholder": "Schreiben Sie Ihre Nachricht",
+    "prompt1": "Finde mir einen blauen Hoodie",
+    "prompt2": "Vergleichen Sie die Trackpad-Preise",
+    "prompt3": "Bestellen Sie ein Baumwollhemd in Größe M"
+  },
+  "locale": "de"
 }

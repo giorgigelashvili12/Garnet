@@ -173,6 +173,17 @@
       "text3": "Usage Meter"
     }
   },
+  "crypto": {
+    "heading": "Execute Payments Safely With Crypto",
+    "text": "Easily integrate crypto payments, manage digital assets and move money globally without any complexity.",
+
+    "popup": {
+      "title": "Execute Payments Safely With Crypto",
+      "para": "Integrate crypto payments, manage digital assets and move money globally, without any integrational complexities.",
+      "link1": "Crypto",
+      "link2": "About Pricing"
+    }
+  },
   "charts": {
     "AuthChart": {
       "text1": "Authorization",
@@ -331,7 +342,66 @@
           "description": "Relaxed fit with elastic cuffs. Perfect for lounging or cold morning runs."
         }
       ],
-      "buttonText": "Add to Cart (S)"
+      "buttonText": "Add to Cart (S)",
+
+      "popup": {
+        "title": "Payments for the Agentic Era",
+        "desc": "Stop building for checkouts and start building for outcomes. Agentic commerce provides the infrastructure for AI agents to discover, negotiate, and execute transactions autonomously.",
+        "text1": "Stop managing chats Start managing agents.",
+        "link1": "Agentic Commerce",
+        "link2": "About Pricing",
+        "more": "Read More About Agent Commerce",
+
+        "card1": {
+          "text": "Expand the capabilities of your AI Agent, give access to financial services and tools.",
+          "link": "Read About Smart Kit"
+        },
+        "card2": {
+          "text": "A secure profile, containing customer's constraints based on their preferences and what category they are choosing from.",
+          "link": "Read About Agentic Guard"
+        },
+        "card3": {
+          "text": "Make commerce work between people and entities with UCP.",
+          "link": "Read About UCP"
+        }
+      }
+    },
+    "SmartKit": {
+      "title": "EcoStay Bundle",
+      "text1": "Check-In",
+      "text2": "Check-Out",
+      "text3": "Confirm Booking",
+      "prompt1": "Book this for me automatically if the total drops below $400.",
+      "prompt2": "Understood. Ive set a price trigger and will notify you once booked."
+    },
+    "AgenticGuard": {
+      "type1": "Product",
+      "type2": "Ethics",
+      "value1": "No Peanuts",
+      "value2": "No Animal Testing",
+      "text1": "Verified",
+      "prompt1": "Suggestions filtered based on your specifications. Providing you with an update list of products:"
+    },
+    "CryptoWidget": {
+      "email": "Email",
+      "paymentMethod": "Payment method",
+      "card": "Card",
+      "crypto": "Crypto",
+      "cashapp": "Cash App",
+      "bank": "US Bank Account",
+      "cryptoNote": "Pay with Stablecoins such as USDC or USDT.",
+      "cryptoRedirect": "You will be redirected to securely complete next steps."
     }
-  }
+  },
+  "extra": {
+    "site_url": "quickmarket.com",
+    "title": "Quick Market",
+    "history": "Cozy comfort clothes",
+    "text1": "New Chat",
+    "placeholder": "Type your message",
+    "prompt1": "Find me a blue hoodie",
+    "prompt2": "Compare trackpad prices",
+    "prompt3": "Order a medium cotton shirt"
+  },
+  "locale": "en"
 }

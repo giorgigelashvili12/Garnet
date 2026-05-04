@@ -1,22 +1,22 @@
 "use client";
 
 import { AnimatePresence } from "framer-motion";
-import { AgentCommerceTrigger } from "./assets/Trigger";
-import { AgentCommercePopup } from "./assets/Popup";
 import { useState } from "react";
+import CryptoTrigger from "./assets/Trigger";
+import { CryptoPopup } from "./assets/Popup";
 
-export default function AgentCommerce() {
+export default function Crypto() {
     const [isOpen, setIsOpen] = useState(false);
-
+ 
     return (
-        <>
+        <div>
             <div onClick={() => setIsOpen(true)} className="cursor-pointer">
-                <AgentCommerceTrigger/>
+                <CryptoTrigger/>
             </div>
 
             <AnimatePresence mode="wait">
-                {isOpen && <AgentCommercePopup onClose={() => setIsOpen(false)}/>}
+                {isOpen && <CryptoPopup onClose={() => setIsOpen(false)}/> }
             </AnimatePresence>
-        </>
+        </div>
     )
 }

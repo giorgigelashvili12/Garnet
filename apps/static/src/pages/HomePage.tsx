@@ -14,6 +14,8 @@ import Issuing from "@/features/issuing/Issuing";
 import Billing from "@/features/billing/Billing";
 import Section from "@/pages/assets/Section";
 import {ScrollProgress} from "@/shared/ui/scroll-progress";
+import Crypto from "@/features/crypto/Crypto";
+import Sync from "@/features/sync/Sync";
 
 export default function HomePage() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -37,6 +39,12 @@ export default function HomePage() {
                 </div>
 
                 <Section/>
+
+                <div className='lg:px-70 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5 py-40 flex flex-col gap-50'>
+                    <Crypto/>
+
+                    <Sync/>
+                </div>
                 {/*<GlowingEffectDemo />*/}
                 {/*<AuroraBackgroundDemo />*/}
                 {/*<SmokeDemo/>*/}
