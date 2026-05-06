@@ -403,5 +403,70 @@
     "prompt2": "Vergleichen Sie die Trackpad-Preise",
     "prompt3": "Bestellen Sie ein Baumwollhemd in Größe M"
   },
+  "features": {
+    "stats": {
+      "title": "Das Rückgrat\ndes globalen Handels",
+      "sooner": "(Oder früher)",
+      "stat1": "Unterstützte Währungen und Zahlungsmethoden",
+      "stat2": "Zahlungsvolumen verarbeitet im Jahr 2026",
+      "stat3": "Historische Betriebszeit für Garnet-Dienste",
+      "stat4": "Aktive Abonnements verwaltet auf Garnet Billing"
+    },
+    "adapter": {
+      "title": "Garnet Business-Passport",
+      "subtitle": "Tool für einheitliche Anmeldeinformationen und Geschäftsnachweise",
+      "phase1": "Eine eingehende Anfrage an Ihren Server",
+      "phase2": "Anfrage verarbeiten und an den Prozessor senden",
+      "phase3": "Je nach Anfragebedarf werden andere Dienste mit B2B-Pässen kontaktiert",
+      "phase4": "Anfrage ist erfüllt.",
+      "incoming": "Eingehende Anfrage",
+      "runFlow": "▶ Fluss ausführen",
+      "reset": "↺ Zurücksetzen",
+      "readMore": "Weiterlesen",
+      "syncing": "Synchronisierung...",
+      "nodeYourService": "Ihr Dienst",
+      "nodeProcessor": "(Prozessor)"
+    },
+    "sync": {
+      "popup": {
+        "title": "Eingebettete Zahlungen in Ihrer Plattform",
+        "desc": "Fügen Sie Ihrer Plattform Zahlungsfunktionen hinzu und vereinfachen Sie gleichzeitig die globale Expansion.",
+        "btnSync": "Garnet Sync",
+        "btnPricing": "Preise lesen",
+        "discover": "Mehr zu entdecken",
+        "terminalDesc": "Verwalten Sie Online- und Präsenzzahlungen an einem Ort, integrieren Sie beliebte Zahlungsmethoden und vereinfachen Sie die Hardware-Logistik.",
+        "terminalLink": "Lesen Sie über Terminal",
+        "instantPayoutsDesc": "Monetarisieren Sie die Fähigkeit Ihrer Kunden, in Minuten auf ihre Einnahmen zuzugreifen – auch an Wochenenden und Feiertagen.",
+        "instantPayoutsLink": "Lesen Sie über Instant Payouts",
+        "capitalDesc": "Erstellen und monetarisieren Sie ein Programm, das Ihren Kunden mit minimalem Aufwand Zugang zu einer schnellen Finanzierung bietet.",
+        "capitalLink": "Lesen Sie über Kapital für Plattformen"
+      },
+      "trigger": {
+        "title": "Eingebettete Zahlungen in Ihrer Plattform",
+        "sidebar": {
+          "home": "Startseite",
+          "balances": "Salden",
+          "transactions": "Transaktionen",
+          "directory": "Verzeichnis",
+          "catalog": "Produktkatalog",
+          "shortcuts": "Verknüpfungen",
+          "fraud": "Betrugs-Tools",
+          "connected": "Verbundene Konten...",
+          "products": "Produkte",
+          "connect": "Connect",
+          "payments": "Zahlungen",
+          "billing": "Abrechnung",
+          "reporting": "Berichte"
+        },
+        "table": {
+          "title": "Verbundene Konten",
+          "accounts": "Konten",
+          "country": "Kontoland",
+          "balance": "Saldo",
+          "total": "Gesamtauszahlungen"
+        }
+      }
+    }
+  },
   "locale": "de"
 }

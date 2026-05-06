@@ -10,13 +10,17 @@ import { Site } from "../../../shared/ui/Site";
 import { UCP } from "@/shared/widgets/agent-commerce/UCP";
 import { SmartKit } from "@/shared/widgets/agent-commerce/SmartKit";
 import { AgenticGuard } from "@/shared/widgets/agent-commerce/AgenticGuard";
+import AdminPanel from "@/shared/widgets/sync/AdminPanel";
+import { TerminalWidget } from "@/shared/widgets/sync/TerminalWidget";
+import { InstantPayoutsWidget } from "@/shared/widgets/sync/InstantPayoutsWidget";
+import { CapitalWidget } from "@/shared/widgets/sync/CapitalWidget";
 
-export function AgentCommercePopup({onClose}: {onClose: () => void}) {
+export default function SyncPopup({onClose}: {onClose: () => void}) {
     const [isReady, setReady] = useState(false);
     const [showWidget, setShowWidget] = useState(false);
 
     const dict = useDict();
-    const popup = dict.charts.AgentCommerce.popup;
+    const popup = dict.features.sync.popup;
     const web = dict.extra.site_url;
 
     useEffect(() => {
@@ -60,73 +64,65 @@ export function AgentCommercePopup({onClose}: {onClose: () => void}) {
 
                                     <div className="flex flex-col sm:flex-row gap-3 mt-6">
                                         <Link href="/payments" className="flex justify-center text-white px-5 py-2.5 bg-emerald-500 border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-transparent hover:text-emerald-400">
-                                            {popup.link1} <ChevronRight className="size-4" />
+                                            {popup.btnSync} <ChevronRight className="size-4" />
                                         </Link>
                                         <Link href="/payments" className="flex justify-center text-emerald-500 dark:text-emerald-400 px-5 py-2.5 bg-transparent border border-emerald-500 items-center gap-1 font-bold text-sm transition-all rounded-lg hover:bg-emerald-500 hover:text-white">
-                                            {popup.link2} <ChevronRight className="size-4" />
+                                            {popup.btnPricing} <ChevronRight className="size-4" />
                                         </Link>
                                     </div>
                                 </div>
 
-                                <div className="flex flex-col min-h-[500px] justify-center items-center lg:flex-row overflow-hidden bg-slate-50 dark:bg-zinc-900/50 p-2 md:p-4 border border-slate-100 dark:border-white/5 rounded-4xl">
-                                    <div className="h-[400px] md:h-[650px] w-full flex justify-center items-center max-w-6xl relative overflow-hidden rounded-3xl md:rounded-[3rem] shadow-2xl">
-    
-                                        <div className="w-full h-full flex justify-center items-center transition-transform duration-500 overflow-x-auto scrollbar-hide">
-                                            <div className="w-full flex justify-center items-center scale-75 md:scale-95 sm:scale-90 [@media(max-width:630px)]:scale-[0.6] [@media(max-width:330px)]:scale-[0.4]">
-                                                <Browser url={web}>
-                                                    <Site />
-                                                </Browser>
-                                            </div>
-                                        </div>
-
+                                <div className="w-full h-full flex justify-center items-center transition-transform duration-500 overflow-x-auto scrollbar-hide">
+                                    <div className="w-full select-none pointer-events-none flex justify-center items-center scale-75 md:scale-95 sm:scale-90 [@media(max-width:630px)]:scale-[0.55] [@media(max-width:330px)]:scale-[0.35]">
+                                         <AdminPanel/>
                                     </div>
                                 </div>
 
                                 {showWidget ? (
                                     <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="mt-6 md:mt-10">
-                                        <span className="text-xl md:text-3xl font-normal tracking-tighter text-slate-900 dark:text-white block mb-6 md:mb-8">
-                                            {popup.more}
+                                        <span className="text-xl md:text-2xl font-semibold tracking-tight text-slate-900 dark:text-white block mb-6 md:mb-8">
+                                            {popup.discover}
                                         </span>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                                    <div className="scale-60 w-100 select-none pointer-events-none">
-                                                        <SmartKit/>
+                                                <div className="bg-slate-50 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-56 md:h-84 overflow-hidden relative">
+                                                    <div className="scale-[0.6] md:scale-[0.7] sm:scale-[0.8] w-full h-full select-none pointer-events-none flex justify-center mt-10 md:mt-20">
+                                                        <TerminalWidget />
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">
-                                                    {popup.card1.text}
+                                                    {popup.terminalDesc}
                                                 </p>
-                                                <Link href="/" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {popup.card1.link} <ChevronRight className="size-4" />
+                                                <Link href="/" className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-sm hover:text-emerald-700 transition-colors">
+                                                    {popup.terminalLink} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                                    <div className="scale-100 flex items-center justify-center">
-                                                        <AgenticGuard/>
+                                                <div className="bg-slate-50 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-end h-56 md:h-84 overflow-hidden relative">
+                                                    <div className="scale-[0.6] md:scale-70 mb-2 origin-bottom select-none pointer-events-none flex justify-center items-end w-full h-full">
+                                                        <InstantPayoutsWidget />
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">
-                                                    {popup.card2.text}
+                                                    {popup.instantPayoutsDesc}
                                                 </p>
-                                                <Link href="/" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {popup.card2.link} <ChevronRight className="size-4" />
+                                                <Link href="/" className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-sm hover:text-emerald-700 transition-colors">
+                                                    {popup.instantPayoutsLink} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
                                             <div className="flex flex-col gap-4">
-                                                <div className="bg-stone-100 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
-                                                    <div className="scale-50 md:scale-60 transition-transform">
-                                                        <UCP/>
+                                                <div className="bg-slate-50 dark:bg-zinc-900/50 rounded-3xl flex justify-center items-end h-56 md:h-84 overflow-hidden relative">
+                                                    <div className="scale-[0.6] md:scale-70 mb-3 origin-bottom select-none pointer-events-none flex justify-center items-end w-full h-full">
+                                                        <CapitalWidget />
                                                     </div>
                                                 </div>
                                                 <p className="text-sm text-slate-600 dark:text-zinc-400">
-                                                    {popup.card3.text}
+                                                    {popup.capitalDesc}
                                                 </p>
-                                                <Link href="/" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {popup.card3.link} <ChevronRight className="size-4" />
+                                                <Link href="/" className="flex items-center gap-1 text-emerald-600 dark:text-emerald-400 font-medium text-sm hover:text-emerald-700 transition-colors">
+                                                    {popup.capitalLink} <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
                                         </div>

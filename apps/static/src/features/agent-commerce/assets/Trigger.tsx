@@ -18,28 +18,28 @@ export function AgentCommerceTrigger({onClick}: {onClick?: () => void}) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
-            className="p-10 cursor-pointer w-full h-full overflow-hidden bg-stone-50 border-stone-400/50 dark:bg-(--dark-bg)/20 hover:dark:bg-(--dark-bg)/50 flex flex-col gap-1 rounded-4xl border dark:border-slate-800 select-none transition-colors relative hover:z-10"
+            className="p-4 md:p-10 cursor-pointer w-full min-h-[450px] md:h-full overflow-hidden bg-stone-50 border-stone-400/50 dark:bg-(--dark-bg)/20 hover:dark:bg-(--dark-bg)/50 flex flex-col gap-1 rounded-4xl border dark:border-slate-800 select-none transition-colors relative hover:z-10"
         >
-            <div className="scale-90 origin-top w-full">
-                <div className="flex flex-col gap-6">
+            <div className="scale-95 md:scale-90 origin-top w-full">
+                <div className="flex flex-col gap-4 md:gap-6">
                     <div className="flex flex-col items-end">
-                        <div className="bg-emerald-600 text-white p-4 rounded-2xl rounded-tr-none max-w-[80%] shadow-sm">
-                            <p className="text-sm font-medium leading-tight">
+                        <div className="bg-emerald-600 text-white p-3 md:p-4 rounded-2xl rounded-tr-none max-w-[90%] md:max-w-[80%] shadow-sm">
+                            <p className="text-xs md:text-sm font-medium leading-tight">
                                 {t.customerQuery}
                             </p>
                         </div>
                     </div>
 
                     <div className="flex flex-col items-start gap-4">
-                        <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 p-4 rounded-2xl rounded-tl-none max-w-[80%] shadow-sm">
-                            <p className="text-sm text-zinc-700 dark:text-zinc-300 leading-tight">
+                        <div className="bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 p-3 md:p-4 rounded-2xl rounded-tl-none max-w-[90%] md:max-w-[80%] shadow-sm">
+                            <p className="text-xs md:text-sm text-zinc-700 dark:text-zinc-300 leading-tight">
                                 {t.agentResponse}
                             </p>
                         </div>
 
-                        <div className="flex gap-4 w-full max-w-md pointer-events-none mt-2">
+                        <div className="flex gap-4 w-full overflow-x-auto pb-4 scrollbar-hide pointer-events-none mt-2">
                             {t.products.map((product: ProductI, index: number) => (
-                                <div key={index} className="flex flex-col bg-white dark:bg-zinc-900 border border-zinc-200 w-50 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm">
+                                <div key={index} className="flex flex-col shrink-0 bg-white dark:bg-zinc-900 border border-zinc-200 w-36 md:w-50 dark:border-zinc-800 rounded-3xl overflow-hidden shadow-sm">
                                     <div className="bg-zinc-100 dark:bg-zinc-800 flex items-center justify-center overflow-hidden aspect-square">
                                         <Image
                                             src={images[index]}
@@ -49,9 +49,9 @@ export function AgentCommerceTrigger({onClick}: {onClick?: () => void}) {
                                             className="rounded-3xl p-2 object-contain"
                                         />
                                     </div>
-                                    <div className="p-4 space-y-1">
+                                    <div className="p-3 md:p-4 space-y-1">
                                         <div className="flex flex-col gap-1">
-                                            <h4 className="font-bold text-xs text-zinc-900 dark:text-white tracking-tight">
+                                            <h4 className="font-bold text-[10px] md:text-xs text-zinc-900 dark:text-white tracking-tight leading-tight">
                                                 {product.name}
                                             </h4>
                                             <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">

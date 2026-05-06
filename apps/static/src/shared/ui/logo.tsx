@@ -1,13 +1,24 @@
 import Link from "next/link";
 import Image from "next/image";
 
-export default function Logo() {
-    return (
-        <Link href="/" className="flex items-center gap-3 group">
-            {/*<div className="w-8 h-8 rounded-lg flex items-center justify-center font-black transition-transform group-hover:scale-110 bg-emerald-500 text-white">S</div>*/}
-            <Image src="/crystal-1.png" alt="Logo" width={40} height={40} />
+interface LogoProps {
+    className?: string;
+    hideText?: boolean;
+}
 
-            <span className="font-black tracking-tighter text-2xl text-slate-900 dark:text-white">Garnet</span>
+export default function Logo({ className = "", hideText = false }: LogoProps) {
+    const content = (
+        <div className={`flex items-center gap-3 group ${className}`}>
+            <Image src="/crystal-1.png" alt="Logo" width={40} height={40} className="transition-transform group-hover:scale-110" />
+            {!hideText && <span className="font-black tracking-tighter text-2xl text-slate-900 dark:text-white">Garnet</span>}
+        </div>
+    );
+
+    if (hideText) return content;
+
+    return (
+        <Link href="/">
+            {content}
         </Link>
-    )
+    );
 }

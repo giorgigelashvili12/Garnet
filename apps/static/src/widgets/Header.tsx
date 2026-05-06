@@ -139,7 +139,7 @@ export default function Header() {
                 activeTab ? "max-h-125 opacity-100 visible bg-white dark:bg-[#030a08]" : "max-h-0 opacity-0 invisible"
             }`}>
                 <div className="max-w-7xl mx-auto px-6 py-12">
-                    {activeTab === "products" && (
+                    {/* {activeTab === "products" && (
                         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12 animate-in fade-in slide-in-from-top-4 duration-500">
                             <div className="col-span-1">
                                 <h3 className="text-xs font-black uppercase tracking-widest text-emerald-500 mb-6">{dict.megamenu.securityTitle}</h3>
@@ -176,7 +176,7 @@ export default function Header() {
                                 </div>
                             </div>
                         </div>
-                    )}
+                    )} */}
                 </div>
             </div>
         </nav>

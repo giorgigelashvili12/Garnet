@@ -403,5 +403,70 @@
     "prompt2": "Compare trackpad prices",
     "prompt3": "Order a medium cotton shirt"
   },
+  "features": {
+    "stats": {
+      "title": "The backbone\nof global commerce",
+      "sooner": "(Or sooner)",
+      "stat1": "currencies and payment methods supported",
+      "stat2": "in payments volume processed in 2026",
+      "stat3": "historical uptime for Garnet services",
+      "stat4": "active subscription managed on Garnet Billing"
+    },
+    "adapter": {
+      "title": "Garnet Business Passport",
+      "subtitle": "Tool, for unified credentials and proof of business",
+      "phase1": "An incoming request to your server",
+      "phase2": "Processing request and sending it to the processor",
+      "phase3": "Based on request needs, it hits other services with B2B passes",
+      "phase4": "Request is fullfilled.",
+      "incoming": "Incoming Request",
+      "runFlow": "▶ Run Flow",
+      "reset": "↺ Reset",
+      "readMore": "Read more",
+      "syncing": "Syncing...",
+      "nodeYourService": "Your Service",
+      "nodeProcessor": "(processor)"
+    },
+    "sync": {
+      "popup": {
+        "title": "Embedded Payments In Your Platform",
+        "desc": "Add payment capabilities to your platform while simplifying global expansion.",
+        "btnSync": "Garnet Sync",
+        "btnPricing": "Read Pricing",
+        "discover": "More to discover",
+        "terminalDesc": "Manage online and in-person payment in one place, integrate popular payment methods, and simplify hardware logistics.",
+        "terminalLink": "Read About Terminal",
+        "instantPayoutsDesc": "Monetize your customers' ability to access their earnings in minutes—even on weekends and holidays.",
+        "instantPayoutsLink": "Read About Instant Payouts",
+        "capitalDesc": "Build and monetize a program that gives your customers access to fast financing with minimal effort.",
+        "capitalLink": "Read About Capital for platforms"
+      },
+      "trigger": {
+        "title": "Embedded Payments In Your Platform",
+        "sidebar": {
+          "home": "Home",
+          "balances": "Balances",
+          "transactions": "Transactions",
+          "directory": "Directory",
+          "catalog": "Product catalog",
+          "shortcuts": "Shortcuts",
+          "fraud": "Fraud tools",
+          "connected": "Connected accoun...",
+          "products": "Products",
+          "connect": "Connect",
+          "payments": "Payments",
+          "billing": "Billing",
+          "reporting": "Reporting"
+        },
+        "table": {
+          "title": "Connected accounts",
+          "accounts": "Accounts",
+          "country": "Account country",
+          "balance": "Balance",
+          "total": "Total payouts"
+        }
+      }
+    }
+  },
   "locale": "en"
 }

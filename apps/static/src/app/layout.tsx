@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import "../style.css";
 import {GeistSans} from 'geist/font/sans';
 import {ThemeProvider} from "@/shared/config/theme-provider";
 import Header from "@/widgets/Header";

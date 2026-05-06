@@ -16,6 +16,8 @@ import Section from "@/pages/assets/Section";
 import {ScrollProgress} from "@/shared/ui/scroll-progress";
 import Crypto from "@/features/crypto/Crypto";
 import Sync from "@/features/sync/Sync";
+import Stats from "@/features/stats/Stats";
+import GarnetAdapter from "@/features/garnet-adapter/GarnetAdapter";
 
 export default function HomePage() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -34,16 +36,20 @@ export default function HomePage() {
                 <Chem />
                 <Payments />
 
-                <div className='lg:px-70 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5 py-40'>
+                <div className='px-4 md:px-10 lg:px-40 xl:px-70 py-20 md:py-40'>
                     <Issuing/>
                 </div>
 
                 <Section/>
 
-                <div className='lg:px-70 md:px-10 sm:px-10 [@media(max-width:620px)]:px-5 py-40 flex flex-col gap-50'>
+                <div className='px-4 md:px-10 lg:px-40 xl:px-70 -mt-20 md:-mt-35 py-20 md:py-40 flex flex-col gap-32 md:gap-50'>
                     <Crypto/>
 
                     <Sync/>
+
+                    <Stats/>
+
+                    <GarnetAdapter/>
                 </div>
                 {/*<GlowingEffectDemo />*/}
                 {/*<AuroraBackgroundDemo />*/}
