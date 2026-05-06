@@ -2,9 +2,11 @@
 
 import { ProductCardProps } from "@/shared/@types";
 import { useState } from "react";
+import { useDict } from "@/shared/hooks/useDict";
 
 export default function ProductCard({ product, index }: ProductCardProps) {
   const [hovered, setHovered] = useState(false);
+  const dict = useDict();
 
   return (
     <article
@@ -73,7 +75,7 @@ export default function ProductCard({ product, index }: ProductCardProps) {
               hovered ? "text-emerald-400 translate-x-1" : "text-slate-300"
             }`}
           >
-            Learn more 
+            {dict.business.hardware.learnMore} 
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <path d="M5 12h14M12 5l7 7-7 7" />
             </svg>

@@ -104,7 +104,7 @@ export default function Header() {
                     <ThemeToggle/>
 
                     <div className="hidden sm:block">
-                        <Link href="/login" className={`text-sm font-semibold transition-colors px-2 ${
+                        <Link href="/login" className={`text-sm font-semibold transition-colors px-1 sm:px-2 ${
                             isInHardwareSection ? "text-slate-400 hover:text-white" : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
                         }`}>
                             {dict.header.login}

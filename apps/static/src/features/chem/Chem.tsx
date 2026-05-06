@@ -152,7 +152,7 @@ export default function Chem() {
                 </span>
                 </h1>
 
-                <p className='text-base md:text-2xl text-slate-500 dark:text-slate-400'>
+                <p className='text-base md:text-2xl text-slate-500 dark:text-slate-400 max-w-2xl mx-auto'>
                     {dict.chem.subtitle}
                 </p>
             </div>

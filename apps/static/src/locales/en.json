@@ -468,5 +468,133 @@
       }
     }
   },
+  "business": {
+    "hardware": {
+      "title1": "Smooth checkout,",
+      "title2": "every single time.",
+      "desc": "Reliable, sleek, and built for scale. Discover the tools designed to keep your business moving forward.",
+      "explore": "Explore all deals",
+      "products": {
+        "register": {
+          "name": "Garnet Register",
+          "desc": "All-in-one POS with a dedicated customer-facing display. No iPad required.",
+          "price": "From $799"
+        },
+        "case": {
+          "name": "Garnet Terminal Case",
+          "desc": "Take orders and payments tableside. Sleek, portable, and powerful.",
+          "price": "From $299"
+        },
+        "stand": {
+          "name": "Garnet Terminal Stand",
+          "desc": "All-in-one payments terminal with a built-in printer for receipts.",
+          "price": "From $299"
+        },
+        "wall": {
+          "name": "Garnet Wall Mount Terminal",
+          "desc": "Transform your iPad into a powerful point of sale. Swivel, tap, done.",
+          "price": "From $149"
+        },
+        "table": {
+          "name": "Garnet Table Terminal",
+          "desc": "Transform your iPad into a powerful point of sale. Swivel, tap, done.",
+          "price": "From $149"
+        }
+      },
+      "typingText": "Based on my café — 800 sq ft, 12 tables, takeaway counter — what hardware should I purchase?",
+      "bestSeller": "Best Seller",
+      "posDisplay": "POS & Display",
+      "learnMore": "Learn more"
+    },
+    "ai": {
+      "badge": "Garnet AI",
+      "title": "Introducing Garnet AI For Your Business",
+      "desc": "Garnet AI is a next-generation business intelligence platform that transforms complex data into actionable insights, helping you make better decisions in real-time.",
+      "btnTrial": "Start Free Trial",
+      "btnDemo": "View Demo"
+    },
+    "pricing": {
+      "title": "Pricing that Scales with You",
+      "subtitle": "Simple, transparent pricing for businesses of all sizes.",
+      "perEditor": "Per editor",
+      "getStarted": "Get Started",
+      "popular": "Popular",
+      "free": {
+        "name": "Free",
+        "price": "$0 / mo",
+        "features": ["Payment Processing", "Dashboard Analytics", "Email Support", "POS or Checkout Page"]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "$19 / mo",
+        "features": ["Everything in Free Plan", "Lower Processing Fees", "Basic Automation", "Larger Team Members", "Better Analytics", "Faster Support", "Integrations"]
+      },
+      "startup": {
+        "name": "Startup",
+        "price": "$29 / mo",
+        "features": ["Everything in Pro Plan", "Advanced Analytics", "Live Support", "Unlimited Team Members", "Custom Branding", "Advanced Automation"]
+      }
+    },
+    "outro": {
+      "badge": "Ready to Get Started?",
+      "title": "Make Your Next Move",
+      "desc": "Join thousands of innovators. Become a local or a global legend of a business with our integrated platform.",
+      "btnStart": "Get Started Now",
+      "btnSales": "Talk to Sales"
+    }
+  },
+  "footer": {
+    "sections": {
+      "products": "Products",
+      "solutions": "Solutions",
+      "developers": "Developers",
+      "resources": "Resources",
+      "contact": "Contact"
+    },
+    "links": {
+        "pos": "Point of sale",
+        "payments": "Payments",
+        "websites": "Websites",
+        "invoicing": "Invoicing",
+        "marketing": "Marketing",
+        "loyalty": "Loyalty",
+        "banking": "Banking",
+        "capital": "Capital",
+        "checkout": "Checkout",
+        "subscriptions": "Subscriptions",
+        "terminal": "Terminal",
+        "usage": "Usage-based billing",
+        "enterprises": "Enterprises",
+        "startups": "Startups",
+        "food": "Food & Beverage",
+        "retail": "Retail",
+        "ecommerce": "Ecommerce",
+        "saas": "SaaS",
+        "marketplaces": "Marketplaces",
+        "services": "Professional Services",
+        "hospitality": "Hospitality",
+        "creator": "Creator economy",
+        "docs": "Documentation",
+        "apiRef": "API reference",
+        "apiStatus": "API status",
+        "libraries": "Libraries and SDKs",
+        "devBlog": "Developer blog",
+        "devPlatform": "Developer Platform",
+        "pricing": "Pricing",
+        "guides": "Guides",
+        "stories": "Customer stories",
+        "blog": "Blog",
+        "community": "Garnet Community",
+        "privacy": "Privacy and terms",
+        "cookies": "Cookie settings",
+        "support": "Support",
+        "customerSupport": "Customer support: 1 (855) 700-6000",
+        "salesSupport": "Sales: 1 (833) 959-5325",
+        "about": "About Garnet",
+        "careers": "Careers",
+        "press": "Press & Media"
+    },
+    "rights": "All rights reserved. Various trademarks held by their respective owners."
+  },
   "locale": "en"
 }

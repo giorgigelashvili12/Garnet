@@ -1,8 +1,12 @@
 import Link from 'next/link'
 import { Button } from '@/shared/ui/button'
 import { ArrowRight } from 'lucide-react'
+import { useDict } from "@/shared/hooks/useDict";
 
 export default function Outro() {
+    const dict = useDict();
+    const t = dict.business.outro;
+
     return (
         <section className="relative overflow-hidden bg-slate-850 py-24 sm:py-32">
             <div 
@@ -21,13 +25,13 @@ export default function Outro() {
                 <div className="mx-auto max-w-3xl space-y-8 text-center">
                     <div className="space-y-4">
                         <span className="inline-block rounded-full bg-slate-800 px-3 py-1 text-sm font-medium text-slate-300 ring-1 ring-inset ring-slate-700/50">
-                            Ready to Get Started?
+                            {t.badge}
                         </span>
                         <h2 className="bg-linear-to-b from-white to-slate-400 bg-clip-text text-4xl font-bold tracking-tight text-transparent sm:text-6xl">
-                            Make Your Next Move
+                            {t.title}
                         </h2>
                         <p className="mx-auto mt-6 max-w-lg text-lg leading-8 text-slate-400">
-                            Join thousands of innovators. Become a local or a global legend of a business with our integrated platform.
+                            {t.desc}
                         </p>
                     </div>
 
@@ -38,7 +42,7 @@ export default function Outro() {
                             className="h-12 px-8 text-base shadow-[0_0_20px_rgba(120,119,198,0.3)] transition-all hover:scale-105"
                         >
                             <Link href="/signup">
-                                Get Started Now
+                                {t.btnStart}
                                 <ArrowRight className="ml-2 size-4" />
                             </Link>
                         </Button>
@@ -48,7 +52,7 @@ export default function Outro() {
                             size="lg" 
                             className="h-12 px-8 text-base text-white hover:bg-white/10"
                         >
-                            <Link href="/contact">Talk to Sales</Link>
+                            <Link href="/contact">{t.btnSales}</Link>
                         </Button>
                     </div>
                 </div>

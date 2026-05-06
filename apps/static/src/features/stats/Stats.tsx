@@ -11,8 +11,8 @@ export default function Stats() {
         <div className="w-full bg-white dark:bg-(--background) py-24 px-6 font-sans">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-20">
-                    <h2 className="text-3xl md:text-6xl font-bold text-[#0a2540] dark:text-(--foreground) leading-tight tracking-tight whitespace-pre-line">
-                        {t.title} <br/> <span className="text-base md:text-xl -top-10">{t.sooner}</span>
+                    <h2 className="text-3xl md:text-6xl font-bold text-[#0a2540] dark:text-(--foreground) leading-tight tracking-tight whitespace-pre-line px-2">
+                        {t.title} <br className="hidden sm:block" /> <span className="text-base md:text-xl relative sm:-top-10 opacity-70 sm:opacity-100">{t.sooner}</span>
                     </h2>
                 </div>
 

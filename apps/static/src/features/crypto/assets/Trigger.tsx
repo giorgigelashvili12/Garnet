@@ -32,15 +32,15 @@ export default function CryptoTrigger({ onClick }: { onClick?: () => void }) {
                 </div>
             </div>
 
-            <div className="relative z-30 mt-auto flex flex-col items-center gap-4 md:gap-6 text-center">
-                <div className="w-full max-w-[280px] md:max-w-md">
+            <div className="relative z-30 mt-auto flex flex-col items-center gap-3 sm:gap-6 text-center">
+                <div className="w-full max-w-[240px] xs:max-w-[280px] md:max-w-md">
                     <TextScramble 
-                        className="text-2xl md:text-4xl font-medium tracking-tighter text-slate-900 dark:text-white leading-[1.1]"
+                        className="text-xl xs:text-2xl md:text-4xl font-medium tracking-tighter text-slate-900 dark:text-white leading-[1.1]"
                         text={dict.crypto.heading}
                     />
                 </div>
                 
-                <p className="max-w-70 text-sm text-stone-500 dark:text-slate-400 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
+                <p className="max-w-60 xs:max-w-70 text-xs xs:text-sm text-stone-500 dark:text-slate-400 opacity-0 transition-opacity duration-500 group-hover:opacity-100">
                     {dict.crypto.text}
                 </p>
             </div>

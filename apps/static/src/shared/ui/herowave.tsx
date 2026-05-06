@@ -107,5 +107,5 @@ export const SilkWaves: React.FC<WaveProps> = ({ className, quality = "high" }) 
 
     if (!mounted) return null;
 
-    return <canvas ref={canvasRef} className={`fixed inset-0 -z-10 ${className}`} />;
+    return <canvas ref={canvasRef} className={`fixed inset-0 -z-10 pointer-events-none ${className}`} />;
 };

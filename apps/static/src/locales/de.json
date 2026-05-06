@@ -468,5 +468,133 @@
       }
     }
   },
+  "business": {
+    "hardware": {
+      "title1": "Reibungsloser Checkout,",
+      "title2": "jedes einzelne Mal.",
+      "desc": "Zuverlässig, elegant und für Skalierung gebaut. Entdecken Sie die Tools, die Ihr Unternehmen voranbringen.",
+      "explore": "Alle Angebote erkunden",
+      "products": {
+        "register": {
+          "name": "Garnet Register",
+          "desc": "All-in-one-Kassensystem mit dediziertem Display für Kunden. Kein iPad erforderlich.",
+          "price": "Ab 799 $"
+        },
+        "case": {
+          "name": "Garnet Terminal Case",
+          "desc": "Bestellungen und Zahlungen direkt am Tisch annehmen. Elegant, tragbar und leistungsstark.",
+          "price": "Ab 299 $"
+        },
+        "stand": {
+          "name": "Garnet Terminal Stand",
+          "desc": "All-in-one-Zahlungsterminal mit integriertem Belegdrucker.",
+          "price": "Ab 299 $"
+        },
+        "wall": {
+          "name": "Garnet Wandhalterungsterminal",
+          "desc": "Verwandeln Sie Ihr iPad in ein leistungsstarkes Kassensystem. Schwenken, tippen, fertig.",
+          "price": "Ab 149 $"
+        },
+        "table": {
+          "name": "Garnet Tischterminal",
+          "desc": "Verwandeln Sie Ihr iPad in ein leistungsstarkes Kassensystem. Schwenken, tippen, fertig.",
+          "price": "Ab 149 $"
+        }
+      },
+      "typingText": "Basierend auf meinem Café — 75 m², 12 Tische, Mitnahme-Theke — welche Hardware sollte ich kaufen?",
+      "bestSeller": "Bestseller",
+      "posDisplay": "Kasse & Display",
+      "learnMore": "Mehr erfahren"
+    },
+    "ai": {
+      "badge": "Garnet KI",
+      "title": "Wir stellen Garnet KI für Ihr Unternehmen vor",
+      "desc": "Garnet KI ist eine Business-Intelligence-Plattform der nächsten Generation, die komplexe Daten in handlungsrelevante Erkenntnisse umwandelt und Ihnen hilft, bessere Entscheidungen in Echtzeit zu treffen.",
+      "btnTrial": "Kostenlose Testversion starten",
+      "btnDemo": "Demo ansehen"
+    },
+    "pricing": {
+      "title": "Preise, die mit Ihnen skalieren",
+      "subtitle": "Einfache, transparente Preise für Unternehmen jeder Größe.",
+      "perEditor": "Pro Editor",
+      "getStarted": "Loslegen",
+      "popular": "Beliebt",
+      "free": {
+        "name": "Kostenlos",
+        "price": "0 $ / Mo",
+        "features": ["Zahlungsabwicklung", "Dashboard-Analysen", "E-Mail-Support", "Kassensystem oder Checkout-Seite"]
+      },
+      "pro": {
+        "name": "Pro",
+        "price": "19 $ / Mo",
+        "features": ["Alles im Kostenlos-Plan", "Niedrigere Bearbeitungsgebühren", "Grundlegende Automatisierung", "Mehr Teammitglieder", "Bessere Analysen", "Schnellerer Support", "Integrationen"]
+      },
+      "startup": {
+        "name": "Startup",
+        "price": "29 $ / Mo",
+        "features": ["Alles im Pro-Plan", "Erweiterte Analysen", "Live-Support", "Unbegrenzte Teammitglieder", "Individuelles Branding", "Erweiterte Automatisierung"]
+      }
+    },
+    "outro": {
+      "badge": "Bereit zum Loslegen?",
+      "title": "Machen Sie Ihren nächsten Schritt",
+      "desc": "Schließen Sie sich Tausenden von Innovatoren an. Werden Sie mit unserer integrierten Plattform zur lokalen oder globalen Legende.",
+      "btnStart": "Jetzt loslegen",
+      "btnSales": "Vertrieb kontaktieren"
+    }
+  },
+  "footer": {
+    "sections": {
+      "products": "Produkte",
+      "solutions": "Lösungen",
+      "developers": "Entwickler",
+      "resources": "Ressourcen",
+      "contact": "Kontakt"
+    },
+    "links": {
+        "pos": "Kassensystem",
+        "payments": "Zahlungen",
+        "websites": "Websites",
+        "invoicing": "Rechnungsstellung",
+        "marketing": "Marketing",
+        "loyalty": "Kundenbindung",
+        "banking": "Banking",
+        "capital": "Kapital",
+        "checkout": "Checkout",
+        "subscriptions": "Abonnements",
+        "terminal": "Terminal",
+        "usage": "Nutzungsbasierte Abrechnung",
+        "enterprises": "Unternehmen",
+        "startups": "Startups",
+        "food": "Gastronomie",
+        "retail": "Einzelhandel",
+        "ecommerce": "E-Commerce",
+        "saas": "SaaS",
+        "marketplaces": "Marktplätze",
+        "services": "Professionelle Dienstleistungen",
+        "hospitality": "Gastgewerbe",
+        "creator": "Creator Economy",
+        "docs": "Dokumentation",
+        "apiRef": "API-Referenz",
+        "apiStatus": "API-Status",
+        "libraries": "Bibliotheken und SDKs",
+        "devBlog": "Entwickler-Blog",
+        "devPlatform": "Entwicklerplattform",
+        "pricing": "Preise",
+        "guides": "Leitfäden",
+        "stories": "Kundenberichte",
+        "blog": "Blog",
+        "community": "Garnet-Community",
+        "privacy": "Datenschutz und Bedingungen",
+        "cookies": "Cookie-Einstellungen",
+        "support": "Support",
+        "customerSupport": "Kundensupport: 1 (855) 700-6000",
+        "salesSupport": "Vertrieb: 1 (833) 959-5325",
+        "about": "Über Garnet",
+        "careers": "Karriere",
+        "press": "Presse & Medien"
+    },
+    "rights": "Alle Rechte vorbehalten. Verschiedene Marken gehören ihren jeweiligen Eigentümern."
+  },
   "locale": "de"
 }

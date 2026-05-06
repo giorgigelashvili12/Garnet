@@ -53,11 +53,6 @@
   --text: #ffffff;
   --base-dark: #030a08;
 }
-* {
-  transition-property: background-color, border-color, color, fill, stroke;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 300ms;
-}
 
 :root {
   --background: #ffffff;

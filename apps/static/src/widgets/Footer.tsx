@@ -1,77 +1,81 @@
 "use client";
 
 import Link from 'next/link'
-
-const footerData = [
-  {
-    title: "Products",
-    links: [
-      { label: "Point of sale", href: "#" },
-      { label: "Payments", href: "#" },
-      { label: "Websites", href: "#" },
-      { label: "Invoicing", href: "#" },
-      { label: "Marketing", href: "#" },
-      { label: "Loyalty", href: "#" },
-      { label: "Banking", href: "#" },
-      { label: "Capital", href: "#" },
-      { label: "Checkout", href: "#" },
-      { label: "Subscriptions", href: "#" },
-      { label: "Terminal", href: "#" },
-      { label: "Usage-based billing", href: "#" },
-    ],
-  },
-  {
-    title: "Solutions",
-    links: [
-      { label: "Enterprises", href: "#" },
-      { label: "Startups", href: "#" },
-      { label: "Food & Beverage", href: "#" },
-      { label: "Retail", href: "#" },
-      { label: "Ecommerce", href: "#" },
-      { label: "SaaS", href: "#" },
-      { label: "Marketplaces", href: "#" },
-      { label: "Professional Services", href: "#" },
-      { label: "Hospitality", href: "#" },
-      { label: "Creator economy", href: "#" },
-    ],
-  },
-  {
-    title: "Developers",
-    links: [
-      { label: "Documentation", href: "#" },
-      { label: "API reference", href: "#" },
-      { label: "API status", href: "#" },
-      { label: "Libraries and SDKs", href: "#" },
-      { label: "Developer blog", href: "#" },
-      { label: "Developer Platform", href: "#" },
-    ],
-  },
-  {
-    title: "Resources",
-    links: [
-      { label: "Pricing", href: "#" },
-      { label: "Guides", href: "#" },
-      { label: "Customer stories", href: "#" },
-      { label: "Blog", href: "#" },
-      { label: "Square Community", href: "#" },
-      { label: "Privacy and terms", href: "#" },
-      { label: "Cookie settings", href: "#" },
-    ],
-  },
-  {
-    title: "Contact",
-    links: [
-      { label: "Support", href: "#" },
-      { label: "Customer support: 1 (855) 700-6000", href: "tel:18557006000" },
-      { label: "Sales: 1 (833) 959-5325", href: "tel:18339595325" },
-      { label: "About Square", href: "#" },
-      { label: "Careers", href: "#" },
-      { label: "Press & Media", href: "#" },
-    ],
-  },
-]
+import { useDict } from "@/shared/hooks/useDict";
 
 export default function Footer() {
+  const dict = useDict();
+  const t = dict.footer;
+
+  const footerData = [
+    {
+      title: t.sections.products,
+      links: [
+        { label: t.links.pos, href: "#" },
+        { label: t.links.payments, href: "#" },
+        { label: t.links.websites, href: "#" },
+        { label: t.links.invoicing, href: "#" },
+        { label: t.links.marketing, href: "#" },
+        { label: t.links.loyalty, href: "#" },
+        { label: t.links.banking, href: "#" },
+        { label: t.links.capital, href: "#" },
+        { label: t.links.checkout, href: "#" },
+        { label: t.links.subscriptions, href: "#" },
+        { label: t.links.terminal, href: "#" },
+        { label: t.links.usage, href: "#" },
+      ],
+    },
+    {
+      title: t.sections.solutions,
+      links: [
+        { label: t.links.enterprises, href: "#" },
+        { label: t.links.startups, href: "#" },
+        { label: t.links.food, href: "#" },
+        { label: t.links.retail, href: "#" },
+        { label: t.links.ecommerce, href: "#" },
+        { label: t.links.saas, href: "#" },
+        { label: t.links.marketplaces, href: "#" },
+        { label: t.links.services, href: "#" },
+        { label: t.links.hospitality, href: "#" },
+        { label: t.links.creator, href: "#" },
+      ],
+    },
+    {
+      title: t.sections.developers,
+      links: [
+        { label: t.links.docs, href: "#" },
+        { label: t.links.apiRef, href: "#" },
+        { label: t.links.apiStatus, href: "#" },
+        { label: t.links.libraries, href: "#" },
+        { label: t.links.devBlog, href: "#" },
+        { label: t.links.devPlatform, href: "#" },
+      ],
+    },
+    {
+      title: t.sections.resources,
+      links: [
+        { label: t.links.pricing, href: "#" },
+        { label: t.links.guides, href: "#" },
+        { label: t.links.stories, href: "#" },
+        { label: t.links.blog, href: "#" },
+        { label: t.links.community, href: "#" },
+        { label: t.links.privacy, href: "#" },
+        { label: t.links.cookies, href: "#" },
+      ],
+    },
+    {
+      title: t.sections.contact,
+      links: [
+        { label: t.links.support, href: "#" },
+        { label: t.links.customerSupport, href: "tel:18557006000" },
+        { label: t.links.salesSupport, href: "tel:18339595325" },
+        { label: t.links.about, href: "#" },
+        { label: t.links.careers, href: "#" },
+        { label: t.links.press, href: "#" },
+      ],
+    },
+  ];
+
   return (
     <footer className="bg-white py-16 dark:bg-slate-950 z-1000">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -98,8 +102,7 @@ export default function Footer() {
         </div>
         <div className="mt-16 border-t border-slate-200 pt-8 dark:border-slate-800">
           <p className="text-xs text-slate-500 dark:text-slate-400">
-            &copy; {new Date().getFullYear()} Garnet Inc. All rights reserved. 
-            Various trademarks held by their respective owners.
+            &copy; {new Date().getFullYear()} Garnet Inc. {t.rights}
           </p>
         </div>
       </div>

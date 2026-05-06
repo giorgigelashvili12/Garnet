@@ -30,7 +30,7 @@ export function BillingTrigger({ onClick }: { onClick?: () => void }) {
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             onClick={onClick}
-            className="p-10 cursor-pointer w-full h-full overflow-hidden bg-stone-50 border-stone-400/50 dark:bg-(--dark-bg)/20 hover:dark:bg-(--dark-bg)/50 flex flex-col gap-1 rounded-4xl border dark:border-slate-800 select-none transition-colors"
+            className="p-6 sm:p-10 cursor-pointer w-full h-full overflow-hidden bg-stone-50 border-stone-400/50 dark:bg-(--dark-bg)/20 hover:dark:bg-(--dark-bg)/50 flex flex-col gap-1 rounded-4xl border dark:border-slate-800 select-none transition-colors"
         >
             <div className="scale-90 origin-top">
                 <motion.div
