@@ -16,6 +16,7 @@ export default function Header() {
     const [mounted, setMounted] = useState(false);
     const [activeTab, setActiveTab] = useState<string | null>(null);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const [isInHardwareSection, setIsInHardwareSection] = useState(false);
     const timeoutRef = useRef<NodeJS.Timeout | null>(null);
     const navRef = useRef<HTMLDivElement>(null);
     const nav = useRouter();
@@ -25,6 +26,17 @@ export default function Header() {
         setMounted(true);
         const handleScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", handleScroll);
+
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                setIsInHardwareSection(entry.isIntersecting);
+            },
+            { threshold: 0.1, rootMargin: "-80px 0px 0px 0px" }
+        );
+
+        const businessSection = document.getElementById("business-section");
+        if (businessSection) observer.observe(businessSection);
+
         const handleGlobalClick = (e: MouseEvent) => {
             if (navRef.current && !navRef.current.contains(e.target as Node)) {
                 setActiveTab(null);
@@ -33,6 +45,7 @@ export default function Header() {
         if (activeTab) document.addEventListener("mousedown", handleGlobalClick);
         return () => {
             window.removeEventListener("scroll", handleScroll);
+            if (businessSection) observer.unobserve(businessSection);
             document.removeEventListener("mousedown", handleGlobalClick);
         };
     }, [activeTab]);
@@ -55,13 +68,15 @@ export default function Header() {
             ref={navRef}
             onMouseLeave={() => { if (window.innerWidth >= 768) timeoutRef.current = setTimeout(() => setActiveTab(null), 1500); }}
             className={`fixed top-0 left-0 right-0 z-100 transition-all duration-300 border-b ${
-                scrolled || activeTab || mobileMenuOpen
+                isInHardwareSection
+                    ? "bg-slate-800 border-slate-700 py-4 md:py-6 shadow-xl"
+                    : scrolled || activeTab || mobileMenuOpen
                     ? "bg-white/95 dark:bg-[#030a08]/90 border-slate-200 dark:border-slate-800/70 py-4 md:py-6 shadow-xl backdrop-blur-md"
                     : "bg-transparent border-transparent py-6 shadow-none"
             }`}
         >
             <div className="max-w-7xl mx-auto px-4 md:px-6 flex items-center justify-between">
-                <Logo/>
+                <Logo className={isInHardwareSection ? "text-white!" : ""}/>
 
                 <div className="hidden md:flex items-center gap-2">
                     {Object.keys(dict.nav).map((key) => (
@@ -70,7 +85,9 @@ export default function Header() {
                             onMouseEnter={() => handleMouseEnter(key)}
                             className={`px-4 py-2 text-sm font-semibold rounded-lg transition-all cursor-pointer ${
                                 activeTab === key
-                                    ? "text-emerald-500 bg-emerald-50/50 dark:bg-emerald-500/10"
+                                    ? "text-emerald-400 bg-white/10"
+                                    : isInHardwareSection
+                                    ? "text-slate-300 hover:text-white"
                                     : "text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white"
                             }`}
                         >
@@ -87,7 +104,9 @@ export default function Header() {
                     <ThemeToggle/>
 
                     <div className="hidden sm:block">
-                        <Link href="/login" className="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors px-2">
+                        <Link href="/login" className={`text-sm font-semibold transition-colors px-2 ${
+                            isInHardwareSection ? "text-slate-400 hover:text-white" : "text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white"
+                        }`}>
                             {dict.header.login}
                         </Link>
                     </div>
@@ -100,7 +119,7 @@ export default function Header() {
                     </Button>
 
                     <button
-                        className="md:hidden p-2 text-slate-600 dark:text-slate-300"
+                        className={`md:hidden p-2 ${isInHardwareSection ? "text-white" : "text-slate-600 dark:text-slate-300"}`}
                         onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
                         {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -108,13 +127,19 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-screen opacity-100 border-t border-slate-100 dark:border-slate-800" : "max-h-0 opacity-0"}`}>
-                <div className="px-4 py-6 bg-white dark:bg-[#030a08] space-y-2">
+            <div className={`md:hidden overflow-hidden transition-all duration-300 ${mobileMenuOpen ? "max-h-screen opacity-100 border-t" : "max-h-0 opacity-0"} ${
+                isInHardwareSection 
+                    ? "border-slate-700 bg-slate-800" 
+                    : "border-slate-100 dark:border-slate-800 bg-white dark:bg-[#030a08]"
+            }`}>
+                <div className="px-4 py-6 space-y-2">
                     {Object.keys(dict.nav).map((key) => (
                         <div key={key} className="border-b border-slate-50 dark:border-slate-800/50 last:border-0">
                             <button
                                 onClick={() => toggleTab(key)}
-                                className="w-full flex items-center justify-between py-4 text-slate-900 dark:text-white font-semibold"
+                                className={`w-full flex items-center justify-between py-4 font-semibold ${
+                                    isInHardwareSection ? "text-white" : "text-slate-900 dark:text-white"
+                                }`}
                             >
                                 {dict.nav[key as keyof typeof dict.nav]}
                                 {["products", "developers"].includes(key) && <ChevronDown size={16} className={`transition-transform ${activeTab === key ? "rotate-180" : ""}`} />}
@@ -130,13 +155,19 @@ export default function Header() {
                     ))}
                     <div className="pt-4 flex flex-col gap-3">
                         <Button className="w-full bg-emerald-500 text-white py-6 rounded-2xl">{dict.header.getStarted}</Button>
-                        <Link href="/login" className="text-center py-2 text-slate-500 font-semibold">{dict.header.login}</Link>
+                        <Link href="/login" className={`text-center py-2 font-semibold ${
+                            isInHardwareSection ? "text-slate-400" : "text-slate-500"
+                        }`}>{dict.header.login}</Link>
                     </div>
                 </div>
             </div>
 
-            <div className={`hidden md:block absolute top-full left-0 right-0 w-full border-b border-slate-200 dark:border-slate-800 transition-all duration-300 ease-in-out shadow-2xl overflow-hidden ${
-                activeTab ? "max-h-125 opacity-100 visible bg-white dark:bg-[#030a08]" : "max-h-0 opacity-0 invisible"
+            <div className={`hidden md:block absolute top-full left-0 right-0 w-full border-b transition-all duration-300 ease-in-out shadow-2xl overflow-hidden ${
+                activeTab ? "max-h-125 opacity-100 visible" : "max-h-0 opacity-0 invisible"
+            } ${
+                isInHardwareSection 
+                    ? "bg-slate-800 border-slate-700" 
+                    : "bg-white dark:bg-[#030a08] border-slate-200 dark:border-slate-800"
             }`}>
                 <div className="max-w-7xl mx-auto px-6 py-12">
                     {/* {activeTab === "products" && (

@@ -18,6 +18,8 @@ import Crypto from "@/features/crypto/Crypto";
 import Sync from "@/features/sync/Sync";
 import Stats from "@/features/stats/Stats";
 import GarnetAdapter from "@/features/garnet-adapter/GarnetAdapter";
+import Business from "@/features/business/Business";
+import Footer from "@/widgets/Footer";
 
 export default function HomePage() {
     const containerRef = useRef<HTMLDivElement>(null);
@@ -49,13 +51,20 @@ export default function HomePage() {
 
                     <Stats/>
 
-                    <GarnetAdapter/>
+                    {/* <GarnetAdapter/> */}
                 </div>
+
+                <div className="px-4 md:px-0 lg:px-20 xl:px-50 bg-slate-800">
+                    <Business/>
+                </div>
+
                 {/*<GlowingEffectDemo />*/}
                 {/*<AuroraBackgroundDemo />*/}
                 {/*<SmokeDemo/>*/}
                 {/*<CodeBlockDemo/>*/}
                 {/*<CardActivity/>*/}
+
+                <Footer/>
             </div>
         </div>
     )
