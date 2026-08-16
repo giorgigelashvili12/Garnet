@@ -47,7 +47,7 @@ export default function FeatureSection() {
     const iconsPerOrbit = Math.ceil(iconConfigs.length / orbitCount);
 
     return (
-        <section className="relative max-w-6xl mx-auto my-12 pl-10 flex items-center justify-between h-[30rem] overflow-hidden">
+        <section className="relative max-w-6xl mx-auto my-12 pl-10 flex items-center justify-between h-[30rem] overflow-hidden max-[400px]:z-9">
             <style>{`
                 @keyframes orbit-spin {
                     from { transform: rotate(0deg); }
@@ -55,7 +55,7 @@ export default function FeatureSection() {
                 }
             `}</style>
 
-            <div className="w-1/2 z-10 font-medium">
+            <div className="w-1/2 z-10 font-medium max-[400px]:bg-transparent">
                 <h1 className="text-4xl sm:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
                     Build your idea
                 </h1>
@@ -66,11 +66,11 @@ export default function FeatureSection() {
                     <Button variant="default" className="bg-emerald-500 hover:bg-emerald-600 cursor-pointer dark:text-white">
                         <Link href="" target="_blank">Get Started</Link>
                     </Button>
-                    <Button variant="outline" className="cursor-pointer dark:bg-white dark:text-black dark:hover:text-white dark:hover:border dark:hover:border-white">Learn More</Button>
+                    <Button variant="outline" className="cursor-pointe dark:bg-white dark:text-black dark:hover:text-white dark:hover:border dark:hover:border-white">Learn More</Button>
                 </div>
             </div>
 
-            <div className="relative w-1/2 h-full flex items-center justify-start overflow-hidden">
+            <div className="relative w-1/2 h-full flex items-center justify-start overflow-hidden z-9">
                 <div className="relative w-[50rem] h-[50rem] translate-x-[50%] flex items-center justify-center">
                     <div className="w-24 h-24 rounded-full bg-gray-50 dark:bg-gray-800 shadow-lg flex items-center justify-center z-10">
                         <Image

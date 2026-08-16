@@ -8,21 +8,18 @@ export default function GarnetAI() {
             <div className="mx-auto max-w-7xl px-6 lg:px-8">
                 <div className="grid grid-cols-1 items-center gap-12 py-16 lg:grid-cols-2 lg:py-24">
                     <div className="z-10 order-2 lg:order-1 lg:max-w-xl">
-                        <div className="mb-6 inline-flex items-center rounded-full bg-linear-to-r from-purple-500/10 to-pink-500/10 px-3 py-1 text-sm font-bold tracking-tight text-emerald-400 ring-1 ring-inset ring-emerald-500/20">
-                            {}
-                        </div>
                         <h2 className="mb-6 text-4xl font-bold tracking-tight text-white sm:text-6xl lg:leading-[1.1]">
-                            {}
+                            Introducing Garnet AI For Your Business
                         </h2>
                         <p className="text-lg leading-8 text-slate-300 md:text-xl">
-                            {}
+                            Garnet AI is a next-generation business intelligence platform that transforms complex data into actionable insights, helping you make better decisions in real-time.
                         </p>
                         <div className="mt-10 flex items-center gap-x-6">
-                            <button className="rounded-md bg-white px-6 py-3 text-sm font-semibold text-slate-950 shadow-xs hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
-                                {}
+                            <button className="rounded-md bg-white px-6 py-3 text-sm cursor-pointer font-semibold text-slate-950 shadow-xs hover:bg-slate-200 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
+                                Start Free Trial
                             </button>
-                            <button className="text-sm font-semibold leading-6 text-white hover:text-slate-300">
-                                {} <span aria-hidden="true">→</span>
+                            <button className="text-sm font-semibold leading-6 cursor-pointer text-white hover:text-slate-300">
+                                View Demo <span aria-hidden="true">→</span>
                             </button>
                         </div>
                     </div>

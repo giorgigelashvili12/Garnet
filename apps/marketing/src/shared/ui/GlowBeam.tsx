@@ -294,7 +294,7 @@ export const GlowBeam: React.FC<GlowBeamProps> = ({
   return (
     <canvas
       ref={canvasRef}
-      className={`block w-full h-full pointer-events-none bg-(--background) ${className}`}
+      className={`block w-full h-full pointer-events-none ${className}`}
     />
   );
 };

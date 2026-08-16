@@ -84,6 +84,10 @@
 
   --bar-one: #eeeeee;
   --bar-two: #f0f0f0;
+
+  --color-a: #064e3b;
+  --color-mid: #9aff7e;
+  --color-b: #35b04b;
 }
 
 .dark {
@@ -125,6 +129,10 @@
 
   --bar-one: #1e1e20;
   --bar-two: #1a1a1c;
+
+  --color-a: #d1fae5;
+  --color-mid: #4ade80;
+  --color-b: #15803d;
 }
 
 @layer base {

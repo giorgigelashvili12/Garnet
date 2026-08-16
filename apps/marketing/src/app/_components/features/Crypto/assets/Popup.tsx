@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { X, ArrowUpRight, CreditCard, Zap, ChevronRight } from "lucide-react";
 import Link from "next/link";
-// import PaymentWidget from "@/shared/widgets/crypto/PaymentWidget";
+import PaymentWidget from "@/shared/components/Home/crypto/PaymentWidget";
 
 export default function CryptoPopup({onClose}: {onClose: () => void}) {
     const [isReady, setReady] = useState(false);
@@ -27,7 +27,7 @@ export default function CryptoPopup({onClose}: {onClose: () => void}) {
     }, []);
 
     return (
-        <div className='fixed inset-0 z-100 flex md:top-17 items-center justify-center p-2 md:p-12'>
+        <div className='fixed inset-0 z-100 flex md:top-17 items-center justify-center p-2 md:p-12 max-[764px]:top-20'>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className='absolute inset-0 bg-black/60 backdrop-blur-md' />
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 24 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="relative w-full max-w-7xl h-[95vh] md:h-[90vh] bg-white/95 dark:bg-zinc-950/90 rounded-4xl md:rounded-[3rem] shadow-2xl border border-white/10 overflow-hidden flex flex-col">
@@ -41,7 +41,7 @@ export default function CryptoPopup({onClose}: {onClose: () => void}) {
                     <div className="flex flex-col gap-8 md:gap-10">
                         {isReady ? (
                             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="flex flex-col gap-8 md:gap-10">
-                                <div className="space-y-4">
+                                <div className="space-y-4 max-[400px]:space-y-0">
                                     <span className="text-2xl md:text-4xl font-normal tracking-tighter text-slate-900 dark:text-white block max-w-2xl leading-tight">
                                         Execute Payments Safely With Crypto
                                     </span>
@@ -65,7 +65,7 @@ export default function CryptoPopup({onClose}: {onClose: () => void}) {
     
                                         <div className="w-full h-full flex justify-center items-center transition-transform duration-500">
                                             <div className="w-full gap-40 flex justify-center items-center scale-100 md:scale-95 sm:scale-90 [@media(max-width:630px)]:scale-80 [@media(max-width:330px)]:scale-50">
-                                                {/* <PaymentWidget/> */}
+                                                <PaymentWidget />
                                             </div>
                                         </div>
 

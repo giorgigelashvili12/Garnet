@@ -10,7 +10,7 @@ export default function Logo() {
             height={40}
         />
 
-        <span className="font-extrabold text-3xl">Garnet</span>
+        <span className="font-extrabold text-3xl max-[1080px]:text-2xl">Garnet</span>
     </div>
   )
 }

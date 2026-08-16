@@ -1,36 +1,10 @@
 "use client";
 
-import { useRef, useState, useCallback, useEffect, useMemo } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { PRODUCTS } from "@/shared/@types/Business/Hardware";
-import ProductCard from "@/shared/components/Business/ProductCard";
+import ProductCard from "@/shared/components/Home/Business/ProductCard";
 
-interface HardwareSectionProps {
-  t?: any;
-}
-
-export default function HardwareSection({ t = {} }: HardwareSectionProps) {
-  const localizedProducts = useMemo(() => {
-    return PRODUCTS.map((p) => {
-      const key = p.id
-        .replace("table-terminal", "register")
-        .replace("terminal-case", "case")
-        .replace("terminal-stand", "stand")
-        .replace("wall-mount", "wall")
-        .replace("on-table-terminal", "table");
-
-      const localized = t?.products?.[key];
-      if (localized) {
-        return {
-          ...p,
-          name: localized.name ?? p.name,
-          description: localized.desc ?? p.description,
-          price: localized.price ?? p.price,
-        };
-      }
-      return p;
-    });
-  }, [t]);
-
+export default function HardwareSection() {
   const trackRef = useRef<HTMLDivElement>(null);
   const [canPrev, setCanPrev] = useState(false);
   const [canNext, setCanNext] = useState(true);
@@ -67,18 +41,18 @@ export default function HardwareSection({ t = {} }: HardwareSectionProps) {
         <div className="px-8 md:px-16 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="max-w-2xl">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6 leading-[1.1]">
-              {t?.title1} <br />
-              <span className="text-slate-500">{t?.title2}</span>
+              Smooth checkout, <br />
+              <span className="text-slate-500">every single time.</span>
             </h2>
             <p className="text-lg text-slate-400 max-w-lg mb-8">
-              {t?.desc}
+              Reliable, sleek, and built for scale. Discover the tools designed to keep your business moving forward.
             </p>
             <a
               href="#"
               className="group inline-flex items-center gap-2 text-white font-semibold text-sm transition-all"
             >
               <span className="border-b-2 border-white group-hover:border-emerald-500 group-hover:text-emerald-400 transition-all pb-1">
-                {t?.explore}
+                Explore all deals
               </span>
               <span className="bg-white text-black rounded-full p-1 group-hover:bg-emerald-500 group-hover:text-white transition-all">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
@@ -115,7 +89,7 @@ export default function HardwareSection({ t = {} }: HardwareSectionProps) {
           className="flex gap-8 overflow-x-auto pl-8 md:pl-16 pr-8 no-scrollbar scroll-smooth"
           style={{ scrollSnapType: "x proximity" }}
         >
-          {localizedProducts.map((product, i) => (
+          {PRODUCTS.map((product, i) => (
             <div key={product.id} style={{ scrollSnapAlign: "start" }}>
               <ProductCard product={product} index={i} />
             </div>

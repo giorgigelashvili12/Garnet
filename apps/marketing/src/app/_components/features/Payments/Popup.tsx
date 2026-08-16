@@ -5,6 +5,9 @@ import { useState, useEffect } from "react";
 import { X, ChevronRight, TrendingUp, Globe } from "lucide-react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import FraudChart from "@/shared/components/Home/charts/FraudChart";
+import AuthChart from "@/shared/components/Home/charts/AuthChart";
+import Terminal from "@/shared/components/Home/charts/Terminal";
 
 const POS = dynamic(() => import('@/shared/components/Global/POS'), { ssr: false });
 // const Terminal = dynamic(() => import('@/shared/widgets/Terminal'), { ssr: false });
@@ -28,7 +31,7 @@ export default function Popup({ onClose }: { onClose: () => void }) {
     }, []);
 
     return (
-        <div className='fixed inset-0 z-100 flex md:top-17 items-center justify-center p-2 md:p-12'>
+        <div className='fixed inset-0 z-100 top-20 flex md:top-17 items-center justify-center p-2 md:p-12'>
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} onClick={onClose} className='absolute inset-0 bg-black/60 backdrop-blur-md' />
 
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 24 }} transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }} className="relative w-full max-w-7xl h-[95vh] md:h-[90vh] bg-white/95 dark:bg-zinc-950/90 rounded-4xl md:rounded-[3rem] shadow-2xl border border-white/10 overflow-hidden flex flex-col">
@@ -92,36 +95,36 @@ export default function Popup({ onClose }: { onClose: () => void }) {
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
                                                     <div className="scale-60 md:scale-80 w-100">
-                                                        {/* <FraudChart/> */}
+                                                        <FraudChart />
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{}</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Identify activities and catch fraud in real-time. With models and tools built by Garnet, you can let legitimate customers in.</p>
                                                 <Link href="/lens" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {} <ChevronRight className="size-4" />
+                                                    Read About Garnet Lens <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
                                                     <div className="scale-80 md:scale-100 w-100 flex items-center justify-center">
-                                                        {/* <AuthChart/> */}
+                                                        <AuthChart />
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{}</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Boost revenue and reduce costs, with all this, increase your authorization acceptance rates.</p>
                                                 <Link href="/authorization" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {} <ChevronRight className="size-4" />
+                                                    Read About Authorization <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
 
                                             <div className="flex flex-col gap-4">
                                                 <div className="bg-stone-100 dark:bg-zinc-900 rounded-3xl flex justify-center items-center h-64 md:h-84 overflow-hidden">
                                                     <div className="scale-50 md:scale-60 transition-transform">
-                                                        {/* <Terminal /> */}
+                                                        <Terminal />
                                                     </div>
                                                 </div>
-                                                <p className="text-sm text-slate-600 dark:text-zinc-400">{}</p>
+                                                <p className="text-sm text-slate-600 dark:text-zinc-400">Manage payments online and globally, implement supported and popular payment methods.</p>
                                                 <Link href="/terminal" className="flex items-center gap-1 text-emerald-500 font-bold text-sm">
-                                                    {} <ChevronRight className="size-4" />
+                                                    Read About Terminal <ChevronRight className="size-4" />
                                                 </Link>
                                             </div>
                                         </div>

@@ -5,12 +5,14 @@ import Technologies from './assets/Technologies'
 
 export default function Dev() {
   return (
-    <div className='bg-background'>
+    <div className='bg-background max-[400px]:bg-transparent'>
         <FeatureSection />
 
-        <Architecture />
+        <div className='bg-background'>
+          <Architecture />
 
-        <Technologies />
+          <Technologies />
+        </div>
     </div>
   )
 }

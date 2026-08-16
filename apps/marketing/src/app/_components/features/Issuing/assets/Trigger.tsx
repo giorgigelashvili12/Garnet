@@ -1,11 +1,11 @@
 "use client";
 
+import { IssuingCard } from "@/shared/components/Global/Card";
 import {motion} from "framer-motion";
-// import {IssuingCard} from "@/shared/widgets/Card";
 
 export default function IssuingTrigger({onClick}: {onClick?: () => void}) {
     return (
-        <button type='button' onClick={e => {e.preventDefault(); onClick?.()}} className='group relative flex h-128 sm:h-128 w-full flex-col items-center justify-start overflow-hidden rounded-[2.5rem] border border-slate-100 bg-white p-6 sm:p-12 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-white/5 dark:bg-(--dark-bg) cursor-pointer text-left'>
+        <button type='button' onClick={e => {e.preventDefault(); onClick?.()}} className='group relative flex h-128 sm:h-128 w-full flex-col items-center justify-start overflow-hidden rounded-[2.5rem] border border-slate-100 p-6 sm:p-12 shadow-sm transition-all duration-500 hover:shadow-xl dark:border-white/5 bg-background cursor-pointer text-left'>
             <div className='absolute inset-0 pointer-events-none opacity-50 transition-opacity group-hover:opacity-100' style={{background: `radial-gradient(circle at 50% 0%, rgba(16, 185, 129, 0.1) 0%, transparent 70%)`}}/>
 
             <div className='relative z-20 mb-8 sm:mb-12 text-center'>
@@ -28,7 +28,7 @@ export default function IssuingTrigger({onClick}: {onClick?: () => void}) {
                     rotateZ: 0,
                 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} style={{ transformStyle: "preserve-3d" }} className="relative z-10 will-change-transform">
                 <div className="rounded-3xl shadow-[25px_25px_60px_-15px_rgba(0,0,0,0.3)] dark:shadow-[25px_25px_60px_-15px_rgba(0,0,0,0.7)]">
-                    {/* <IssuingCard /> */}
+                    <IssuingCard />
                 </div>
 
                 <div className="absolute inset-0 rounded-3xl bg-linear-to-tr from-white/20 via-transparent to-transparent opacity-0 transition-opacity group-hover:opacity-100 pointer-events-none" />
