@@ -8,6 +8,8 @@ import Footer from '@/shared/components/Global/Footer'
 import Hero from './_components/assets/Hero'
 import Modules from '@/shared/components/Payments/Modules/Modules';
 import CheckoutDemo from '@/shared/components/Payments/Interface/CheckoutDemo';
+import Tools from '@/shared/components/Payments/Tools/Tools';
+import DevLangugages from '@/shared/components/Payments/Interface/Dev/Dev';
 
 export default function Payments() {
     return (
@@ -31,6 +33,10 @@ export default function Payments() {
             <Modules />
 
             <CheckoutDemo />
+
+            <Tools />
+
+            <DevLangugages />
 
             <Footer />
         </div>
