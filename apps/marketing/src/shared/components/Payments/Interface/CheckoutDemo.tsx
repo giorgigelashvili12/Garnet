@@ -67,12 +67,12 @@ export default function CheckoutDemo() {
 	const activeSection = sectionsData.find((s) => s.id === activeId) || sectionsData[0];
 
 	return (
-		<div className="bg-background-950 text-background-100 min-h-screen mt-35">
+		<div className="bg-background-950 text-background-100 min-h-screen mt-35 max-[409px]:scale-80">
 			<h2 className="text-4xl md:text-5xl font-medium text-white tracking-tight px-6 text-center">
 				Building The Checkout For You
 			</h2>
 
-			<div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-start gap-8 md:gap-16">
+			<div className="max-w-6xl mx-auto px-6 py-20 flex flex-col md:flex-row items-start gap-8 md:gap-16 min-[1650px]:p-0">
 				<div className="w-full md:w-1/2 flex flex-col">
 					{sectionsData.map((section) => (
 						<section
@@ -94,7 +94,7 @@ export default function CheckoutDemo() {
 				</div>
 
 				<div className="w-full md:w-1/2 sticky top-74">
-					<div className="bg-background-900 border border-background-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden transition-all duration-300">
+					<div className="bg-background-900 border border-background-800 rounded-2xl p-8 shadow-2xl relative overflow-hidden transition-all duration-300 max-[409px]:p-0 ">
 						{activeSection.component}
 					</div>
 				</div>

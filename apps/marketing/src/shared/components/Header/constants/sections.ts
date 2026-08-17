@@ -1,7 +1,9 @@
 export const productsData = [
     {
         title: "Payments",
-        items: [{ name: "Payments", description: "Online payments", url: "/payments" }],
+        items: [
+            { name: "Payments", description: "Online payments", url: "/payments" }
+        ],
     },
     {
         title: "Revenue",

@@ -19,7 +19,7 @@ export default function Hero() {
                 </Link>
             </div>
 
-            <div>
+            <div className='max-[1124px]:hidden'>
                 <div><Gorgia /></div>
             </div>
         </div>
