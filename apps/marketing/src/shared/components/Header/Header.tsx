@@ -117,7 +117,9 @@ export default function Header() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 min-[760px]:px-6 flex items-center justify-between">
-        <Logo />
+        <Link href='/'>
+          <Logo />
+        </Link>
 
         <div className="hidden min-[989px]:flex items-center gap-1">
           {navItems.map((item) => (

@@ -2,7 +2,8 @@ export const productsData = [
     {
         title: "Payments",
         items: [
-            { name: "Payments", description: "Online payments", url: "/payments" }
+            { name: "Payments", description: "Online payments", url: "/payments" },
+            { name: "Garnet Lens", description: "Built-in fraud detection engine", url: "/payments/lens" }
         ],
     },
     {
