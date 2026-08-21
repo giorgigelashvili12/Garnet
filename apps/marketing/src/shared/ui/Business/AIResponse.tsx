@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from 'framer-motion';
-import { HARDWARE } from '@/shared/@types/Business/Hardware';
+import { HARDWARE } from '@/app/payments/_components/@types/Business/Hardware';
 import HardwareCard from './HardwareCard';
 import Image from 'next/image';
 

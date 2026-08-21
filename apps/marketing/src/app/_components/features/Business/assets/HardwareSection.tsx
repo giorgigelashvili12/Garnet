@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useState, useCallback, useEffect } from "react";
-import { PRODUCTS } from "@/shared/@types/Business/Hardware";
+import { PRODUCTS } from "@/app/payments/_components/@types/Business/Hardware";
 import ProductCard from "@/shared/components/Home/Business/ProductCard";
 
 export default function HardwareSection() {

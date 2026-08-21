@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { TYPING_TEXT } from "@/shared/@types/Business/Hardware";
+import { TYPING_TEXT } from "@/app/payments/_components/@types/Business/Hardware";
 import { useTypewriter } from "@/shared/hooks/useTypewriter";
 import AIResponse from "./AIResponse";
 import Image from "next/image";
