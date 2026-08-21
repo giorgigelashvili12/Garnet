@@ -6,6 +6,8 @@
 
 A **Payment Service Provider (PSP) SaaS** platform, simplifying accepting paymens online, designed to make your revenue grow. Platform providers you with a large variety of services and third-party connections, everything to manage your business using Garnet.
 
+***NOTE*** that this app is simply a project, it's not connected to real gateways & nor does it offer financial support.
+
 ## Key Features
 
 Garnet enables businesses to accept and manage online payments without having to build and maintain a payment infrastructure from scratch.
