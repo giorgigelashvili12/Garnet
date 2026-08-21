@@ -1,3 +1,3 @@
-# Garnet
-# Garnet
-# Garnet
+<img src="logo.png">
+
+# Garnet 
