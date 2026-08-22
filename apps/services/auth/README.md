@@ -87,3 +87,36 @@ public class AuthController : ControllerBase
 
 public record LoginRequest(string Username, string Password);
 ```
+
+## Logic
+
+### Auth
+
+- register
+- login
+- logout
+- emailVerification
+- verifyEmail
+- refresh (session)
+- removeSession
+- getProfile
+- oauthEntry
+- forgotPassword
+- updateProfile
+- resetPassword
+- softDeleteAccount
+
+### Devices
+
+- registerDevice
+- generateChallenge
+- verifyChallenge
+- listSessions
+- deleteDevice
+
+### MFA
+
+- setupMfa
+- verifyAndEnableMfa
+- validateMfaToken
+- useBackupCode

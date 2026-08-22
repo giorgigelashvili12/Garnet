@@ -1,6 +1,10 @@
 namespace Garnet.Libs.PaymentDomain;
 
-public class PaymentTransaction
-{
-    // Template payment transaction contract
-}
+public record PaymentTransaction(
+    Guid TransactionId,
+    Guid MerchantId,
+    decimal Amount,
+    string Currency,
+    string Status,
+    DateTime CreatedAtUtc
+);
