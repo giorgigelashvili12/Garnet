@@ -1,15 +1,38 @@
+using Microsoft.Extensions.Caching.Distributed;
+using System.Text.Json;
+
 namespace Garnet.Services.Auth.Infrastructure.Persistence.Stores;
 
 public class SessionStore
 {
-    public async Task SaveSessionAsync(string sessionKey, string sessionData, TimeSpan ttl)
+    private readonly IDistributedCache _cache;
+
+    public SessionStore(IDistributedCache cache)
     {
-        await Task.Yield();
+        _cache = cache;
     }
 
-    public async Task<string?> GetSessionAsync(string sessionKey)
+    public async Task SaveSessionAsync<T>(string sessionKey, T sessionData, TimeSpan ttl, CancellationToken ct = default)
     {
-        await Task.Yield();
-        return null;
+        var options = new DistributedCacheEntryOptions
+        {
+            AbsoluteExpirationRelativeToNow = ttl
+        };
+
+        var json = JsonSerializer.Serialize(sessionData);
+        await _cache.SetStringAsync(sessionKey, json, options, ct);
+    }
+
+    public async Task<T?> GetSessionAsync<T>(string sessionKey, CancellationToken ct = default)
+    {
+        var json = await _cache.GetStringAsync(sessionKey, ct);
+        if (string.IsNullOrEmpty(json)) return default;
+
+        return JsonSerializer.Deserialize<T>(json);
+    }
+
+    public async Task RemoveSessionAsync(string sessionKey, CancellationToken ct = default)
+    {
+        await _cache.RemoveAsync(sessionKey, ct);
     }
 }

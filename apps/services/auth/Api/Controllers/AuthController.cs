@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Garnet.Services.Auth.Application;
+using Garnet.Services.Auth.Application.Commands.Auth;
+using Garnet.Services.Auth.Application.Handlers.Auth;
 
 namespace Garnet.Services.Auth.Api.Controllers;
 
@@ -7,27 +9,39 @@ namespace Garnet.Services.Auth.Api.Controllers;
 [Route("api/v1/[controller]")]
 public class AuthController : ControllerBase
 {
-    private readonly IAuthService _authService;
+    private readonly LoginUserHandler _loginHandler;
+    private readonly RegistrationHandler _registrationHandler;
 
-    public AuthController(IAuthService authService)
+    public AuthController(
+        LoginUserHandler loginHandler,
+        RegistrationHandler registrationHandler
+    )
     {
-        _authService = authService;
+        _loginHandler = loginHandler;
+        _registrationHandler = registrationHandler;
     }
 
     [HttpPost("register")]
-    public async Task<IActionResult> Register([FromBody] RegisterRequest request)
+    public async Task<IActionResult> Register([FromBody] RegisterMerchantCommand command, CancellationToken ct)
     {
-        var result = await _authService.RegisterAsync(request.Email, request.Password);
+        var result = await _registrationHandler.HandleAsync(command, ct);
         return Ok(result);
     }
 
     [HttpPost("login")]
-    public async Task<IActionResult> Login([FromBody] LoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginRequest request, CancellationToken ct)
     {
-        var result = await _authService.LoginAsync(request.Email, request.Password);
+        var meta = new LoginMeta(
+            Ip: HttpContext.Connection.RemoteIpAddress?.ToString(),
+            UserAgent: Request.Headers["User-Agent"].ToString(),
+            Fingerprint: request.Fingerprint
+        );
+
+        var command = new LoginUserCommand(request.Email, request.Password, meta);
+        var result = await _loginHandler.HandleAsync(command, ct);
+
         return Ok(result);
     }
 }
 
-public record RegisterRequest(string Email, string Password);
-public record LoginRequest(string Email, string Password);
+public record LoginRequest(string Email, string Password, string? Fingerprint);
