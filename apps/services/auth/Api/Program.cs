@@ -5,6 +5,7 @@ using Garnet.Services.Auth.Domain.Repositories;
 using Garnet.Services.Auth.Infrastructure;
 using Garnet.Services.Auth.Infrastructure.External;
 using Garnet.Services.Auth.Infrastructure.External.Tokens;
+using Garnet.Services.Auth.Infrastructure.External.OAuth;
 using Garnet.Services.Auth.Infrastructure.Messaging.Publishers;
 using Garnet.Services.Auth.Infrastructure.Persistence.Repositories;
 using Garnet.Services.Auth.Infrastructure.Persistence.Stores;
@@ -40,11 +41,19 @@ public class Program
 
         builder.Services.AddSingleton<UserEventsPublisher>();
 
+        builder.Services.Configure<GoogleOAuthOptions>(
+            builder.Configuration.GetSection(GoogleOAuthOptions.SectionName)
+        );
+        builder.Services.AddHttpClient<GoogleOAuthProvider>();
+        builder.Services.AddScoped<IOAuthService, OAuthService>();
+        builder.Services.AddScoped<OAuthLoginHandler>();
+
         builder.Services.AddScoped<IMerchantRepository, MerchantRepository>();
         builder.Services.AddSingleton<IPasswordHasher, PasswordHasher>();
         builder.Services.AddSingleton<JwtTokenGenerator>();
         builder.Services.AddScoped<LoginUserHandler>();
         builder.Services.AddScoped<RegistrationHandler>();
+
 
         var app = builder.Build();
 

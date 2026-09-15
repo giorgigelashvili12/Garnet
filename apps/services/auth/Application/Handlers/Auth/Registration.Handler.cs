@@ -1,6 +1,5 @@
 namespace Garnet.Services.Auth.Application.Handlers.Auth;
 
-using System.Security.Cryptography;
 using Garnet.Services.Auth.Application.Commands.Auth;
 using Garnet.Services.Auth.Application.Interfaces;
 using Garnet.Services.Auth.Domain.Aggregates.MerchantAggregate;
@@ -44,11 +43,7 @@ public class RegistrationHandler
             command.Country
         );
 
-        string token = Convert.ToHexString(RandomNumberGenerator.GetBytes(24));
-
-        merchant.Auth.EmailVerificationToken = token;
-        merchant.Auth.ExpiryDate = DateTime.UtcNow.AddHours(24);
-        merchant.Auth.EmailVerified = false;
+        string token = merchant.Auth.GenerateEmailVerificationToken();
 
         await _merchantRepository.AddAsync(merchant, ct);
         await _merchantRepository.SaveChangesAsync(ct);

@@ -1,5 +1,6 @@
 namespace Garnet.Services.Auth.Domain.Aggregates.MerchantAggregate;
 
+using System.Security.Cryptography;
 using Garnet.Services.Auth.Domain.Events;
 
 public class MerchantAuth
@@ -7,11 +8,14 @@ public class MerchantAuth
     public Guid MerchantId { get; private set; }
     public string PasswordHash { get; private set; } = string.Empty;
     public string Passkey { get; private set; } = string.Empty;
-    public string? SecretKey { get; private set; }
+
+    public string TestKey { get; private set; } = string.Empty;
+    public string ProdKey { get; private set; } = string.Empty;
+
     public List<string> BackupEmails { get; private set; } = new();
-    public bool EmailVerified { get; private set; }
+    public bool EmailVerified { get; internal set; }
     public string? EmailVerificationToken { get; private set; }
-    public long ExpiryDate { get; private set; }
+    public DateTime? EmailVerificationTokenExpiry { get; private set; }
     public bool IsLocked => LockedOutUntil.HasValue && LockedOutUntil.Value > DateTime.UtcNow;
     public DateTime? LockedOutUntil { get; private set; } = null;
     public string? OAuthId { get; private set; }
@@ -22,7 +26,7 @@ public class MerchantAuth
 
     private const int MaxFailedAttempts = 5;
     private static readonly TimeSpan LockoutDuration = TimeSpan.FromMinutes(15);
-    public int AccessFaledCount { get; private set; }
+    public int AccessFailedCount { get; private set; }
 
     private readonly List<IDomainEvent> _domainEvents = new();
     public IReadOnlyCollection<IDomainEvent> DomainEvents => _domainEvents.AsReadOnly();
@@ -33,6 +37,24 @@ public class MerchantAuth
     {
         MerchantId = merchantId;
         PasswordHash = passwordHash;
+        TestKey = GenerateApiKey("sk_test_");
+        ProdKey = GenerateApiKey("sk_live_");
+    }
+
+    public void RegenerateSecretKey()
+    {
+        TestKey = GenerateApiKey("sk_test_");
+        ProdKey = GenerateApiKey("sk_live_");
+    }
+
+    public void RegenerateTestKey() => TestKey = GenerateApiKey("sk_test_");
+    public void RegenerateProdKey() => ProdKey = GenerateApiKey("sk_live_");
+
+    private static string GenerateApiKey(string prefix)
+    {
+        byte[] bytes = new byte[32];
+        RandomNumberGenerator.Fill(bytes);
+        return $"{prefix}{Convert.ToHexString(bytes).ToLowerInvariant()}";
     }
 
     public void RegisterFailedLogin()
@@ -41,9 +63,10 @@ public class MerchantAuth
 
         if (AccessFailedCount >= MaxFailedAttempts)
         {
-            LockedOutUntil = DateTime.UtcNow.Add(LockoutDuration);
+            LockedOutUntil = DateTime.UtcNow;
+            LockedOutUntil = LockedOutUntil.Value.Add(LockoutDuration);
 
-            _domainEvents.Add(new AccountLockedDomainEvent(MerchantId, DateTime.UtcNo));
+            _domainEvents.Add(new AccountLockedDomainEvent(MerchantId, DateTime.UtcNow));
         }
     }
 
@@ -51,6 +74,12 @@ public class MerchantAuth
     {
         AccessFailedCount = 0;
         LockedOutUntil = null;
+    }
+
+    public void LinkOAuth(string provider, string providerId)
+    {
+        OAuthProvider = provider;
+        OAuthId = providerId;
     }
 
     public void EnableMfa(string secret, List<string> backupCodes)
@@ -61,4 +90,15 @@ public class MerchantAuth
     }
 
     public void ClearDomainEvents() => _domainEvents.Clear();
+
+    public string GenerateEmailVerificationToken(TimeSpan? lifetime = null)
+    {
+        var token = Convert.ToHexString(RandomNumberGenerator.GetBytes(24));
+        
+        EmailVerificationToken = token;
+        EmailVerificationTokenExpiry = DateTime.UtcNow.Add(lifetime ?? TimeSpan.FromHours(24));
+        EmailVerified = false;
+
+        return token;
+    }
 }

@@ -1,10 +1,22 @@
 namespace Garnet.Services.Auth.Infrastructure.External.OAuth;
 
-public class OAuthService
+using Garnet.Services.Auth.Application.Interfaces;
+
+public class OAuthService : IOAuthService
 {
-    public async Task<OAuthUserInfo> ProcessCallbackAsync(string provider, string code)
+    private readonly GoogleOAuthProvider _googleProvider;
+
+    public OAuthService(GoogleOAuthProvider googleProvider)
     {
-        await Task.Yield();
-        return new OAuthUserInfo("ext-id-999", "user@provider.com", "External User");
+        _googleProvider = googleProvider;
+    }
+
+    public async Task<OAuthUserProfile> AuthCodeAsync(string provider, string code, CancellationToken ct = default)
+    {
+        return provider.ToUpperInvariant() switch
+        {
+            "GOOGLE" => await _googleProvider.ProfileAsync(code, ct),
+            _ => throw new NotSupportedException($"OAuth provider '{provider}' not supported")
+        };
     }
 }

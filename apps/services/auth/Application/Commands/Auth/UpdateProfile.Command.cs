@@ -1,3 +1,12 @@
 namespace Garnet.Services.Auth.Application.Commands.Auth;
 
-public record UpdateProfileCommand(Guid UserId, string FullName, string DisplayName);
+public record UpdateProfileCommand(
+    Guid UserId,
+    string Phone,
+    string LegalName
+);
+
+public record UpdateProfileRes(
+    string Status,
+    string Message
+);

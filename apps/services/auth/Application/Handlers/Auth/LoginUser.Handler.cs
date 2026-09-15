@@ -39,7 +39,7 @@ public class LoginUserHandler
 
     public async Task<AuthTokenResult> HandleAsync(LoginUserCommand command, CancellationToken cancellationToken = default)
     {
-        var merchant = await _merchantRepository.GetByEmailAsync();
+        var merchant = await _merchantRepository.GetByEmailAsync(command.Email);
         if (merchant?.Auth == null)
         {
             throw new UnauthorizedAccessException("Invald Credentials (Email or password)");
