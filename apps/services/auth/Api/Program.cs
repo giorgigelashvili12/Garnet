@@ -30,7 +30,19 @@ public class Program
             builder.Configuration.GetSection(EmailSettings.SectionName)
         );
 
-        builder.Services.AddHttpClient<IEmailSender, EmailService>();
+        builder.Services.AddHttpClient<IEmailSender, BrevoEmailSender>((serviceProvider, client) =>
+        {
+            var settings = serviceProvider.GetRequiredService<IOptions<EmailSettings>>().Value;
+
+            client.DefaultRequestHeaders.Add("api-key", settings.ApiKey);
+            client.DefaultRequestHeaders.Add("accept", "application/json");
+        });
+
+        builder.Services.Configure<FrontendSettings>(
+            builder.Configuration.GetSection(FrontendSettings.SectionName)
+        );
+
+        builder.Services.AddScoped<IEmailVerificationService, EmailVerificationService>();
 
         builder.Services.AddStackExchangeRedisCache(options =>
         {

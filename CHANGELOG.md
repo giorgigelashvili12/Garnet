@@ -46,3 +46,23 @@
 ### Debug Result
 
 `dotnet build` -> 33 errors
+
+## [16.09.2026 22:39] (UTC+4)
+
+- Configured automatic email sender whilst signing up.
+
+| Handler / File         | Git Status           | Connected to API                          | Assessment |
+|------------------------|----------------------|-------------------------------------------|------------|
+| `Registration.Handler` | Done (Not Tested)    | Yes (POST `api/v1/auth/register`)         | Defined email sender, connected to API, not tested or ran |
+| `OAuth.Login.Handler`  | New / Untracked      | Yes (POST `api/v1/oauth/google/callback`) | Structurally complete |
+| `LoginUser.Handler`    | Modified             | Yes (POST `/api/v1/auth/login` )          | Broken, compile errors |
+| `GetProfile.Handler`   | New / Untracked      | No                                        | Wrong DTO, Type mis-match |
+| `UpdateProfile.Handler`| New / Untracked      | No                                        | Wrong command fields, invalid return type |
+| `Logout.Handler`       | Committed            | No                                        | Typos, missing comand, wrong domain property names |
+| `VerifyEmail.Handler` | Committed             | No                                        | Typos, missing command, wrong domain property names |
+
+### Added Files
+
+- [+] IEmailVerificationService
+- [+] EmailSettings.cs
+- [+] BrevoEmailSender.cs
